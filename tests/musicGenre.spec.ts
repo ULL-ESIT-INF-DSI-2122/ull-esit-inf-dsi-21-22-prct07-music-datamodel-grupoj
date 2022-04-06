@@ -9,6 +9,8 @@ update();
 
 describe('MusicGenre class test', () => {
   it('instanceOf', () => {
-    assert.instanceOf(musicGenreCollection.getList()[0], MusicGenre);
+    musicGenreCollection.getList().forEach((genre) => {
+      assert.instanceOf(genre, MusicGenre);
+    });
   });
 });

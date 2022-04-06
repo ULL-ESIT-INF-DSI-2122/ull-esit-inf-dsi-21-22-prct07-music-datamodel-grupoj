@@ -38,7 +38,7 @@ export class ItemsCollection <T> {
    */
   searchItem(item: T): T | void {
     const search = this.list.find((element) => element === item);
-    return (search) ? search : console.log('No existe');
+    return /* (search) ? */ search; /* : console.log('No existe'); */
   }
 
   /**

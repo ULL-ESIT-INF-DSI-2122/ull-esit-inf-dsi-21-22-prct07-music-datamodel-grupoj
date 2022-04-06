@@ -45,17 +45,10 @@ export class Artist {
   /**
    * @returns Devuelve los géneros musicales relacionados con el artista. Para
    * ello añade a la propiedad de la clase genres todos aquellos géneros
-   * musicales que tengan sus albumes, sus canciones, y ,en caso de que
+   * musicales que tengan sus canciones, y ,en caso de que
    * pertenezca algún grupo, también los albumes de los mismos.
    */
   getGenres() : MusicGenre[] {
-    this.albums.forEach((album) => {
-      album.getGenres().forEach((genre) => {
-        if (genre != this.genres.find((element) => element === genre)) {
-          this.genres.push(genre);
-        }
-      });
-    });
     this.songs.forEach((song) => {
       song.getGenres().forEach((genre) => {
         if (genre != this.genres.find((element) => element === genre)) {
