@@ -35,7 +35,7 @@ export class Playlist {
   }
 
   /**
-   * @returns Devuelve la longitus de la playlist en formato 'horas:minutos'.
+   * @returns Devuelve la longitud de la playlist en formato 'horas:minutos'.
    * Para ello suma la duración de todas las canciones de la playlist
    */
   getLenght() : string {

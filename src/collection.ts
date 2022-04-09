@@ -70,6 +70,6 @@ export const musicGenreCollection = new ItemsCollection<MusicGenre>();
  */
 export const songCollection = new ItemsCollection<Song>();
 /**
- * Colección de plsylists dentro del sistema
+ * Colección de playlists dentro del sistema
  */
 export const playlistCollection = new ItemsCollection<Playlist>();
