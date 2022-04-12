@@ -1,9 +1,9 @@
 import 'mocha';
 import {assert} from 'chai';
-import {Artist} from '../src/artist';
+import {Artist} from '../src/objects/artist';
 import {data, update} from '../src/data';
-import {artistCollection} from '../src/collection';
-import {MusicGenre} from '../src/musicGenre';
+import {artistCollection} from '../src/objects/collection';
+import {MusicGenre} from '../src/objects/musicGenre';
 
 data();
 update();

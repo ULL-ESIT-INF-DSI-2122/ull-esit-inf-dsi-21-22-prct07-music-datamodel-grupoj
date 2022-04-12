@@ -1,8 +1,8 @@
 import 'mocha';
 import {assert} from 'chai';
-import {Group} from '../src/group';
+import {Group} from '../src/objects/group';
 import {data, update} from '../src/data';
-import {groupCollection} from '../src/collection';
+import {groupCollection} from '../src/objects/collection';
 
 data();
 update();
