@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
-import {data, update} from '../data';
-import {menuOptions} from './managerEnum';
-import {AlbumManager} from './albumManager';
-import {ArtistManager} from './artistManager';
-import {GroupManager} from './groupManager';
-import {MusicGenreManager} from './genreManager';
-import {PlaylistManager} from './playlistManager';
-import {SongManager} from './songManager';
+import {data, update} from '../data/oldData';
+import {menuOptions} from './var/managerEnum';
+import {AlbumManager} from './subManagers/albumManager';
+import {ArtistManager} from './subManagers/artistManager';
+import {GroupManager} from './subManagers/groupManager';
+import {MusicGenreManager} from './subManagers/genreManager';
+import {PlaylistManager} from './subManagers/playlistManager';
+import {SongManager} from './subManagers/songManager';
 
 const inquirer = require('inquirer');
 

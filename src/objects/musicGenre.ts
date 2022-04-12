@@ -1,7 +1,7 @@
 import {Album} from './album';
 import {Artist} from './artist';
 import {albumCollection, artistCollection,
-  groupCollection, songCollection} from './collection';
+  groupCollection, songCollection} from '../data/var/collection';
 import {Group} from './group';
 import {Song} from './song';
 
