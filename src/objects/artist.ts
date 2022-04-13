@@ -58,10 +58,11 @@ export class Artist {
    */
   getGenres() : MusicGenre[] {
     this.songs.forEach((song) => {
-      if (song.getGenre() != this.genres.find((element) =>
-        element === song.getGenre())) {
-        this.genres.push(song.getGenre());
-      }
+      song.getGenres().forEach((genre) => {
+        if (genre != this.genres.find((element) => element === genre)) {
+          this.genres.push(genre);
+        }
+      });
     });
     this.groups.forEach((group) => {
       group.getGenres().forEach((genre) => {

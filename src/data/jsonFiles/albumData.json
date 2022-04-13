@@ -1,3 +1,124 @@
 {
-  "Albums": []
+  "Albums": [
+    {
+      "user": "system",
+      "name": "album1",
+      "creator": "artista1",
+      "year": 2010,
+      "songs": [
+        "canción2",
+        "canción3",
+        "canción4",
+        "canción5"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "album2",
+      "creator": "artista3",
+      "year": 2010,
+      "songs": [
+        "canción12",
+        "canción13",
+        "canción14",
+        "canción15"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "album3",
+      "creator": "artista5",
+      "year": 2010,
+      "songs": [
+        "canción22",
+        "canción23",
+        "canción24",
+        "canción25"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "album4",
+      "creator": "artista7",
+      "year": 2010,
+      "songs": [
+        "canción32",
+        "canción33",
+        "canción34",
+        "canción35"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "album5",
+      "creator": "artista9",
+      "year": 2010,
+      "songs": [
+        "canción42",
+        "canción43",
+        "canción44",
+        "canción45"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "album6",
+      "creator": "grupo1",
+      "year": 2010,
+      "songs": [
+        "canción7",
+        "canción8",
+        "canción9",
+        "canción10"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "album7",
+      "creator": "grupo2",
+      "year": 2010,
+      "songs": [
+        "canción17",
+        "canción18",
+        "canción19",
+        "canción20"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "album8",
+      "creator": "grupo3",
+      "year": 2010,
+      "songs": [
+        "canción27",
+        "canción28",
+        "canción29",
+        "canción30"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "album9",
+      "creator": "grupo4",
+      "year": 2010,
+      "songs": [
+        "canción37",
+        "canción38",
+        "canción39",
+        "canción40"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "album10",
+      "creator": "grupo5",
+      "year": 2010,
+      "songs": [
+        "canción47",
+        "canción48",
+        "canción49",
+        "canción50"
+      ]
+    }
+  ]
 }

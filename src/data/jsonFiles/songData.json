@@ -5,7 +5,9 @@
       "name": "canción1",
       "creator": "artista1",
       "lenght": 180,
-      "genre": "genre1",
+      "genres": [
+        "genre1"
+      ],
       "rep": 250
     },
     {
@@ -13,7 +15,9 @@
       "name": "canción2",
       "creator": "artista1",
       "lenght": 180,
-      "genre": "genre1",
+      "genres": [
+        "genre1"
+      ],
       "rep": 250
     },
     {
@@ -21,7 +25,9 @@
       "name": "canción3",
       "creator": "artista1",
       "lenght": 180,
-      "genre": "genre1",
+      "genres": [
+        "genre1"
+      ],
       "rep": 250
     },
     {
@@ -29,7 +35,9 @@
       "name": "canción4",
       "creator": "artista1",
       "lenght": 180,
-      "genre": "genre1",
+      "genres": [
+        "genre1"
+      ],
       "rep": 250
     },
     {
@@ -37,7 +45,9 @@
       "name": "canción5",
       "creator": "artista1",
       "lenght": 180,
-      "genre": "genre1",
+      "genres": [
+        "genre1"
+      ],
       "rep": 250
     },
     {
@@ -45,7 +55,9 @@
       "name": "canción6",
       "creator": "artista2",
       "lenght": 180,
-      "genre": "genre2",
+      "genres": [
+        "genre2"
+      ],
       "rep": 250
     },
     {
@@ -53,7 +65,9 @@
       "name": "canción7",
       "creator": "artista2",
       "lenght": 180,
-      "genre": "genre2",
+      "genres": [
+        "genre2"
+      ],
       "rep": 250
     },
     {
@@ -61,7 +75,9 @@
       "name": "canción8",
       "creator": "artista2",
       "lenght": 180,
-      "genre": "genre2",
+      "genres": [
+        "genre2"
+      ],
       "rep": 250
     },
     {
@@ -69,7 +85,9 @@
       "name": "canción9",
       "creator": "artista2",
       "lenght": 180,
-      "genre": "genre2",
+      "genres": [
+        "genre2"
+      ],
       "rep": 250
     },
     {
@@ -77,7 +95,9 @@
       "name": "canción10",
       "creator": "artista2",
       "lenght": 180,
-      "genre": "genre2",
+      "genres": [
+        "genre2"
+      ],
       "rep": 250
     },
     {
@@ -85,7 +105,9 @@
       "name": "canción11",
       "creator": "artista3",
       "lenght": 180,
-      "genre": "genre3",
+      "genres": [
+        "genre3"
+      ],
       "rep": 250
     },
     {
@@ -93,7 +115,9 @@
       "name": "canción12",
       "creator": "artista3",
       "lenght": 180,
-      "genre": "genre3",
+      "genres": [
+        "genre3"
+      ],
       "rep": 250
     },
     {
@@ -101,7 +125,9 @@
       "name": "canción13",
       "creator": "artista3",
       "lenght": 180,
-      "genre": "genre3",
+      "genres": [
+        "genre3"
+      ],
       "rep": 250
     },
     {
@@ -109,7 +135,9 @@
       "name": "canción14",
       "creator": "artista3",
       "lenght": 180,
-      "genre": "genre3",
+      "genres": [
+        "genre3"
+      ],
       "rep": 250
     },
     {
@@ -117,7 +145,9 @@
       "name": "canción15",
       "creator": "artista3",
       "lenght": 180,
-      "genre": "genre3",
+      "genres": [
+        "genre3"
+      ],
       "rep": 250
     },
     {
@@ -125,7 +155,9 @@
       "name": "canción16",
       "creator": "artista4",
       "lenght": 180,
-      "genre": "genre4",
+      "genres": [
+        "genre4"
+      ],
       "rep": 250
     },
     {
@@ -133,7 +165,9 @@
       "name": "canción17",
       "creator": "artista4",
       "lenght": 180,
-      "genre": "genre4",
+      "genres": [
+        "genre4"
+      ],
       "rep": 250
     },
     {
@@ -141,7 +175,9 @@
       "name": "canción18",
       "creator": "artista4",
       "lenght": 180,
-      "genre": "genre4",
+      "genres": [
+        "genre4"
+      ],
       "rep": 250
     },
     {
@@ -149,7 +185,9 @@
       "name": "canción19",
       "creator": "artista4",
       "lenght": 180,
-      "genre": "genre4",
+      "genres": [
+        "genre4"
+      ],
       "rep": 250
     },
     {
@@ -157,7 +195,9 @@
       "name": "canción20",
       "creator": "artista4",
       "lenght": 180,
-      "genre": "genre4",
+      "genres": [
+        "genre4"
+      ],
       "rep": 250
     },
     {
@@ -165,7 +205,9 @@
       "name": "canción21",
       "creator": "artista5",
       "lenght": 180,
-      "genre": "genre5",
+      "genres": [
+        "genre5"
+      ],
       "rep": 250
     },
     {
@@ -173,7 +215,9 @@
       "name": "canción22",
       "creator": "artista5",
       "lenght": 180,
-      "genre": "genre5",
+      "genres": [
+        "genre5"
+      ],
       "rep": 250
     },
     {
@@ -181,7 +225,9 @@
       "name": "canción23",
       "creator": "artista5",
       "lenght": 180,
-      "genre": "genre5",
+      "genres": [
+        "genre5"
+      ],
       "rep": 250
     },
     {
@@ -189,7 +235,9 @@
       "name": "canción24",
       "creator": "artista5",
       "lenght": 180,
-      "genre": "genre5",
+      "genres": [
+        "genre5"
+      ],
       "rep": 250
     },
     {
@@ -197,7 +245,9 @@
       "name": "canción25",
       "creator": "artista5",
       "lenght": 180,
-      "genre": "genre5",
+      "genres": [
+        "genre5"
+      ],
       "rep": 250
     },
     {
@@ -205,7 +255,9 @@
       "name": "canción26",
       "creator": "artista6",
       "lenght": 180,
-      "genre": "genre6",
+      "genres": [
+        "genre6"
+      ],
       "rep": 250
     },
     {
@@ -213,7 +265,9 @@
       "name": "canción27",
       "creator": "artista6",
       "lenght": 180,
-      "genre": "genre6",
+      "genres": [
+        "genre6"
+      ],
       "rep": 250
     },
     {
@@ -221,7 +275,9 @@
       "name": "canción28",
       "creator": "artista6",
       "lenght": 180,
-      "genre": "genre6",
+      "genres": [
+        "genre6"
+      ],
       "rep": 250
     },
     {
@@ -229,7 +285,9 @@
       "name": "canción29",
       "creator": "artista6",
       "lenght": 180,
-      "genre": "genre6",
+      "genres": [
+        "genre6"
+      ],
       "rep": 250
     },
     {
@@ -237,7 +295,9 @@
       "name": "canción30",
       "creator": "artista6",
       "lenght": 180,
-      "genre": "genre6",
+      "genres": [
+        "genre6"
+      ],
       "rep": 250
     },
     {
@@ -245,7 +305,9 @@
       "name": "canción31",
       "creator": "artista7",
       "lenght": 180,
-      "genre": "genre7",
+      "genres": [
+        "genre7"
+      ],
       "rep": 250
     },
     {
@@ -253,7 +315,9 @@
       "name": "canción32",
       "creator": "artista7",
       "lenght": 180,
-      "genre": "genre7",
+      "genres": [
+        "genre7"
+      ],
       "rep": 250
     },
     {
@@ -261,7 +325,9 @@
       "name": "canción33",
       "creator": "artista7",
       "lenght": 180,
-      "genre": "genre7",
+      "genres": [
+        "genre7"
+      ],
       "rep": 250
     },
     {
@@ -269,7 +335,9 @@
       "name": "canción34",
       "creator": "artista7",
       "lenght": 180,
-      "genre": "genre7",
+      "genres": [
+        "genre7"
+      ],
       "rep": 250
     },
     {
@@ -277,7 +345,9 @@
       "name": "canción35",
       "creator": "artista7",
       "lenght": 180,
-      "genre": "genre7",
+      "genres": [
+        "genre7"
+      ],
       "rep": 250
     },
     {
@@ -285,7 +355,9 @@
       "name": "canción36",
       "creator": "artista8",
       "lenght": 180,
-      "genre": "genre8",
+      "genres": [
+        "genre8"
+      ],
       "rep": 250
     },
     {
@@ -293,7 +365,9 @@
       "name": "canción37",
       "creator": "artista8",
       "lenght": 180,
-      "genre": "genre8",
+      "genres": [
+        "genre8"
+      ],
       "rep": 250
     },
     {
@@ -301,7 +375,9 @@
       "name": "canción38",
       "creator": "artista8",
       "lenght": 180,
-      "genre": "genre8",
+      "genres": [
+        "genre8"
+      ],
       "rep": 250
     },
     {
@@ -309,7 +385,9 @@
       "name": "canción39",
       "creator": "artista8",
       "lenght": 180,
-      "genre": "genre8",
+      "genres": [
+        "genre8"
+      ],
       "rep": 250
     },
     {
@@ -317,7 +395,9 @@
       "name": "canción40",
       "creator": "artista8",
       "lenght": 180,
-      "genre": "genre8",
+      "genres": [
+        "genre8"
+      ],
       "rep": 250
     },
     {
@@ -325,7 +405,9 @@
       "name": "canción41",
       "creator": "artista9",
       "lenght": 180,
-      "genre": "genre9",
+      "genres": [
+        "genre9"
+      ],
       "rep": 250
     },
     {
@@ -333,7 +415,9 @@
       "name": "canción42",
       "creator": "artista9",
       "lenght": 180,
-      "genre": "genre9",
+      "genres": [
+        "genre9"
+      ],
       "rep": 250
     },
     {
@@ -341,7 +425,9 @@
       "name": "canción43",
       "creator": "artista9",
       "lenght": 180,
-      "genre": "genre9",
+      "genres": [
+        "genre9"
+      ],
       "rep": 250
     },
     {
@@ -349,7 +435,9 @@
       "name": "canción44",
       "creator": "artista9",
       "lenght": 180,
-      "genre": "genre9",
+      "genres": [
+        "genre9"
+      ],
       "rep": 250
     },
     {
@@ -357,7 +445,9 @@
       "name": "canción45",
       "creator": "artista9",
       "lenght": 180,
-      "genre": "genre9",
+      "genres": [
+        "genre9"
+      ],
       "rep": 250
     },
     {
@@ -365,7 +455,9 @@
       "name": "canción46",
       "creator": "artista10",
       "lenght": 180,
-      "genre": "genre10",
+      "genres": [
+        "genre10"
+      ],
       "rep": 250
     },
     {
@@ -373,7 +465,9 @@
       "name": "canción47",
       "creator": "artista10",
       "lenght": 180,
-      "genre": "genre10",
+      "genres": [
+        "genre10"
+      ],
       "rep": 250
     },
     {
@@ -381,7 +475,9 @@
       "name": "canción48",
       "creator": "artista10",
       "lenght": 180,
-      "genre": "genre10",
+      "genres": [
+        "genre10"
+      ],
       "rep": 250
     },
     {
@@ -389,7 +485,9 @@
       "name": "canción49",
       "creator": "artista10",
       "lenght": 180,
-      "genre": "genre10",
+      "genres": [
+        "genre10"
+      ],
       "rep": 250
     },
     {
@@ -397,8 +495,22 @@
       "name": "canción50",
       "creator": "artista10",
       "lenght": 180,
-      "genre": "genre10",
+      "genres": [
+        "genre10"
+      ],
       "rep": 250
+    },
+    {
+      "user": "df",
+      "name": "qw",
+      "creator": "artista1",
+      "lenght": 122,
+      "genres": [
+        "genre1",
+        "genre2",
+        "genre3"
+      ],
+      "rep": 12
     }
   ],
   "songData": []

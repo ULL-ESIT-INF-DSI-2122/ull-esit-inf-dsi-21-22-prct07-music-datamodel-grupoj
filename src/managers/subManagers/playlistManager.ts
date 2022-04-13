@@ -6,8 +6,8 @@ import {SubManager} from '../manager';
 import {manager} from '../../program';
 import {playlistMenu, printPlaylist, printSongs} from '../var/managerEnum';
 import {sortPlaylistLenght, sortPlaylistName} from '../var/sorts/playlistSort';
-import {sortSongName, sortSongCreator, sortSongLenght,
-  sortSongGenre, sortSongRep} from '../var/sorts/songSort';
+import {sortSongName, sortSongCreator,
+  sortSongLenght, sortSongRep} from '../var/sorts/songSort';
 
 const inquirer = require('inquirer');
 
@@ -118,15 +118,6 @@ export class PlaylistManager implements SubManager<Playlist> {
                 const lenghtUpper = playlist.getSongs().sort(sortSongLenght);
                 lenghtUpper.reverse();
                 this.printSong(lenghtUpper);
-                break;
-              case printSongs.GenreLower:
-                const genreLower = playlist.getSongs().sort(sortSongGenre);
-                this.printSong(genreLower);
-                break;
-              case printSongs.GenreUpper:
-                const genreUpper = playlist.getSongs().sort(sortSongGenre);
-                genreUpper.reverse();
-                this.printSong(genreUpper);
                 break;
               case printSongs.RepLower:
                 const repLower = playlist.getSongs().sort(sortSongRep);

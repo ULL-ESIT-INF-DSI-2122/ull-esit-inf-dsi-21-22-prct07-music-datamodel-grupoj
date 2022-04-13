@@ -83,154 +83,154 @@ export function rawData() {
  * Canciones dentro de la colección del sistema
  */
   let song = new Song('system', 'canción1', artistCollection.getList()[0], 180,
-      musicGenreCollection.getList()[0], 250);
+      [musicGenreCollection.getList()[0]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción2', artistCollection.getList()[0], 180,
-      musicGenreCollection.getList()[0], 250);
+      [musicGenreCollection.getList()[0]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción3', artistCollection.getList()[0], 180,
-      musicGenreCollection.getList()[0], 250);
+      [musicGenreCollection.getList()[0]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción4', artistCollection.getList()[0], 180,
-      musicGenreCollection.getList()[0], 250);
+      [musicGenreCollection.getList()[0]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción5', artistCollection.getList()[0], 180,
-      musicGenreCollection.getList()[0], 250);
+      [musicGenreCollection.getList()[0]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción6', artistCollection.getList()[1], 180,
-      musicGenreCollection.getList()[1], 250);
+      [musicGenreCollection.getList()[1]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción7', artistCollection.getList()[1], 180,
-      musicGenreCollection.getList()[1], 250);
+      [musicGenreCollection.getList()[1]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción8', artistCollection.getList()[1], 180,
-      musicGenreCollection.getList()[1], 250);
+      [musicGenreCollection.getList()[1]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción9', artistCollection.getList()[1], 180,
-      musicGenreCollection.getList()[1], 250);
+      [musicGenreCollection.getList()[1]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción10', artistCollection.getList()[1], 180,
-      musicGenreCollection.getList()[1], 250);
+      [musicGenreCollection.getList()[1]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción11', artistCollection.getList()[2], 180,
-      musicGenreCollection.getList()[2], 250);
+      [musicGenreCollection.getList()[2]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción12', artistCollection.getList()[2], 180,
-      musicGenreCollection.getList()[2], 250);
+      [musicGenreCollection.getList()[2]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción13', artistCollection.getList()[2], 180,
-      musicGenreCollection.getList()[2], 250);
+      [musicGenreCollection.getList()[2]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción14', artistCollection.getList()[2], 180,
-      musicGenreCollection.getList()[2], 250);
+      [musicGenreCollection.getList()[2]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción15', artistCollection.getList()[2], 180,
-      musicGenreCollection.getList()[2], 250);
+      [musicGenreCollection.getList()[2]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción16', artistCollection.getList()[3], 180,
-      musicGenreCollection.getList()[3], 250);
+      [musicGenreCollection.getList()[3]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción17', artistCollection.getList()[3], 180,
-      musicGenreCollection.getList()[3], 250);
+      [musicGenreCollection.getList()[3]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción18', artistCollection.getList()[3], 180,
-      musicGenreCollection.getList()[3], 250);
+      [musicGenreCollection.getList()[3]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción19', artistCollection.getList()[3], 180,
-      musicGenreCollection.getList()[3], 250);
+      [musicGenreCollection.getList()[3]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción20', artistCollection.getList()[3], 180,
-      musicGenreCollection.getList()[3], 250);
+      [musicGenreCollection.getList()[3]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción21', artistCollection.getList()[4], 180,
-      musicGenreCollection.getList()[4], 250);
+      [musicGenreCollection.getList()[4]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción22', artistCollection.getList()[4], 180,
-      musicGenreCollection.getList()[4], 250);
+      [musicGenreCollection.getList()[4]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción23', artistCollection.getList()[4], 180,
-      musicGenreCollection.getList()[4], 250);
+      [musicGenreCollection.getList()[4]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción24', artistCollection.getList()[4], 180,
-      musicGenreCollection.getList()[4], 250);
+      [musicGenreCollection.getList()[4]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción25', artistCollection.getList()[4], 180,
-      musicGenreCollection.getList()[4], 250);
+      [musicGenreCollection.getList()[4]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción26', artistCollection.getList()[5], 180,
-      musicGenreCollection.getList()[5], 250);
+      [musicGenreCollection.getList()[5]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción27', artistCollection.getList()[5], 180,
-      musicGenreCollection.getList()[5], 250);
+      [musicGenreCollection.getList()[5]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción28', artistCollection.getList()[5], 180,
-      musicGenreCollection.getList()[5], 250);
+      [musicGenreCollection.getList()[5]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción29', artistCollection.getList()[5], 180,
-      musicGenreCollection.getList()[5], 250);
+      [musicGenreCollection.getList()[5]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción30', artistCollection.getList()[5], 180,
-      musicGenreCollection.getList()[5], 250);
+      [musicGenreCollection.getList()[5]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción31', artistCollection.getList()[6], 180,
-      musicGenreCollection.getList()[6], 250);
+      [musicGenreCollection.getList()[6]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción32', artistCollection.getList()[6], 180,
-      musicGenreCollection.getList()[6], 250);
+      [musicGenreCollection.getList()[6]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción33', artistCollection.getList()[6], 180,
-      musicGenreCollection.getList()[6], 250);
+      [musicGenreCollection.getList()[6]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción34', artistCollection.getList()[6], 180,
-      musicGenreCollection.getList()[6], 250);
+      [musicGenreCollection.getList()[6]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción35', artistCollection.getList()[6], 180,
-      musicGenreCollection.getList()[6], 250);
+      [musicGenreCollection.getList()[6]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción36', artistCollection.getList()[7], 180,
-      musicGenreCollection.getList()[7], 250);
+      [musicGenreCollection.getList()[7]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción37', artistCollection.getList()[7], 180,
-      musicGenreCollection.getList()[7], 250);
+      [musicGenreCollection.getList()[7]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción38', artistCollection.getList()[7], 180,
-      musicGenreCollection.getList()[7], 250);
+      [musicGenreCollection.getList()[7]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción39', artistCollection.getList()[7], 180,
-      musicGenreCollection.getList()[7], 250);
+      [musicGenreCollection.getList()[7]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción40', artistCollection.getList()[7], 180,
-      musicGenreCollection.getList()[7], 250);
+      [musicGenreCollection.getList()[7]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción41', artistCollection.getList()[8], 180,
-      musicGenreCollection.getList()[8], 250);
+      [musicGenreCollection.getList()[8]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción42', artistCollection.getList()[8], 180,
-      musicGenreCollection.getList()[8], 250);
+      [musicGenreCollection.getList()[8]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción43', artistCollection.getList()[8], 180,
-      musicGenreCollection.getList()[8], 250);
+      [musicGenreCollection.getList()[8]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción44', artistCollection.getList()[8], 180,
-      musicGenreCollection.getList()[8], 250);
+      [musicGenreCollection.getList()[8]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción45', artistCollection.getList()[8], 180,
-      musicGenreCollection.getList()[8], 250);
+      [musicGenreCollection.getList()[8]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción46', artistCollection.getList()[9], 180,
-      musicGenreCollection.getList()[9], 250);
+      [musicGenreCollection.getList()[9]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción47', artistCollection.getList()[9], 180,
-      musicGenreCollection.getList()[9], 250);
+      [musicGenreCollection.getList()[9]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción48', artistCollection.getList()[9], 180,
-      musicGenreCollection.getList()[9], 250);
+      [musicGenreCollection.getList()[9]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción49', artistCollection.getList()[9], 180,
-      musicGenreCollection.getList()[9], 250);
+      [musicGenreCollection.getList()[9]], 250);
   songCollection.addItem(song);
   song = new Song('system', 'canción50', artistCollection.getList()[9], 180,
-      musicGenreCollection.getList()[9], 250);
+      [musicGenreCollection.getList()[9]], 250);
   songCollection.addItem(song);
 
   /**

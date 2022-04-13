@@ -37,18 +37,6 @@ export function sortSongLenght(x : Song, y : Song) {
 }
 
 /**
- * @function Ordena dos canciones por su propiedad genre
- * @param x Primer canción
- * @param y Segundo canción
- * @returns Devuelve -1 si x es menor, 1 si es mayor, y 0 si x e y son iguales
- */
-export function sortSongGenre(x : Song, y : Song) {
-  if (x.getGenre() < y.getGenre()) return -1;
-  if (x.getGenre() > y.getGenre()) return 1;
-  return 0;
-}
-
-/**
  * @function Ordena dos canciones por su propiedad rep
  * @param x Primer canción
  * @param y Segundo canción

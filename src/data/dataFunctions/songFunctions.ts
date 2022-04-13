@@ -4,9 +4,11 @@ import {songData} from '../var/dataInterfaces';
 import {Artist} from '../../objects/artist';
 import {Group} from '../../objects/group';
 import {Song} from '../../objects/song';
+import {MusicGenre} from '../../objects/musicGenre';
 
 import * as lowdb from 'lowdb';
 import * as FileSync from 'lowdb/adapters/FileSync';
+
 
 /**
  * @interface Interfaz para el adaptador de canción
@@ -25,12 +27,16 @@ const db : lowdb.LowdbSync<SchemaInterface> = lowdb(adapter);
 export function writeSongsData() {
   const songs : songData[] = [];
   songCollection.getList().forEach((song) => {
+    const genres : string[] = [];
+    song.getGenres().forEach((genre) => {
+      genres.push(genre.getName());
+    });
     songs.push({
       user: song.user,
       name: song.getName(),
       creator: song.getCreator().getName(),
       lenght: song.lenght,
-      genre: song.getGenre().getName(),
+      genres: genres,
       rep: song.getRep(),
     });
   });
@@ -54,11 +60,15 @@ export function readSongsData() {
     });
     const creator = creators.find((element) =>
       element.getName() === song.creator);
-    const genre = musicGenreCollection.getList().find((element) =>
-      element.getName() === song.genre);
-    if (creator && genre) {
+    const genres : MusicGenre[] = [];
+    song.genres.forEach((name) => {
+      const genre = musicGenreCollection.getList().find((element) =>
+        element.getName() === name);
+      if (genre) genres.push(genre);
+    });
+    if (creator) {
       songCollection.addItem(new Song(song.user, song.name, creator,
-          song.lenght, genre, song.rep));
+          song.lenght, genres, song.rep));
     }
   });
 }

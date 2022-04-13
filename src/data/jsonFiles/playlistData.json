@@ -3,17 +3,35 @@
     {
       "user": "system",
       "name": "playlist1",
-      "songs": []
+      "songs": [
+        "canción1",
+        "canción12",
+        "canción24",
+        "canción36",
+        "canción48"
+      ]
     },
     {
       "user": "system",
       "name": "playlist2",
-      "songs": []
+      "songs": [
+        "canción2",
+        "canción13",
+        "canción25",
+        "canción37",
+        "canción49"
+      ]
     },
     {
       "user": "system",
       "name": "playlist3",
-      "songs": []
+      "songs": [
+        "canción3",
+        "canción14",
+        "canción26",
+        "canción38",
+        "canción50"
+      ]
     }
   ]
 }

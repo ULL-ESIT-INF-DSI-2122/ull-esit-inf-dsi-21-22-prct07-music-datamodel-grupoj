@@ -85,7 +85,9 @@ export class MusicGenre {
   getSongs() : Song[] {
     songCollection.getList().forEach((song) => {
       if (song != this.songs.find((element) => element === song)) {
-        if (song.getGenre() === this) this.songs.push(song);
+        song.getGenres().forEach((genre) => {
+          if (genre === this) this.songs.push(song);
+        });
       }
     });
     return this.songs;

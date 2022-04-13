@@ -7,8 +7,9 @@ import {Song} from '../../objects/song';
 import {SubManager} from '../manager';
 import {manager} from '../../program';
 import {printSongs, songMenu} from '../var/managerEnum';
-import {sortSongCreator, sortSongGenre, sortSongLenght,
+import {sortSongCreator, sortSongLenght,
   sortSongName, sortSongRep} from '../var/sorts/songSort';
+import {MusicGenre} from '../../objects/musicGenre';
 
 const inquirer = require('inquirer');
 
@@ -102,15 +103,6 @@ export class SongManager implements SubManager<Song> {
           lenghtUpper.reverse();
           this.print(lenghtUpper);
           break;
-        case printSongs.GenreLower:
-          const genreLower = songCollection.getList().sort(sortSongGenre);
-          this.print(genreLower);
-          break;
-        case printSongs.GenreUpper:
-          const genreUpper = songCollection.getList().sort(sortSongGenre);
-          genreUpper.reverse();
-          this.print(genreUpper);
-          break;
         case printSongs.RepLower:
           const repLower = songCollection.getList().sort(sortSongRep);
           this.print(repLower);
@@ -164,11 +156,11 @@ export class SongManager implements SubManager<Song> {
             message: 'Duración de la canción en segundos: ',
           }).then((time : {time: string}) => {
             inquirer.prompt({
-              type: 'list',
-              name: 'genre',
-              message: 'Género musical de la canción: ',
+              type: 'checkbox',
+              name: 'genres',
+              message: 'Géneros musicales de la canción: ',
               choices: musicGenreCollection.getList(),
-            }).then((genre : {genre: string}) => {
+            }).then((genres : {genres: string[]}) => {
               inquirer.prompt({
                 name: 'rep',
                 message: 'Reproducciones de la canción: ',
@@ -177,13 +169,16 @@ export class SongManager implements SubManager<Song> {
                 const songCreator= creators.find((element) =>
                   element.getName() === creator.creator);
                 const songLenght : number = parseInt(time.time);
-                const songGenre =
-                  musicGenreCollection.getList().find((element) =>
-                    element.getName() === genre.genre);
+                const songGenres : MusicGenre[] = [];
+                genres.genres.forEach((name) => {
+                  const genre = musicGenreCollection.getList().find((element) =>
+                    element.getName() === name);
+                  if (genre) songGenres.push(genre);
+                });
                 const songRep : number = parseInt(rep.rep);
-                if (songCreator && songGenre) {
+                if (songCreator) {
                   const song : Song = new Song(this.user, songName, songCreator,
-                      songLenght, songGenre, songRep);
+                      songLenght, songGenres, songRep);
                   songCollection.addItem(song);
                   console.clear();
                   console.log('Se ha creado y añadido su canción');

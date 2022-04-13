@@ -136,8 +136,6 @@ export enum printSongs {
     CreatorUpper = 'Por nombre del creador de forma descendente',
     LenghtLower = 'Por duración de forma ascendente',
     LenghtUpper = 'Por duración de forma descendente',
-    GenreLower = 'Por nombre del género musical de forma ascendente',
-    GenreUpper = 'Por nombre del género musical de forma descendente',
     RepLower = 'Por número de reproducciones de forma ascendente',
     RepUpper = 'Por número de reproducciones de forma descendente',
     Singles = 'Mostrar únicamente los singles lanzados',

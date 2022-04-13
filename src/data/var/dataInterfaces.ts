@@ -54,6 +54,6 @@ export interface songData {
   name : string,
   creator : string,
   lenght : number,
-  genre : string,
+  genres : string[],
   rep : number
 }

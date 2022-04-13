@@ -38,8 +38,8 @@ export class Manager {
    * Inicializa la información del sistema y comienza con el logueo
    */
   constructor() {
-    // rawData()
-    readData();
+    rawData();
+    // readData();
     update();
     this.login();
   }

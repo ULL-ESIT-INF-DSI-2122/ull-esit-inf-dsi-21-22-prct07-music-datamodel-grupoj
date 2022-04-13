@@ -17,12 +17,12 @@ export class Song {
    * @param creator Nombre del autor de la canción
    * @param lenght Duración de la canción en segundos (es el único atributo
    * público para poder usarlo en la clase Playlist para la función getLenght())
-   * @param genre Género musical de la canción
+   * @param genres Género musical de la canción
    * @param rep Número de reproducciones de la canción
    */
   constructor(public user : string, private name : string,
     private creator : Artist | Group, public lenght : number,
-    private genre : MusicGenre, private rep : number) {}
+    private genres : MusicGenre[], private rep : number) {}
 
   /**
    * @returns Devuelve el nombre de la canción
@@ -50,8 +50,8 @@ export class Song {
   /**
    * @returns Devuelve el género de la canción
    */
-  getGenre() : MusicGenre {
-    return this.genre;
+  getGenres() : MusicGenre[] {
+    return this.genres;
   }
 
   /**
@@ -78,7 +78,10 @@ export class Song {
     console.log(`-Nombre de la canción: ${this.getName()}`);
     console.log(`-Creador de la canción: ${this.getCreator().getName()}`);
     console.log(`-Duración de la canción: '${this.getLenght()}' (m/s)`);
-    console.log(`-Género de la canción: ${this.getGenre().getName()}`);
+    console.log(`-Géneros de la canción: `);
+    this.genres.forEach((genre) => {
+      console.log(`\t-${genre.getName()}`);
+    });
     const format = (this.getSingle()) ? 'Single' : 'Colaboración';
     console.log(`-Formato de la canción: ${format}`);
     console.log(`-Reproducciones de la canción: ${this.getRep()}`);
