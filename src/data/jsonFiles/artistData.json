@@ -1,0 +1,54 @@
+{
+  "Artists": [
+    {
+      "user": "system",
+      "name": "artista1",
+      "rep": 8500
+    },
+    {
+      "user": "system",
+      "name": "artista2",
+      "rep": 8500
+    },
+    {
+      "user": "system",
+      "name": "artista3",
+      "rep": 8500
+    },
+    {
+      "user": "system",
+      "name": "artista4",
+      "rep": 8500
+    },
+    {
+      "user": "system",
+      "name": "artista5",
+      "rep": 8500
+    },
+    {
+      "user": "system",
+      "name": "artista6",
+      "rep": 8500
+    },
+    {
+      "user": "system",
+      "name": "artista7",
+      "rep": 8500
+    },
+    {
+      "user": "system",
+      "name": "artista8",
+      "rep": 8500
+    },
+    {
+      "user": "system",
+      "name": "artista9",
+      "rep": 8500
+    },
+    {
+      "user": "system",
+      "name": "artista10",
+      "rep": 8500
+    }
+  ]
+}

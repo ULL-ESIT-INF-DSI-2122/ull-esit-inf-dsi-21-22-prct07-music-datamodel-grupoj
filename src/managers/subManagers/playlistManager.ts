@@ -1,8 +1,9 @@
-import {update} from '../../data/oldData';
-import {playlistCollection, songCollection} from '../../data/var/collection';
+import {update} from '../../data/data';
+import {playlistCollection, songCollection} from '../../data/var/collections';
 import {Playlist} from '../../objects/playlist';
 import {Song} from '../../objects/song';
-import {manager, SubManager} from '../manager';
+import {SubManager} from '../manager';
+import {manager} from '../../program';
 import {playlistMenu, printPlaylist, printSongs} from '../var/managerEnum';
 import {sortPlaylistLenght, sortPlaylistName} from '../var/sorts/playlistSort';
 import {sortSongName, sortSongCreator, sortSongLenght,

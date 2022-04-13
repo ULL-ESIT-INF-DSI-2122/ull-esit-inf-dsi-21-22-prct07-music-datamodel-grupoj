@@ -1,0 +1,54 @@
+{
+  "Groups": [
+    {
+      "user": "system",
+      "name": "grupo1",
+      "artists": [
+        "artista1",
+        "artista2"
+      ],
+      "year": 2000,
+      "rep": 1000
+    },
+    {
+      "user": "system",
+      "name": "grupo2",
+      "artists": [
+        "artista3",
+        "artista4"
+      ],
+      "year": 2000,
+      "rep": 1000
+    },
+    {
+      "user": "system",
+      "name": "grupo3",
+      "artists": [
+        "artista5",
+        "artista6"
+      ],
+      "year": 2000,
+      "rep": 1000
+    },
+    {
+      "user": "system",
+      "name": "grupo4",
+      "artists": [
+        "artista7",
+        "artista8"
+      ],
+      "year": 2000,
+      "rep": 1000
+    },
+    {
+      "user": "system",
+      "name": "grupo5",
+      "artists": [
+        "artista9",
+        "artista10"
+      ],
+      "year": 2000,
+      "rep": 1000
+    }
+  ]
+}

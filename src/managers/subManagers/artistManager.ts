@@ -1,7 +1,8 @@
-import {update} from '../../data/oldData';
+import {update} from '../../data/data';
 import {Artist} from '../../objects/artist';
-import {artistCollection} from '../../data/var/collection';
-import {manager, SubManager} from '../manager';
+import {artistCollection} from '../../data/var/collections';
+import {SubManager} from '../manager';
+import {manager} from '../../program';
 import {artistMenu, printArtist} from '../var/managerEnum';
 import {sortArtistName, sortArtistRep} from '../var/sorts/artistSort';
 

@@ -1,0 +1,19 @@
+{
+  "Playlists": [
+    {
+      "user": "system",
+      "name": "playlist1",
+      "songs": []
+    },
+    {
+      "user": "system",
+      "name": "playlist2",
+      "songs": []
+    },
+    {
+      "user": "system",
+      "name": "playlist3",
+      "songs": []
+    }
+  ]
+}

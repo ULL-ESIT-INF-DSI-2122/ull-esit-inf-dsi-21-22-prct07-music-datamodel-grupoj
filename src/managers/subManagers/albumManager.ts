@@ -1,11 +1,12 @@
-import {update} from '../../data/oldData';
+import {update} from '../../data/data';
 import {Album} from '../../objects/album';
 import {Artist} from '../../objects/artist';
 import {albumCollection, artistCollection, groupCollection,
-  songCollection} from '../../data/var/collection';
+  songCollection} from '../../data/var/collections';
 import {Group} from '../../objects/group';
 import {Song} from '../../objects/song';
-import {manager, SubManager} from '../manager';
+import {SubManager} from '../manager';
+import {manager} from '../../program';
 import {albumMenu, printAlbum} from '../var/managerEnum';
 import {sortAlbumCreator, sortAlbumName,
   sortAlbumYear} from '../var/sorts/albumSort';

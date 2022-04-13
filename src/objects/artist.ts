@@ -1,6 +1,6 @@
 import {Album} from './album';
 import {albumCollection, groupCollection, playlistCollection,
-  songCollection} from '../data/var/collection';
+  songCollection} from '../data/var/collections';
 import {Group} from './group';
 import {MusicGenre} from './musicGenre';
 import {Playlist} from './playlist';

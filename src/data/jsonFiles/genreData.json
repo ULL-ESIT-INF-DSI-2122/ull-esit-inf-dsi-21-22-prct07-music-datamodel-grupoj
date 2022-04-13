@@ -1,0 +1,44 @@
+{
+  "MusicGenres": [
+    {
+      "user": "system",
+      "name": "genre1"
+    },
+    {
+      "user": "system",
+      "name": "genre10"
+    },
+    {
+      "user": "system",
+      "name": "genre2"
+    },
+    {
+      "user": "system",
+      "name": "genre3"
+    },
+    {
+      "user": "system",
+      "name": "genre4"
+    },
+    {
+      "user": "system",
+      "name": "genre5"
+    },
+    {
+      "user": "system",
+      "name": "genre6"
+    },
+    {
+      "user": "system",
+      "name": "genre7"
+    },
+    {
+      "user": "system",
+      "name": "genre8"
+    },
+    {
+      "user": "system",
+      "name": "genre9"
+    }
+  ]
+}

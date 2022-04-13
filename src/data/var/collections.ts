@@ -32,16 +32,6 @@ export class ItemsCollection <T> {
   }
 
   /**
-   * @param item Objeto de tipo genéricoo que se quiere buscar en la colección
-   * @returns Devuelve el objeto de tipo genérico que se buscaba o
-   * un mensaje de abvertencia
-   */
-  searchItem(item: T): T | void {
-    const search = this.list.find((element) => element === item);
-    return /* (search) ? */ search; /* : console.log('No existe'); */
-  }
-
-  /**
    * @returns Devuelve el tamaño de la colección
    */
   getLenght(): number {

@@ -1,7 +1,7 @@
 import {Album} from '../objects/album';
 import {Artist} from '../objects/artist';
 import {musicGenreCollection, artistCollection, groupCollection, songCollection,
-  albumCollection, playlistCollection} from './var/collection';
+  albumCollection, playlistCollection} from './var/collections';
 import {Group} from '../objects/group';
 import {MusicGenre} from '../objects/musicGenre';
 import {Playlist} from '../objects/playlist';
@@ -11,7 +11,7 @@ import {Song} from '../objects/song';
  * @function Genera la colección del sistema con una serie de
  * datos preestablecidos
  */
-export function data() {
+export function rawData() {
 /**
  * Géneros musicales dentro de la colección del sistema
  */
@@ -293,39 +293,4 @@ export function data() {
     songCollection.getList()[13], songCollection.getList()[25],
     songCollection.getList()[37], songCollection.getList()[49]]);
   playlistCollection.addItem(playlist);
-}
-
-/**
- * @function Actualiza los atributos de los objetos del sitema que sean
- * dependientes de los datos de otras clase en el orden adecuado tras por
- * ejemplo añadir un nuevo objeto al sistema
- */
-export function update() : void {
-  songCollection.getList().forEach((song) => {
-    song.getSingle();
-  });
-  playlistCollection.getList().forEach((playlist) => {
-    playlist.getLenght();
-    playlist.getGenres();
-  });
-  albumCollection.getList().forEach((album) => {
-    album.getGenres();
-  });
-  groupCollection.getList().forEach((group) => {
-    group.getAlbums();
-    group.getGenres();
-    group.getPlaylists();
-  });
-  artistCollection.getList().forEach((artist) => {
-    artist.getGroups();
-    artist.getAlbums();
-    artist.getSongs();
-    artist.getGenres();
-    artist.getPlaylists();
-  });
-  musicGenreCollection.getList().forEach((genre) => {
-    genre.getCreators();
-    genre.getAlbums();
-    genre.getSongs();
-  });
 }

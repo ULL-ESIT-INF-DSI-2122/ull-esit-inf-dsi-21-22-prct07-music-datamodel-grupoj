@@ -1,8 +1,10 @@
 import {Album} from './album';
 import {Artist} from './artist';
-import {albumCollection, playlistCollection} from '../data/var/collection';
+import {albumCollection, playlistCollection,
+  songCollection} from '../data/var/collections';
 import {MusicGenre} from './musicGenre';
 import {Playlist} from './playlist';
+import {Song} from './song';
 
 /**
  * Clase Group, representa otra entidad dentro del sistema.
@@ -10,6 +12,10 @@ import {Playlist} from './playlist';
  * a un grupo determinado dentro del sistema
  */
 export class Group {
+  /**
+   * Canciones creadas por el grupo
+   */
+  private songs : Song[] = [];
   /**
    * Playlists relacionadas con el grupo
    */
@@ -82,6 +88,23 @@ export class Group {
   }
 
   /**
+   * @returns Devuelves aquellas canciones creadas por el grupo. Para
+   * ellos comprueba la colección de canciones de sistema y si el autor de
+   * alguna de ellas coincide con el grupo, añade la canción a la propiedad
+   * de la clase songs
+   */
+  getSongs() : Song[] {
+    songCollection.getList().forEach((song) => {
+      if (song.getCreator() === this) {
+        if (song != this.songs.find((element) => element === song)) {
+          this.songs.push(song);
+        }
+      }
+    });
+    return this.songs;
+  }
+
+  /**
    * @returns Devuelve el número de oyentes del grupo
    */
   getRep() : number {
@@ -121,6 +144,10 @@ export class Group {
     console.log(`-Álbumes del grupo: `);
     this.albums.forEach((album) => {
       console.log(`\t-${album.getName()}`);
+    });
+    console.log(`-Canciones creadas por el grupo: `);
+    this.songs.forEach((song) => {
+      console.log(`\t-${song.getName()}`);
     });
     console.log(`-Playlists en las que participa el grupo: `);
     this.playlists.forEach((playlist) => {

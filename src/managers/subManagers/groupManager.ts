@@ -1,8 +1,9 @@
-import {update} from '../../data/oldData';
+import {update} from '../../data/data';
 import {Artist} from '../../objects/artist';
-import {artistCollection, groupCollection} from '../../data/var/collection';
+import {artistCollection, groupCollection} from '../../data/var/collections';
 import {Group} from '../../objects/group';
-import {manager, SubManager} from '../manager';
+import {SubManager} from '../manager';
+import {manager} from '../../program';
 import {groupMenu, printGroup} from '../var/managerEnum';
 import {sortGroupName, sortGroupRep,
   sortGroupYear} from '../var/sorts/groupSort';

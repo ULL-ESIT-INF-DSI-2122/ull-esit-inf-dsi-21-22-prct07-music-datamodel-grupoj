@@ -1,7 +1,7 @@
 import {Album} from './album';
 import {Artist} from './artist';
 import {albumCollection, artistCollection,
-  groupCollection, songCollection} from '../data/var/collection';
+  groupCollection, songCollection} from '../data/var/collections';
 import {Group} from './group';
 import {Song} from './song';
 
@@ -44,12 +44,16 @@ export class MusicGenre {
   getCreators() : (Group | Artist)[] {
     artistCollection.getList().forEach((artist) => {
       artist.getGenres().forEach((genre) => {
-        if (genre.getName() === this.name) this.creators.push(artist);
+        if (artist != this.creators.find((element) => element === artist)) {
+          if (genre.getName() === this.name) this.creators.push(artist);
+        }
       });
     });
     groupCollection.getList().forEach((group) => {
       group.getGenres().forEach((genre) => {
-        if (genre.getName() === this.name) this.creators.push(group);
+        if (group != this.creators.find((element) => element === group)) {
+          if (genre.getName() === this.name) this.creators.push(group);
+        }
       });
     });
     return this.creators;
@@ -64,7 +68,9 @@ export class MusicGenre {
   getAlbums() : Album[] {
     albumCollection.getList().forEach((album) => {
       album.getGenres().forEach((genre) => {
-        if (genre === this) this.albums.push(album);
+        if (album != this.albums.find((element) => element === album)) {
+          if (genre === this) this.albums.push(album);
+        }
       });
     });
     return this.albums;
@@ -78,7 +84,9 @@ export class MusicGenre {
    */
   getSongs() : Song[] {
     songCollection.getList().forEach((song) => {
-      if (song.getGenre() === this) this.songs.push(song);
+      if (song != this.songs.find((element) => element === song)) {
+        if (song.getGenre() === this) this.songs.push(song);
+      }
     });
     return this.songs;
   }

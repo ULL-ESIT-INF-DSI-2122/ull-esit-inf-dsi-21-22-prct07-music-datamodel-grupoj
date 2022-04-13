@@ -1,7 +1,8 @@
-import {update} from '../../data/oldData';
-import {musicGenreCollection} from '../../data/var/collection';
+import {update} from '../../data/data';
+import {musicGenreCollection} from '../../data/var/collections';
 import {MusicGenre} from '../../objects/musicGenre';
-import {manager, SubManager} from '../manager';
+import {SubManager} from '../manager';
+import {manager} from '../../program';
 import {musicGenreMenu, printGenre} from '../var/managerEnum';
 import {sortGenreName} from '../var/sorts/genreSort';
 

@@ -21,14 +21,15 @@
     "./src/managers/var/sorts/playlistSort.ts",
     "./src/managers/var/sorts/songSort.ts",
     "./src/data/data.ts",
+    "./src/data/rawData.ts",
     "./src/data/dataFunctions/albumFunctions.ts",
     "./src/data/dataFunctions/artistFunctions.ts",
     "./src/data/dataFunctions/genreFunctions.ts",
     "./src/data/dataFunctions/groupFunctions.ts",
     "./src/data/dataFunctions/playlistFunctions.ts",
     "./src/data/dataFunctions/songFunctions.ts",
-    "./src/data/var/collection.ts",
-    "./src/data/var/dataTypes.ts"
+    "./src/data/var/collections.ts",
+    "./src/data/var/dataInterfaces.ts"
   ],
   "out": "./docs"
 }

@@ -1,10 +1,11 @@
-import {update} from '../../data/oldData';
+import {update} from '../../data/data';
 import {Artist} from '../../objects/artist';
 import {artistCollection, groupCollection, musicGenreCollection,
-  songCollection} from '../../data/var/collection';
+  songCollection} from '../../data/var/collections';
 import {Group} from '../../objects/group';
 import {Song} from '../../objects/song';
-import {manager, SubManager} from '../manager';
+import {SubManager} from '../manager';
+import {manager} from '../../program';
 import {printSongs, songMenu} from '../var/managerEnum';
 import {sortSongCreator, sortSongGenre, sortSongLenght,
   sortSongName, sortSongRep} from '../var/sorts/songSort';

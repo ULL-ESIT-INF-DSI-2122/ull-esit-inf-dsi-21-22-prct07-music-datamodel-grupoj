@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
-import {data, update} from '../data/oldData';
+import {rawData} from '../data/rawData';
+import {readData, update} from '../data/data';
 import {menuOptions} from './var/managerEnum';
 import {AlbumManager} from './subManagers/albumManager';
 import {ArtistManager} from './subManagers/artistManager';
@@ -7,6 +8,7 @@ import {GroupManager} from './subManagers/groupManager';
 import {MusicGenreManager} from './subManagers/genreManager';
 import {PlaylistManager} from './subManagers/playlistManager';
 import {SongManager} from './subManagers/songManager';
+import {writeSongsData} from '../data/dataFunctions/songFunctions';
 
 const inquirer = require('inquirer');
 
@@ -36,7 +38,8 @@ export class Manager {
    * Inicializa la información del sistema y comienza con el logueo
    */
   constructor() {
-    data();
+    // rawData()
+    readData();
     update();
     this.login();
   }
@@ -122,8 +125,3 @@ export class Manager {
     });
   }
 }
-
-/**
- * Gestor del sistem, básicamente el inicio del programa
- */
-export const manager = new Manager();
