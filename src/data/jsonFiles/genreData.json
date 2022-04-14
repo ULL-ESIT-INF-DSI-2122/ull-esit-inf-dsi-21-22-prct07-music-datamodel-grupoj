@@ -6,6 +6,10 @@
     },
     {
       "user": "system",
+      "name": "genre10"
+    },
+    {
+      "user": "system",
       "name": "genre2"
     },
     {
@@ -35,10 +39,6 @@
     {
       "user": "system",
       "name": "genre9"
-    },
-    {
-      "user": "system",
-      "name": "genre10"
     }
   ]
 }

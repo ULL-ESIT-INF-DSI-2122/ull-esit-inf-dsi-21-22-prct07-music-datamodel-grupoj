@@ -1,6 +1,7 @@
 import {musicGenreCollection} from '../var/collections';
 import {genreData} from '../var/dataInterfaces';
 import {MusicGenre} from '../../objects/musicGenre';
+import {sortGenreName} from '../../managers/var/sorts/genreSort';
 
 import * as lowdb from 'lowdb';
 import * as FileSync from 'lowdb/adapters/FileSync';
@@ -20,8 +21,9 @@ const db : lowdb.LowdbSync<SchemaInterface> = lowdb(adapter);
  * el fichero genreData.json de la base de datos
  */
 export function writeGenreData() {
+  const list = musicGenreCollection.getList().sort(sortGenreName);
   const genres : genreData[] = [];
-  musicGenreCollection.getList().forEach((genre) => {
+  list.forEach((genre) => {
     genres.push({
       user: genre.user,
       name: genre.getName(),

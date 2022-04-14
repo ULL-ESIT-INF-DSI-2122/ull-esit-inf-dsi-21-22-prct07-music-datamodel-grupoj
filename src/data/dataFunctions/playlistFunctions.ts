@@ -2,6 +2,7 @@ import {playlistCollection, songCollection} from '../var/collections';
 import {playlistData} from '../var/dataInterfaces';
 import {Song} from '../../objects/song';
 import {Playlist} from '../../objects/playlist';
+import {sortPlaylistName} from '../../managers/var/sorts/playlistSort';
 
 import * as lowdb from 'lowdb';
 import * as FileSync from 'lowdb/adapters/FileSync';
@@ -21,8 +22,9 @@ const db : lowdb.LowdbSync<SchemaInterface> = lowdb(adapter);
  * el fichero playlistData.json de la base de datos
  */
 export function writePlaylistData() {
+  const list = playlistCollection.getList().sort(sortPlaylistName);
   const playlists : playlistData[] = [];
-  playlistCollection.getList().forEach((playlist) => {
+  list.forEach((playlist) => {
     const songs : string[] = [];
     playlist.getSongs().forEach((song) => {
       songs.push(song.getName());

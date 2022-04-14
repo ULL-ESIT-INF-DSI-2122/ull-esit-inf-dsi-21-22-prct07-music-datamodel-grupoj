@@ -2,6 +2,7 @@ import {artistCollection, groupCollection} from '../var/collections';
 import {groupData} from '../var/dataInterfaces';
 import {Artist} from '../../objects/artist';
 import {Group} from '../../objects/group';
+import {sortGroupName} from '../../managers/var/sorts/groupSort';
 
 import * as lowdb from 'lowdb';
 import * as FileSync from 'lowdb/adapters/FileSync';
@@ -21,8 +22,9 @@ const db : lowdb.LowdbSync<SchemaInterface> = lowdb(adapter);
  * el fichero groupData.json de la base de datos
  */
 export function writeGroupData() {
+  const list = groupCollection.getList().sort(sortGroupName);
   const groups : groupData[] = [];
-  groupCollection.getList().forEach((group) => {
+  list.forEach((group) => {
     const artists : string[] = [];
     group.getArtists().forEach((artist) => {
       artists.push(artist.getName());

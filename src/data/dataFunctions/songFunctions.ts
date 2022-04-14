@@ -5,10 +5,10 @@ import {Artist} from '../../objects/artist';
 import {Group} from '../../objects/group';
 import {Song} from '../../objects/song';
 import {MusicGenre} from '../../objects/musicGenre';
+import {sortSongName} from '../../managers/var/sorts/songSort';
 
 import * as lowdb from 'lowdb';
 import * as FileSync from 'lowdb/adapters/FileSync';
-
 
 /**
  * @interface Interfaz para el adaptador de canción
@@ -25,8 +25,9 @@ const db : lowdb.LowdbSync<SchemaInterface> = lowdb(adapter);
  * el fichero songData.json de la base de datos
  */
 export function writeSongsData() {
+  const list = songCollection.getList().sort(sortSongName);
   const songs : songData[] = [];
-  songCollection.getList().forEach((song) => {
+  list.forEach((song) => {
     const genres : string[] = [];
     song.getGenres().forEach((genre) => {
       genres.push(genre.getName());

@@ -5,6 +5,7 @@ import {Artist} from '../../objects/artist';
 import {Group} from '../../objects/group';
 import {Album} from '../../objects/album';
 import {albumData} from '../var/dataInterfaces';
+import {sortAlbumName} from '../../managers/var/sorts/albumSort';
 
 import * as lowdb from 'lowdb';
 import * as FileSync from 'lowdb/adapters/FileSync';
@@ -24,8 +25,9 @@ const db : lowdb.LowdbSync<SchemaInterface> = lowdb(adapter);
  * el fichero albumData.json de la base de datos
  */
 export function writeAlbumData() {
+  const list = albumCollection.getList().sort(sortAlbumName);
   const albums : albumData[] = [];
-  albumCollection.getList().forEach((album) => {
+  list.forEach((album) => {
     const songs : string[] = [];
     album.getSongs().forEach((song) => {
       songs.push(song.getName());

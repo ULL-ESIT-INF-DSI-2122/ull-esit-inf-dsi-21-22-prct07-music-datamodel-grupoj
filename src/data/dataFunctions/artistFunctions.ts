@@ -1,9 +1,10 @@
 import {artistCollection} from '../var/collections';
 import {artistData} from '../var/dataInterfaces';
+import {Artist} from '../../objects/artist';
+import {sortArtistName} from '../../managers/var/sorts/artistSort';
 
 import * as lowdb from 'lowdb';
 import * as FileSync from 'lowdb/adapters/FileSync';
-import {Artist} from '../../objects/artist';
 
 /**
  * @interface Interfaz para el adaptador de artista
@@ -20,8 +21,9 @@ const db : lowdb.LowdbSync<SchemaInterface> = lowdb(adapter);
  * el fichero artistData.json de la base de datos
  */
 export function writeArtistData() {
+  const list = artistCollection.getList().sort(sortArtistName);
   const artists : artistData[] = [];
-  artistCollection.getList().forEach((artist) => {
+  list.forEach((artist) => {
     artists.push({
       user: artist.user,
       name: artist.getName(),
