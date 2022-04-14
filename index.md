@@ -435,37 +435,86 @@ export class Playlist {
 
 ```
 
-Antes de pasar a comentar nuestra clase gestor, tenemos primero que hablar sobre el archivo data.ts que se encuentra también en el directorio src. En este archivo, lo que hemos hecho es generar la colección del sistema de los álbumes, canciones... con unos valores preestablecidos. Por ejemplo, los géneros musicales los hemos añadido de esta manera: `let genre = new MusicGenre('genre1'); musicGenreCollection.addItem(genre);`, las canciones así `let song = new Song('canción1', artistCollection.getList()[0], 180, [musicGenreCollection.getList()[0]], true, 250);`, y así con todos los restantes (grupos, artistas, álbumes y playlists). Y al final del archivos, creamos la función update la cual actualiza los atributos de los objetos del sitema que sean dependientes de los datos de otras clase en el orden adecuado tras por ejemplo añadir un nuevo objeto al sistema.
+Todos estos archivos ya comentados pertenecen a la carpeta objects dentro de nuestro src. Ahora pasaremos a comentar la carpeta data. Por un lado nos encontramos la carpeta dataFunctions, que contendrá todos los datos referidos a los objetos para poder ser manejados con lowdb. Además de esto, la carpeta jsonFiles contendrá todos los archivos .json de nuestros objetos. En la carpeta var tendremos el collections.ts que ya comentamos anteriormente y el archivo dataInterfaces que crea todas las interfaces necesarias de la siguiente manera:
+
 
 ```
-export function update() : void {
-  playlistCollection.getList().forEach((playlist) => {
-    playlist.getLenght();
-    playlist.getGenres();
-  });
-  albumCollection.getList().forEach((album) => {
-    album.getGenres();
-  });
-  groupCollection.getList().forEach((group) => {
-    group.getAlbums();
-    group.getGenres();
-  });
-  artistCollection.getList().forEach((artist) => {
-    artist.getGroups();
-    artist.getAlbums();
-    artist.getSongs();
-    artist.getGenres();
-  });
-  musicGenreCollection.getList().forEach((genre) => {
-    genre.getCreators();
-    genre.getAlbums();
-    genre.getSongs();
-  });
+/**
+ * @interface Interfaz de un álbum en un fichero .json
+ */
+export interface albumData {
+  user : string,
+  name : string,
+  creator : string,
+  year : number,
+  songs : string[]
 }
 
 ```
 
+Siguiendo con la carpeta data, para terminar, tenemos los archivos data.ts y rawData.ts. El primero contiene algunas funciones como los write y read, además de los getters. El segundo archivo lo que contiene es la información de todas las canciones, los artistas... Este sería un ejemplo:
 
+```
+let genre = new MusicGenre('system', 'genre1');
+  musicGenreCollection.addItem(genre);
+  
+let artist = new Artist('system', 'artista1', 500);
+  artistCollection.addItem(artist);
+```
+
+La última carpeta a comentar en nuestro directorio src es la de managers. En esta es donde se aplica la clase gestor. Primero encontramos la carpeta subManagers en la cual se encuentran los archivos correspondientes al manejador de cada uno de los objetos, con el código necesario para que funcione correctamente con inquirer y lowdb. Después, en la carpeta var, nos encontraríamos en primer lugar la carpeta sort, en la cual se hallan los diferentes tipos de ordenación de cada uno de los objetos. Además, en var también nos encontramos el archivo managerEnum.ts, que será el encargado de manejar el menú de opciones que se plantearán para manejar nuestras playlists, primero mostrando las opciones, y en el caso de que sea la de visualizar el contenido, que aparezcan las formas de ordenación.
+
+```
+/**
+ * Opciones del submenu para la gestión de grupos
+ */
+export enum groupMenu {
+    Print = 'Previsualizar colección de grupos',
+    Add = 'Añadir un grupo a la colección',
+    Del = 'Borrar un grupo de la colección',
+    Exit = 'Atras'
+  }
+/**
+ * Opciones para mostrar los grupos
+ */
+export enum printGroup {
+    NameLower = 'Por nombre de forma ascendente',
+    NameUpper = 'Por nombre de forma descendente',
+    YearLower = 'Por año de creación de forma ascendente',
+    YearUpper = 'Por año de creación de forma descendente',
+    RepLower = 'Por número de oyentes de forma ascendente',
+    RepUpper = 'Por número de oyentes de forma descendente',
+    Exit = 'Atras'
+  }
+  
+```
+
+Lo último que nos quedaría comentar dentro de la carpeta managers sería el archivo manager.ts, el cual contiene los constructores para inicializar el menú, la interfaz para los subgestores que se generen, y la clase manager, en la cual nos tendremos que logear para poder acceder al menú. El usuario de este es: system, con contraseña: 1234.
+
+```
+
+/**
+ * Clase Gestor, con ella podremos iniciar sesión y controlar el menu de gestión
+ * avanzadda, así como las llamadas a los demás subgestores
+ */
+export class Manager {
+  /**
+   * Usuario logueado en el sistema
+   */
+  public user : string;
+  /**
+   * Inicializa la información del sistema y comienza con el logueo
+   */
+  constructor() {
+    rawData();
+    // readData();
+    update();
+    this.login();
+  }
+  
+  ```
+  
+Y con esto terminaríamos la justificación de la organización de nuestro código. Comentar también que tenemos la carpeta de test con distintas pruebas, la documentación generada con Typedoc, y también Github Actions, Coveralls y Sonarcloud.
 
 
 
