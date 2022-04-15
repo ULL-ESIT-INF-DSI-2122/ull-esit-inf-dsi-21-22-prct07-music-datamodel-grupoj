@@ -1,11 +1,10 @@
 import 'mocha';
 import {assert} from 'chai';
 import {Song} from '../src/objects/song';
-import {data, update} from '../src/data';
-import {songCollection} from '../src/objects/collection';
-import {Artist} from '../src/objects/artist';
+import {songCollection} from '../src/data/var/collections';
+import {readData, update} from '../src/data/data';
 
-data();
+readData();
 update();
 
 describe('Song class test', () => {
@@ -17,11 +16,6 @@ describe('Song class test', () => {
   it('typeOf of getName() function', () => {
     songCollection.getList().forEach((song) => {
       assert.typeOf(song.getName(), 'string');
-    });
-  });
-  it('typeOf of getCreator() function', () => {
-    songCollection.getList().forEach((song) => {
-      assert.instanceOf(song.getCreator(), Artist);
     });
   });
   it('typeOf of getLenght() function', () => {

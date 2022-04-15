@@ -1,10 +1,10 @@
 import 'mocha';
 import {assert} from 'chai';
 import {Group} from '../src/objects/group';
-import {data, update} from '../src/data';
-import {groupCollection} from '../src/objects/collection';
+import {groupCollection} from '../src/data/var/collections';
+import {readData, update} from '../src/data/data';
 
-data();
+readData();
 update();
 
 describe('Group class test', () => {

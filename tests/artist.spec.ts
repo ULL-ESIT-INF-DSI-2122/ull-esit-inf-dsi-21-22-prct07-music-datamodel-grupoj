@@ -1,11 +1,11 @@
 import 'mocha';
 import {assert} from 'chai';
 import {Artist} from '../src/objects/artist';
-import {data, update} from '../src/data';
-import {artistCollection} from '../src/objects/collection';
+import {artistCollection} from '../src/data/var/collections';
 import {MusicGenre} from '../src/objects/musicGenre';
+import {readData, update} from '../src/data/data';
 
-data();
+readData();
 update();
 
 describe('Artist class test', () => {
