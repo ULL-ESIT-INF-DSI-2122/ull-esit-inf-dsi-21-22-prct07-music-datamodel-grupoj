@@ -35,7 +35,7 @@ export class PlaylistManager implements SubManager<Playlist> {
     list.forEach((song) => {
       option.push(song.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'rawlist',
@@ -44,7 +44,7 @@ export class PlaylistManager implements SubManager<Playlist> {
       message: 'Canciones de la playlist: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const song = list.find((element) => element.getName() === answer.name);
         if (song) song.print();
@@ -69,7 +69,7 @@ export class PlaylistManager implements SubManager<Playlist> {
     playlistCollection.getList().forEach((playlist) => {
       option.push(playlist.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'rawlist',
@@ -78,7 +78,7 @@ export class PlaylistManager implements SubManager<Playlist> {
       message: 'Colección de playlists del sistema: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const playlist = playlistCollection.getList().find((element) =>
           element.getName() === answer.name);
@@ -128,12 +128,19 @@ export class PlaylistManager implements SubManager<Playlist> {
                 repUpper.reverse();
                 this.printSong(repUpper);
                 break;
-              case printSongs.Singles:
-                const singles : Song[] = [];
-                playlist.getSongs().forEach((song) => {
-                  if (song.getSingle() === true) singles.push(song);
+              case printSongs.SinglesY:
+                const singlesY : Song[] = [];
+                songCollection.getList().forEach((song) => {
+                  if (song.getSingle() === true) singlesY.push(song);
                 });
-                this.printSong(singles);
+                this.printSong(singlesY);
+                break;
+              case printSongs.SinglesN:
+                const singlesN : Song[] = [];
+                songCollection.getList().forEach((song) => {
+                  if (song.getSingle() === false) singlesN.push(song);
+                });
+                this.printSong(singlesN);
                 break;
               case printSongs.Exit:
                 this.printMode();
@@ -154,7 +161,7 @@ export class PlaylistManager implements SubManager<Playlist> {
     list.forEach((playlist) => {
       option.push(playlist.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'rawlist',
@@ -163,7 +170,7 @@ export class PlaylistManager implements SubManager<Playlist> {
       message: 'Colección de playlists del sistema: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const playlist = list.find((element) =>
           element.getName() === answer.name);
@@ -289,7 +296,7 @@ export class PlaylistManager implements SubManager<Playlist> {
     playlistCollection.getList().forEach((playlist) => {
       option.push(playlist.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'rawlist',
@@ -298,58 +305,60 @@ export class PlaylistManager implements SubManager<Playlist> {
       message: 'Elija playlist de referencia: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      const playlist = playlistCollection.getList().find((element) =>
-        element.getName() === answer.name);
-      if (playlist) {
-        const playlistSongs : Song[] = [];
-        playlist.getSongs().forEach((song) => {
-          playlistSongs.push(song);
-        });
-        inquirer.prompt({
-          name: 'name',
-          message: 'Nombre de la nueva playlist: ',
-        }).then((name : {name: string}) => {
-          const leftSongs : Song[] = [];
-          songCollection.getList().forEach((song) => {
-            leftSongs.push(song);
+      if (answer.name != '- Cancelar') {
+        const playlist = playlistCollection.getList().find((element) =>
+          element.getName() === answer.name);
+        if (playlist) {
+          const playlistSongs : Song[] = [];
+          playlist.getSongs().forEach((song) => {
+            playlistSongs.push(song);
           });
-          for (let i = 0; i < leftSongs.length; i++) {
-            playlist.getSongs().forEach((song) => {
-              if (song.getName() === leftSongs[i].getName()) {
-                leftSongs.splice(i, 1);
-              }
-            });
-          }
           inquirer.prompt({
-            type: 'checkbox',
-            name: 'songs',
-            message: 'Elija las canciones nuevas que se añadirán: ',
-            choices: leftSongs,
-          }).then((songs : {songs: string[]}) => {
-            const playlistName : string = name.name;
-            songs.songs.forEach((name) => {
-              const song = songCollection.getList().find((element) =>
-                element.getName() === name);
-              if (song) playlistSongs.push(song);
+            name: 'name',
+            message: 'Nombre de la nueva playlist: ',
+          }).then((name : {name: string}) => {
+            const leftSongs : Song[] = [];
+            songCollection.getList().forEach((song) => {
+              leftSongs.push(song);
             });
-            const playlist : Playlist = new Playlist(this.user, playlistName,
-                playlistSongs);
-            playlistCollection.addItem(playlist);
-            console.clear();
-            console.log('Se ha creado y añadido su playlist');
-            update();
-            playlist.print();
+            for (let i = 0; i < leftSongs.length; i++) {
+              playlist.getSongs().forEach((song) => {
+                if (song.getName() === leftSongs[i].getName()) {
+                  leftSongs.splice(i, 1);
+                }
+              });
+            }
             inquirer.prompt({
-              type: 'list',
-              name: 'end',
-              message: '------',
-              choices: ['Volver'],
-            }).then(() => {
-              this.add();
+              type: 'checkbox',
+              name: 'songs',
+              message: 'Elija las canciones nuevas que se añadirán: ',
+              choices: leftSongs,
+            }).then((songs : {songs: string[]}) => {
+              const playlistName : string = name.name;
+              songs.songs.forEach((name) => {
+                const song = songCollection.getList().find((element) =>
+                  element.getName() === name);
+                if (song) playlistSongs.push(song);
+              });
+              const playlist : Playlist = new Playlist(this.user, playlistName,
+                  playlistSongs);
+              playlistCollection.addItem(playlist);
+              console.clear();
+              console.log('Se ha creado y añadido su playlist');
+              update();
+              playlist.print();
+              inquirer.prompt({
+                type: 'list',
+                name: 'end',
+                message: '------',
+                choices: ['Volver'],
+              }).then(() => {
+                this.add();
+              });
             });
           });
-        });
-      }
+        }
+      } else this.add();
     });
   }
 
@@ -381,7 +390,7 @@ export class PlaylistManager implements SubManager<Playlist> {
     playlistCollection.getList().forEach((playlist) => {
       option.push(playlist.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'list',
@@ -390,7 +399,7 @@ export class PlaylistManager implements SubManager<Playlist> {
       message: 'Elija la playlist que desea eliminar: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const playlist = playlistCollection.getList().find((element) =>
           element.getName() === answer.name);
@@ -516,7 +525,7 @@ export class PlaylistManager implements SubManager<Playlist> {
     playlistCollection.getList().forEach((playlist) => {
       option.push(playlist.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'list',
@@ -525,7 +534,7 @@ export class PlaylistManager implements SubManager<Playlist> {
       message: 'Elija la playlist que desea modificar: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const playlist = playlistCollection.getList().find((element) =>
           element.getName() === answer.name);

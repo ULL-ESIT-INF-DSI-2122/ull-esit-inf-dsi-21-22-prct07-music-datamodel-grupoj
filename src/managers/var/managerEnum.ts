@@ -99,7 +99,7 @@ export enum printGenre {
  * Opciones del submenu para la gestión de playlists
  */
 export enum playlistMenu {
-    Print = 'Previsualizar colección de plsylists',
+    Print = 'Previsualizar colección de playlists',
     Add = 'Añadir una playlist a la colección',
     Mod = 'Modificar una playlist de la colección',
     Del = 'Borrar una playlist de la colección',
@@ -138,6 +138,7 @@ export enum printSongs {
     LenghtUpper = 'Por duración de forma descendente',
     RepLower = 'Por número de reproducciones de forma ascendente',
     RepUpper = 'Por número de reproducciones de forma descendente',
-    Singles = 'Mostrar únicamente los singles lanzados',
+    SinglesY = 'Mostrar únicamente los singles lanzados',
+    SinglesN = 'Mostrar únicamente los no singles lanzados',
     Exit = 'Atras'
   }

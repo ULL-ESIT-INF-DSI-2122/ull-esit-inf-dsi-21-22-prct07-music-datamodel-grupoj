@@ -37,7 +37,7 @@ export class AlbumManager implements SubManager<Album> {
     list.forEach((album) => {
       option.push(album.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'rawlist',
@@ -46,7 +46,7 @@ export class AlbumManager implements SubManager<Album> {
       message: 'Colección de álbumes del sistema: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const album = list.find((element) => element.getName() === answer.name);
         if (album) album.print();
@@ -215,7 +215,7 @@ export class AlbumManager implements SubManager<Album> {
     albumCollection.getList().forEach((album) => {
       option.push(album.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'list',
@@ -224,7 +224,7 @@ export class AlbumManager implements SubManager<Album> {
       message: 'Elija el álbum que desea eliminar: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const album = albumCollection.getList().find((element) =>
           element.getName() === answer.name);

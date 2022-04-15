@@ -37,7 +37,7 @@ export class SongManager implements SubManager<Song> {
     list.forEach((song) => {
       option.push(song.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'rawlist',
@@ -46,7 +46,7 @@ export class SongManager implements SubManager<Song> {
       message: 'Colección de canciones del sistema: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const song = list.find((element) => element.getName() === answer.name);
         if (song) song.print();
@@ -112,12 +112,19 @@ export class SongManager implements SubManager<Song> {
           repUpper.reverse();
           this.print(repUpper);
           break;
-        case printSongs.Singles:
-          const singles : Song[] = [];
+        case printSongs.SinglesY:
+          const singlesY : Song[] = [];
           songCollection.getList().forEach((song) => {
-            if (song.getSingle() === true) singles.push(song);
+            if (song.getSingle() === true) singlesY.push(song);
           });
-          this.print(singles);
+          this.print(singlesY);
+          break;
+        case printSongs.SinglesN:
+          const singlesN : Song[] = [];
+          songCollection.getList().forEach((song) => {
+            if (song.getSingle() === false) singlesN.push(song);
+          });
+          this.print(singlesN);
           break;
         case printSongs.Exit:
           this.management();
@@ -237,7 +244,7 @@ export class SongManager implements SubManager<Song> {
     songCollection.getList().forEach((song) => {
       option.push(song.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'list',
@@ -246,7 +253,7 @@ export class SongManager implements SubManager<Song> {
       message: 'Elija la canción que desea eliminar: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const song = songCollection.getList().find((element) =>
           element.getName() === answer.name);

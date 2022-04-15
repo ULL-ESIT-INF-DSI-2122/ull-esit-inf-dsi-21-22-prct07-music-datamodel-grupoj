@@ -2,53 +2,96 @@
   "Groups": [
     {
       "user": "system",
-      "name": "grupo1",
+      "name": "Calle13",
       "artists": [
-        "artista1",
-        "artista2"
+        "Residente",
+        "Visitante",
+        "ILe"
       ],
-      "year": 2000,
-      "rep": 1000
+      "year": 2004,
+      "rep": 6543532
     },
     {
       "user": "system",
-      "name": "grupo2",
+      "name": "Coldplay",
       "artists": [
-        "artista3",
-        "artista4"
+        "Chris Martin",
+        "Jon Buckland",
+        "Guy Berryman",
+        "Will Champion"
       ],
-      "year": 2000,
-      "rep": 1000
+      "year": 1996,
+      "rep": 58491304
     },
     {
       "user": "system",
-      "name": "grupo3",
+      "name": "Imagine Dragons",
       "artists": [
-        "artista5",
-        "artista6"
+        "Dan Reynolds",
+        "Daniel Wayne Sermon",
+        "Ben McKee",
+        "Daniel Platzman"
       ],
-      "year": 2000,
-      "rep": 1000
+      "year": 2008,
+      "rep": 59087675
     },
     {
       "user": "system",
-      "name": "grupo4",
+      "name": "Kiss",
       "artists": [
-        "artista7",
-        "artista8"
+        "Jene Simmons",
+        "Paul Stanley",
+        "Peter Criss",
+        "Ace Frehley"
       ],
-      "year": 2000,
-      "rep": 1000
+      "year": 1973,
+      "rep": 10550312
     },
     {
       "user": "system",
-      "name": "grupo5",
+      "name": "Lady A",
       "artists": [
-        "artista9",
-        "artista10"
+        "Hillary Scott",
+        "Hillary Scott",
+        "Dave Haywood"
       ],
-      "year": 2000,
-      "rep": 1000
+      "year": 2006,
+      "rep": 7226404
+    },
+    {
+      "user": "system",
+      "name": "Nirvana",
+      "artists": [
+        "Kurt Cobain",
+        "Krist Novoselic"
+      ],
+      "year": 1987,
+      "rep": 27116094
+    },
+    {
+      "user": "system",
+      "name": "One Direction",
+      "artists": [
+        "Harry Styles",
+        "Liam Payne",
+        "Zayn Malik",
+        "Niall Horan",
+        "Louis Tomlinson"
+      ],
+      "year": 2010,
+      "rep": 28220667
+    },
+    {
+      "user": "system",
+      "name": "The Beatles",
+      "artists": [
+        "John Lennon",
+        "Paul McCartney",
+        "George Harrison",
+        "Ringo Starr"
+      ],
+      "year": 1960,
+      "rep": 25216593
     }
   ]
 }

@@ -4,33 +4,33 @@
       "user": "system",
       "name": "playlist1",
       "songs": [
-        "canción1",
-        "canción12",
-        "canción24",
-        "canción36",
-        "canción48"
+        "Intro",
+        "El hormiguero",
+        "La Sombra",
+        "Lounge Act",
+        "Desire"
       ]
     },
     {
       "user": "system",
       "name": "playlist2",
       "songs": [
-        "canción2",
-        "canción13",
-        "canción25",
-        "canción37",
-        "canción49"
+        "Calma Pueblo",
+        "Prepárame la cena",
+        "Milo",
+        "Stay Away",
+        "And I love her"
       ]
     },
     {
       "user": "system",
       "name": "playlist3",
       "songs": [
-        "canción3",
-        "canción14",
-        "canción26",
-        "canción38",
-        "canción50"
+        "Baile de los pobres",
+        "Outro",
+        "El Futuro es Nuestro",
+        "On a plain",
+        "Sappy"
       ]
     }
   ]

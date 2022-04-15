@@ -2,53 +2,173 @@
   "Artists": [
     {
       "user": "system",
-      "name": "artista1",
-      "rep": 1500
+      "name": "Ace Frehley",
+      "rep": 11086393
     },
     {
       "user": "system",
-      "name": "artista10",
-      "rep": 1500
+      "name": "Avicci",
+      "rep": 28923107
     },
     {
       "user": "system",
-      "name": "artista2",
-      "rep": 1500
+      "name": "Ben McKee",
+      "rep": 59089027
     },
     {
       "user": "system",
-      "name": "artista3",
-      "rep": 1500
+      "name": "Charles Kelley",
+      "rep": 80651
     },
     {
       "user": "system",
-      "name": "artista4",
-      "rep": 1500
+      "name": "Chris Martin",
+      "rep": 58498753
     },
     {
       "user": "system",
-      "name": "artista5",
-      "rep": 1500
+      "name": "Dan Reynolds",
+      "rep": 59154354
     },
     {
       "user": "system",
-      "name": "artista6",
-      "rep": 1500
+      "name": "Daniel Platzman",
+      "rep": 59100584
     },
     {
       "user": "system",
-      "name": "artista7",
-      "rep": 1500
+      "name": "Daniel Wayne Sermon",
+      "rep": 59137189
     },
     {
       "user": "system",
-      "name": "artista8",
-      "rep": 1500
+      "name": "Dave Haywood",
+      "rep": 7226465
     },
     {
       "user": "system",
-      "name": "artista9",
-      "rep": 1500
+      "name": "Eminem",
+      "rep": 52673522
+    },
+    {
+      "user": "system",
+      "name": "George Harrison",
+      "rep": 31922247
+    },
+    {
+      "user": "system",
+      "name": "Guy Berryman",
+      "rep": 58572979
+    },
+    {
+      "user": "system",
+      "name": "Harry Styles",
+      "rep": 74710909
+    },
+    {
+      "user": "system",
+      "name": "Hillary Scott",
+      "rep": 7238870
+    },
+    {
+      "user": "system",
+      "name": "ILe",
+      "rep": 6903408
+    },
+    {
+      "user": "system",
+      "name": "Jene Simmons",
+      "rep": 10590363
+    },
+    {
+      "user": "system",
+      "name": "John Lennon",
+      "rep": 33909249
+    },
+    {
+      "user": "system",
+      "name": "Jon Buckland",
+      "rep": 58499007
+    },
+    {
+      "user": "system",
+      "name": "Krist Novoselic",
+      "rep": 27152218
+    },
+    {
+      "user": "system",
+      "name": "Kurt Cobain",
+      "rep": 28139275
+    },
+    {
+      "user": "system",
+      "name": "Liam Payne",
+      "rep": 34623552
+    },
+    {
+      "user": "system",
+      "name": "Louis Tomlinson",
+      "rep": 32240459
+    },
+    {
+      "user": "system",
+      "name": "Melendi",
+      "rep": 5291279
+    },
+    {
+      "user": "system",
+      "name": "Michael Jackson",
+      "rep": 28631572
+    },
+    {
+      "user": "system",
+      "name": "Niall Horan",
+      "rep": 43169003
+    },
+    {
+      "user": "system",
+      "name": "Paul McCartney",
+      "rep": 35703907
+    },
+    {
+      "user": "system",
+      "name": "Paul Stanley",
+      "rep": 10693849
+    },
+    {
+      "user": "system",
+      "name": "Peter Criss",
+      "rep": 10595865
+    },
+    {
+      "user": "system",
+      "name": "Residente",
+      "rep": 14218869
+    },
+    {
+      "user": "system",
+      "name": "Ringo Starr",
+      "rep": 26527858
+    },
+    {
+      "user": "system",
+      "name": "Skrillex",
+      "rep": 20151858
+    },
+    {
+      "user": "system",
+      "name": "Visitante",
+      "rep": 6553735
+    },
+    {
+      "user": "system",
+      "name": "Will Champion",
+      "rep": 58506594
+    },
+    {
+      "user": "system",
+      "name": "Zayn Malik",
+      "rep": 48586738
     }
   ]
 }

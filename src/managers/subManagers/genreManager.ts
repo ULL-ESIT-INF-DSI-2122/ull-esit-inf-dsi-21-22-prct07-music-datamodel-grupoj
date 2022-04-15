@@ -32,7 +32,7 @@ export class MusicGenreManager implements SubManager<MusicGenre> {
     list.forEach((genre) => {
       option.push(genre.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'rawlist',
@@ -41,7 +41,7 @@ export class MusicGenreManager implements SubManager<MusicGenre> {
       message: 'Colección de géneros musicales del sistema: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const genre = list.find((element) => element.getName() ===answer.name);
         if (genre) genre.print();
@@ -155,7 +155,7 @@ export class MusicGenreManager implements SubManager<MusicGenre> {
     musicGenreCollection.getList().forEach((genre) => {
       option.push(genre.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'list',
@@ -164,7 +164,7 @@ export class MusicGenreManager implements SubManager<MusicGenre> {
       message: 'Elija el género musical que desea eliminar: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const genre = musicGenreCollection.getList().find((element) =>
           element.getName() === answer.name);

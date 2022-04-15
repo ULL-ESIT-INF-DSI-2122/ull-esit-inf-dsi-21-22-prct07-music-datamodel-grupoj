@@ -32,7 +32,7 @@ export class ArtistManager implements SubManager<Artist> {
     list.forEach((artist) => {
       option.push(artist.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'rawlist',
@@ -41,7 +41,7 @@ export class ArtistManager implements SubManager<Artist> {
       message: 'Colección de artistas del sistema: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const artist = list.find((element) => element.getName() ===answer.name);
         if (artist) artist.print();
@@ -169,7 +169,7 @@ export class ArtistManager implements SubManager<Artist> {
     artistCollection.getList().forEach((artist) => {
       option.push(artist.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'list',
@@ -178,7 +178,7 @@ export class ArtistManager implements SubManager<Artist> {
       message: 'Elija el artista que desea eliminar: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const artist = artistCollection.getList().find((element) =>
           element.getName() === answer.name);

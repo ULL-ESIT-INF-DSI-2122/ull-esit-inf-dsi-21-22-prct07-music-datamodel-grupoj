@@ -2,122 +2,403 @@
   "Albums": [
     {
       "user": "system",
-      "name": "album1",
-      "creator": "artista1",
-      "year": 2010,
+      "name": "Abbey Road",
+      "creator": "The Beatles",
+      "year": 1969,
       "songs": [
-        "canción2",
-        "canción3",
-        "canción4",
-        "canción5"
+        "Came Together",
+        "Something",
+        "Maxwell`s silver hammer",
+        "Oh! Darling",
+        "Octopus`s garden",
+        "I want you",
+        "Here cames the sun",
+        "Because",
+        "You never give me your money",
+        "Sun King",
+        "Mean Mr Mustard",
+        "Plythene Pam",
+        "She came in throught the bathroom window",
+        "Golden Slumbers",
+        "Carry the weight",
+        "The End",
+        "Her Majestry"
       ]
     },
     {
       "user": "system",
-      "name": "album10",
-      "creator": "grupo5",
+      "name": "Entre los que quieran",
+      "creator": "Calle13",
       "year": 2010,
       "songs": [
-        "canción47",
-        "canción48",
-        "canción49",
-        "canción50"
+        "Intro",
+        "Calma Pueblo",
+        "Baile de los pobres",
+        "La vuelta al mundo",
+        "La Bala",
+        "Vamo` a portarnos mal",
+        "Latinoamérica",
+        "Inter",
+        "Digo lo que pienso",
+        "Muerte en Hawaii",
+        "Todo se mueve",
+        "El hormiguero",
+        "Prepárame la cena",
+        "Outro"
       ]
     },
     {
       "user": "system",
-      "name": "album2",
-      "creator": "artista3",
-      "year": 2010,
+      "name": "Fine Line",
+      "creator": "Harry Styles",
+      "year": 2019,
       "songs": [
-        "canción12",
-        "canción13",
-        "canción14",
-        "canción15"
+        "Golden",
+        "Watermelon Sugar",
+        "Adore you",
+        "Lights Up",
+        "Cherry",
+        "Falling",
+        "To be so lonely",
+        "She",
+        "Sunflower",
+        "Canyon Moon",
+        "Treat People",
+        "Fine Line"
       ]
     },
     {
       "user": "system",
-      "name": "album3",
-      "creator": "artista5",
-      "year": 2010,
+      "name": "Imagine",
+      "creator": "John Lennon",
+      "year": 1971,
       "songs": [
-        "canción22",
-        "canción23",
-        "canción24",
-        "canción25"
+        "Imagine",
+        "Crippled Inside",
+        "Jealous Guy",
+        "It`s so hard",
+        "I don`t wanna be a soldier mama",
+        "Gimme some truth",
+        "Oh my love",
+        "How do you sleep",
+        "How?",
+        "Oh Yoko!"
       ]
     },
     {
       "user": "system",
-      "name": "album4",
-      "creator": "artista7",
-      "year": 2010,
+      "name": "Love Gun",
+      "creator": "Kiss",
+      "year": 1977,
       "songs": [
-        "canción32",
-        "canción33",
-        "canción34",
-        "canción35"
+        "I stole your love",
+        "Christine sixteen",
+        "Got love for sale",
+        "Shock Me",
+        "Tomorrow and Tonight",
+        "Love Gun",
+        "Holligan",
+        "Almost Human",
+        "Plaster Caster",
+        "Then she kissed me"
       ]
     },
     {
       "user": "system",
-      "name": "album5",
-      "creator": "artista9",
-      "year": 2010,
+      "name": "Midnight Hour",
+      "creator": "Liam Payne",
+      "year": 2020,
       "songs": [
-        "canción42",
-        "canción43",
-        "canción44",
-        "canción45"
+        "Midnight",
+        "Y wanna know",
+        "Live Forever",
+        "Let me go",
+        "For You",
+        "Midnight"
       ]
     },
     {
       "user": "system",
-      "name": "album6",
-      "creator": "grupo1",
-      "year": 2010,
+      "name": "Montage of Heck",
+      "creator": "Kurt Cobain",
+      "year": 2015,
       "songs": [
-        "canción7",
-        "canción8",
-        "canción9",
-        "canción10"
+        "The Yodel song",
+        "Been a Song",
+        "The happy guitar",
+        "Clean up before she comes",
+        "Reverb Experiment",
+        "You cant`t change me",
+        "Scoff",
+        "Desire",
+        "And I love her",
+        "Sappy",
+        "Letter to Frances",
+        "Frances farmer will have her revenge on Seatlle",
+        "She only lies"
       ]
     },
     {
       "user": "system",
-      "name": "album7",
-      "creator": "grupo2",
-      "year": 2010,
+      "name": "Nevermind",
+      "creator": "Nirvana",
+      "year": 1991,
       "songs": [
-        "canción17",
-        "canción18",
-        "canción19",
-        "canción20"
+        "Smells like teen spirit",
+        "In Bloom",
+        "Come as you are",
+        "Breed",
+        "Lithium",
+        "Polly",
+        "Territorial Pissing",
+        "Drain you",
+        "Lounge Act",
+        "Stay Away",
+        "On a plain",
+        "Something in the way",
+        "Endless, Nameless"
       ]
     },
     {
       "user": "system",
-      "name": "album8",
-      "creator": "grupo3",
-      "year": 2010,
+      "name": "Night Visions",
+      "creator": "Imagine Dragons",
+      "year": 2012,
       "songs": [
-        "canción27",
-        "canción28",
-        "canción29",
-        "canción30"
+        "Radioactive",
+        "Tiptoe",
+        "It`s time",
+        "Demon",
+        "On top of the World",
+        "Amsterdan",
+        "Hear me",
+        "Every Night",
+        "Bleeding out",
+        "Underdog",
+        "Nothing left to say",
+        "Cha-Ching",
+        "Working Man",
+        "Tokyo"
       ]
     },
     {
       "user": "system",
-      "name": "album9",
-      "creator": "grupo4",
-      "year": 2010,
+      "name": "Nobody is listening",
+      "creator": "Zayn Malik",
+      "year": 2021,
       "songs": [
-        "canción37",
-        "canción38",
-        "canción39",
-        "canción40"
+        "Calamity",
+        "Better",
+        "Outside",
+        "Vibez",
+        "When Love`s Around",
+        "Conexion",
+        "Sweat",
+        "Unfuckwitable",
+        "Windowsill",
+        "Tightrope",
+        "River Road"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "Ocean",
+      "creator": "Lady A",
+      "year": 2019,
+      "songs": [
+        "What if I never get over you",
+        "Pictures",
+        "Crazy Love",
+        "You can do you",
+        "What I`m leaving for",
+        "Be patient with my love",
+        "Alright",
+        "Let it be love",
+        "On a night like this",
+        "Boots",
+        "The thing that wreeks you",
+        "Mansion",
+        "Ocean"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "Parachutes",
+      "creator": "Coldplay",
+      "year": 2000,
+      "songs": [
+        "Don`t Panic",
+        "Shiver",
+        "Spies",
+        "Sparks",
+        "Yellow",
+        "Trouble",
+        "Parachutes",
+        "High Speed",
+        "We never change",
+        "Everything`s not lost"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "Ram",
+      "creator": "John Lennon",
+      "year": 1971,
+      "songs": [
+        "Too many people",
+        "3 legs",
+        "Ram On",
+        "Uncle Albert",
+        "Smile Away",
+        "Hearth of the country",
+        "Monkberry moon delight",
+        "Eat at home",
+        "Loney haired lady",
+        "The back seat of my car"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "Recess",
+      "creator": "Skrillex",
+      "year": 2014,
+      "songs": [
+        "All is far in love and brostep",
+        "Recess",
+        "Stranger",
+        "Try it out",
+        "Coast is clear",
+        "Dirty Vibe",
+        "Dirty Vibe",
+        "Doompy Poomp",
+        "Fuck That",
+        "Erase my mind",
+        "Fire Away"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "Residente",
+      "creator": "Residente",
+      "year": 2017,
+      "songs": [
+        "Intro ADN/DNA",
+        "Somos anormales",
+        "Interludio entre monstañas siberianas",
+        "Una leyenda China",
+        "Interludio Haruna Fati",
+        "Dagombas en Tamale",
+        "Desencuentro",
+        "Guerra",
+        "Apocalíptico",
+        "La Sombra",
+        "Milo",
+        "El Futuro es Nuestro",
+        "Hijos del Cañaveral"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "The marshall mathers LP2",
+      "creator": "Eminem",
+      "year": 2000,
+      "songs": [
+        "Bad Guy",
+        "Parking Lot",
+        "Rhyme of reason",
+        "So much better",
+        "Survival",
+        "Legacy",
+        "Asshole",
+        "Berzerk",
+        "Rap God",
+        "Brainless",
+        "Stronger than I was",
+        "The Monster",
+        "So Far...",
+        "Love Game",
+        "Headlights",
+        "Evil Twin"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "Thriller",
+      "creator": "Michael Jackson",
+      "year": 1982,
+      "songs": [
+        "Wanna Be Startin` Somethin`",
+        "Baby be mine",
+        "The girl is mine",
+        "Thriller",
+        "Beat me",
+        "Billie Jean",
+        "Human Nature",
+        "PYT",
+        "The lady of my life"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "True",
+      "creator": "Avicci",
+      "year": 2013,
+      "songs": [
+        "Wake me up",
+        "You make me",
+        "Hey Brother",
+        "Addicted to you",
+        "Dear Boy",
+        "Liar Liar",
+        "Shame on me",
+        "Lay me down",
+        "Hope there`s someone",
+        "Heart upon my sleeve"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "Un alumno más",
+      "creator": "Melendi",
+      "year": 2014,
+      "songs": [
+        "La promesa",
+        "Tocado y hundido",
+        "La religión de los iditas",
+        "Saraluna",
+        "Cenizas de la eternidad",
+        "El amor es un arte",
+        "Septiembre",
+        "Colgado de la vecina",
+        "Tú de Elvis y yo de Marilyn",
+        "Posdata",
+        "El gordo y el narco"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "Up all night",
+      "creator": "One Direction",
+      "year": 2011,
+      "songs": [
+        "What makes you beutiful",
+        "Gotta be you",
+        "One thing",
+        "Mora than this",
+        "Up all night",
+        "I wish",
+        "Tell me a lie",
+        "Taken",
+        "I want",
+        "Everything about you",
+        "Same Mistakes",
+        "Save you tonight",
+        "Stole my hearth",
+        "Stand Up",
+        "Moments",
+        "Another World",
+        "Na Na Na",
+        "I should have kissed you"
       ]
     }
   ]

@@ -119,10 +119,11 @@ export class Artist {
    * los grupos de los que forma parte con los propios
    */
   getRep() : number {
+    let globalRep = this.rep;
     this.groups.forEach((group) => {
-      this.rep += group.getRep();
+      globalRep += group.getRep();
     });
-    return this.rep;
+    return globalRep;
   }
 
   /**

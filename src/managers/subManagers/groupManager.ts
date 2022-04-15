@@ -34,7 +34,7 @@ export class GroupManager implements SubManager<Group> {
     list.forEach((group) => {
       option.push(group.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'rawlist',
@@ -43,7 +43,7 @@ export class GroupManager implements SubManager<Group> {
       message: 'Colección de grupos del sistema: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const group = list.find((element) => element.getName() ===answer.name);
         if (group) group.print();
@@ -200,7 +200,7 @@ export class GroupManager implements SubManager<Group> {
     groupCollection.getList().forEach((group) => {
       option.push(group.getName());
     });
-    option.push('-Cancelar');
+    option.push('- Cancelar');
     console.clear();
     inquirer.prompt({
       type: 'list',
@@ -209,7 +209,7 @@ export class GroupManager implements SubManager<Group> {
       message: 'Elija el grupo que desea eliminar: ',
       choices: option,
     }).then((answer : {name: string}) => {
-      if (answer.name != '-Cancelar') {
+      if (answer.name != '- Cancelar') {
         console.clear();
         const group = groupCollection.getList().find((element) =>
           element.getName() === answer.name);

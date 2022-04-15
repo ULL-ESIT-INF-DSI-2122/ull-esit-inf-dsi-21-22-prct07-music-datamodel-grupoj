@@ -2,43 +2,63 @@
   "MusicGenres": [
     {
       "user": "system",
-      "name": "genre1"
+      "name": "Alternativo"
     },
     {
       "user": "system",
-      "name": "genre10"
+      "name": "Country"
     },
     {
       "user": "system",
-      "name": "genre2"
+      "name": "Electrónica"
     },
     {
       "user": "system",
-      "name": "genre3"
+      "name": "Folk"
     },
     {
       "user": "system",
-      "name": "genre4"
+      "name": "GlamRock"
     },
     {
       "user": "system",
-      "name": "genre5"
+      "name": "HardRock"
     },
     {
       "user": "system",
-      "name": "genre6"
+      "name": "Indie"
     },
     {
       "user": "system",
-      "name": "genre7"
+      "name": "Latino"
     },
     {
       "user": "system",
-      "name": "genre8"
+      "name": "Metal"
     },
     {
       "user": "system",
-      "name": "genre9"
+      "name": "Pop"
+    },
+    {
+      "user": "system",
+      "name": "Rap"
+    },
+    {
+      "user": "system",
+      "name": "Reguetón"
+    },
+    {
+      "user": "system",
+      "name": "Rock"
+    },
+    {
+      "user": "system",
+      "name": "SoftRock"
+    },
+    {
+      "user": "system",
+      "name": "Urban"
     }
   ]
 }
