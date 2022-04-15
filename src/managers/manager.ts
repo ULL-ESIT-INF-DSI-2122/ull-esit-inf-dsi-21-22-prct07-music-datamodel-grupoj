@@ -8,7 +8,6 @@ import {GroupManager} from './subManagers/groupManager';
 import {MusicGenreManager} from './subManagers/genreManager';
 import {PlaylistManager} from './subManagers/playlistManager';
 import {SongManager} from './subManagers/songManager';
-import {writeSongsData} from '../data/dataFunctions/songFunctions';
 
 const inquirer = require('inquirer');
 

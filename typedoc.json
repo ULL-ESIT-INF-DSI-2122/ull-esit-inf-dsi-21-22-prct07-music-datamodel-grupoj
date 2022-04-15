@@ -1,5 +1,6 @@
 {
   "entryPoints": [
+    "./src/program.ts",
     "./src/objects/album.ts",
     "./src/objects/artist.ts",
     "./src/objects/group.ts",
@@ -13,7 +14,7 @@
     "./src/managers/subManagers/groupManager.ts",
     "./src/managers/subManagers/playlistManager.ts",
     "./src/managers/subManagers/songManager.ts",
-    "./src/managers/var/managerEnum.ts",
+    "./src/managers/var/managerEnums.ts",
     "./src/managers/var/sorts/albumSort.ts",
     "./src/managers/var/sorts/artistSort.ts",
     "./src/managers/var/sorts/groupSort.ts",
