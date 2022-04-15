@@ -1,12 +1,8 @@
 import 'mocha';
 import {assert} from 'chai';
-import {Playlist} from '../src/objects/playlist';
-import {playlistCollection} from '../src/data/var/collections';
-import {Song} from '../src/objects/song';
-import {readData, update} from '../src/data/data';
-
-readData();
-update();
+import {Playlist} from '../../src/objects/playlist';
+import {playlistCollection} from '../../src/data/var/collections';
+import {Song} from '../../src/objects/song';
 
 describe('Playlist class test', () => {
   it('instanceOf of playlist object', () => {

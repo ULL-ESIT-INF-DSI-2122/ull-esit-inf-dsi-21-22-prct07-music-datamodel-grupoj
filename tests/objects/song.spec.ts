@@ -1,11 +1,7 @@
 import 'mocha';
 import {assert} from 'chai';
-import {Song} from '../src/objects/song';
-import {songCollection} from '../src/data/var/collections';
-import {readData, update} from '../src/data/data';
-
-readData();
-update();
+import {Song} from '../../src/objects/song';
+import {songCollection} from '../../src/data/var/collections';
 
 describe('Song class test', () => {
   it('instanceOf of song object', () => {

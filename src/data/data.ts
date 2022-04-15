@@ -69,5 +69,4 @@ export function update() : void {
     musicGenre.getAlbums();
     musicGenre.getSongs();
   });
-  writeData();
 }

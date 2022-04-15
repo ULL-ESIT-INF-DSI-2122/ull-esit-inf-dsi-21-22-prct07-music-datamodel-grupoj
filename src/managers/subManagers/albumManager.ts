@@ -1,4 +1,4 @@
-import {update} from '../../data/data';
+import {update, writeData} from '../../data/data';
 import {Album} from '../../objects/album';
 import {Artist} from '../../objects/artist';
 import {albumCollection, artistCollection, groupCollection,
@@ -7,7 +7,7 @@ import {Group} from '../../objects/group';
 import {Song} from '../../objects/song';
 import {SubManager} from '../manager';
 import {manager} from '../../program';
-import {albumMenu, printAlbum} from '../var/managerEnum';
+import {albumMenu, printAlbum} from '../var/managerEnums';
 import {sortAlbumCreator, sortAlbumName,
   sortAlbumYear} from '../var/sorts/albumSort';
 
@@ -162,6 +162,7 @@ export class AlbumManager implements SubManager<Album> {
                 console.clear();
                 console.log('Se ha creado y añadido su álbum');
                 update();
+                writeData();
                 album.print();
                 inquirer.prompt({
                   type: 'list',
@@ -235,6 +236,7 @@ export class AlbumManager implements SubManager<Album> {
                 albumCollection.getList().splice(i, 1);
                 console.log('Se ha eliminado el álbum');
                 update();
+                writeData();
               }
             }
           } else console.log('No puede borrarlo ya que no es el propietario');

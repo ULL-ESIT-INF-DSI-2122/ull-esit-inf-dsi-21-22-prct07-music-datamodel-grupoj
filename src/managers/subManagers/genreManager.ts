@@ -1,9 +1,9 @@
-import {update} from '../../data/data';
+import {update, writeData} from '../../data/data';
 import {musicGenreCollection} from '../../data/var/collections';
 import {MusicGenre} from '../../objects/musicGenre';
 import {SubManager} from '../manager';
 import {manager} from '../../program';
-import {musicGenreMenu, printGenre} from '../var/managerEnum';
+import {musicGenreMenu, printGenre} from '../var/managerEnums';
 import {sortGenreName} from '../var/sorts/genreSort';
 
 const inquirer = require('inquirer');
@@ -105,6 +105,7 @@ export class MusicGenreManager implements SubManager<MusicGenre> {
         console.clear();
         console.log('Se ha creado y añadido su género musical');
         update();
+        writeData();
         genre.print();
         inquirer.prompt({
           type: 'list',
@@ -176,6 +177,7 @@ export class MusicGenreManager implements SubManager<MusicGenre> {
                 musicGenreCollection.getList().splice(i, 1);
                 console.log('Se ha eliminado el género musical');
                 update();
+                writeData();
               }
             }
           } else console.log('No puede borrarlo ya que no es el propietario');

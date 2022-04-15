@@ -1,11 +1,7 @@
 import 'mocha';
 import {assert} from 'chai';
-import {Group} from '../src/objects/group';
-import {groupCollection} from '../src/data/var/collections';
-import {readData, update} from '../src/data/data';
-
-readData();
-update();
+import {Group} from '../../src/objects/group';
+import {groupCollection} from '../../src/data/var/collections';
 
 describe('Group class test', () => {
   it('instanceOf of group object', () => {

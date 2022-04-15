@@ -1,10 +1,10 @@
-import {update} from '../../data/data';
+import {update, writeData} from '../../data/data';
 import {Artist} from '../../objects/artist';
 import {artistCollection, groupCollection} from '../../data/var/collections';
 import {Group} from '../../objects/group';
 import {SubManager} from '../manager';
 import {manager} from '../../program';
-import {groupMenu, printGroup} from '../var/managerEnum';
+import {groupMenu, printGroup} from '../var/managerEnums';
 import {sortGroupName, sortGroupRep,
   sortGroupYear} from '../var/sorts/groupSort';
 
@@ -148,6 +148,7 @@ export class GroupManager implements SubManager<Group> {
               console.clear();
               console.log('Se ha creado y añadido su grupo');
               update();
+              writeData();
               group.print();
               inquirer.prompt({
                 type: 'list',
@@ -220,6 +221,7 @@ export class GroupManager implements SubManager<Group> {
                 groupCollection.getList().splice(i, 1);
                 console.log('Se ha eliminado el grupo');
                 update();
+                writeData();
               }
             }
           } else console.log('No puede borrarlo ya que no es el propietario');

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import {rawData} from '../data/rawData';
-import {readData, update} from '../data/data';
-import {menuOptions} from './var/managerEnum';
+import {readData, update, writeData} from '../data/data';
+import {menuOptions} from './var/managerEnums';
 import {AlbumManager} from './subManagers/albumManager';
 import {ArtistManager} from './subManagers/artistManager';
 import {GroupManager} from './subManagers/groupManager';
@@ -41,6 +41,7 @@ export class Manager {
     rawData();
     // readData();
     update();
+    writeData();
     this.login();
   }
 

@@ -1,9 +1,9 @@
-import {update} from '../../data/data';
+import {update, writeData} from '../../data/data';
 import {Artist} from '../../objects/artist';
 import {artistCollection} from '../../data/var/collections';
 import {SubManager} from '../manager';
 import {manager} from '../../program';
-import {artistMenu, printArtist} from '../var/managerEnum';
+import {artistMenu, printArtist} from '../var/managerEnums';
 import {sortArtistName, sortArtistRep} from '../var/sorts/artistSort';
 
 const inquirer = require('inquirer');
@@ -119,6 +119,7 @@ export class ArtistManager implements SubManager<Artist> {
           console.clear();
           console.log('Se ha creado y añadido su artista');
           update();
+          writeData();
           artist.print();
           inquirer.prompt({
             type: 'list',
@@ -189,6 +190,7 @@ export class ArtistManager implements SubManager<Artist> {
                 artistCollection.getList().splice(i, 1);
                 console.log('Se ha eliminado el artista');
                 update();
+                writeData();
               }
             }
           } else console.log('No puede borrarlo ya que no es el propietario');

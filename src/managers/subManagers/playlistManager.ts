@@ -1,10 +1,10 @@
-import {update} from '../../data/data';
+import {update, writeData} from '../../data/data';
 import {playlistCollection, songCollection} from '../../data/var/collections';
 import {Playlist} from '../../objects/playlist';
 import {Song} from '../../objects/song';
 import {SubManager} from '../manager';
 import {manager} from '../../program';
-import {playlistMenu, printPlaylist, printSongs} from '../var/managerEnum';
+import {playlistMenu, printPlaylist, printSongs} from '../var/managerEnums';
 import {sortPlaylistLenght, sortPlaylistName} from '../var/sorts/playlistSort';
 import {sortSongName, sortSongCreator,
   sortSongLenght, sortSongRep} from '../var/sorts/songSort';
@@ -262,6 +262,7 @@ export class PlaylistManager implements SubManager<Playlist> {
           console.clear();
           console.log('Se ha creado y añadido su playlist');
           update();
+          writeData();
           playlist.print();
           inquirer.prompt({
             type: 'list',
@@ -346,6 +347,7 @@ export class PlaylistManager implements SubManager<Playlist> {
               console.clear();
               console.log('Se ha creado y añadido su playlist');
               update();
+              writeData();
               playlist.print();
               inquirer.prompt({
                 type: 'list',
@@ -411,6 +413,7 @@ export class PlaylistManager implements SubManager<Playlist> {
                 playlistCollection.getList().splice(i, 1);
                 console.log('Se ha eliminado la playlist');
                 update();
+                writeData();
               }
             }
           } else console.log('No puede borrarla ya que no es el propietario');
@@ -459,6 +462,7 @@ export class PlaylistManager implements SubManager<Playlist> {
           });
           console.log('Se agregaron las canciones a la playlist');
           update();
+          writeData();
         }
       }
       inquirer.prompt({
@@ -501,6 +505,7 @@ export class PlaylistManager implements SubManager<Playlist> {
           });
           console.log('Se eliminaron las canciones de la playlist');
           update();
+          writeData();
         }
       }
       inquirer.prompt({

@@ -1,4 +1,4 @@
-import {update} from '../../data/data';
+import {update, writeData} from '../../data/data';
 import {Artist} from '../../objects/artist';
 import {artistCollection, groupCollection, musicGenreCollection,
   songCollection} from '../../data/var/collections';
@@ -6,7 +6,7 @@ import {Group} from '../../objects/group';
 import {Song} from '../../objects/song';
 import {SubManager} from '../manager';
 import {manager} from '../../program';
-import {printSongs, songMenu} from '../var/managerEnum';
+import {printSongs, songMenu} from '../var/managerEnums';
 import {sortSongCreator, sortSongLenght,
   sortSongName, sortSongRep} from '../var/sorts/songSort';
 import {MusicGenre} from '../../objects/musicGenre';
@@ -190,6 +190,7 @@ export class SongManager implements SubManager<Song> {
                   console.clear();
                   console.log('Se ha creado y añadido su canción');
                   update();
+                  writeData();
                   song.print();
                   inquirer.prompt({
                     type: 'list',
@@ -264,6 +265,7 @@ export class SongManager implements SubManager<Song> {
                 songCollection.getList().splice(i, 1);
                 console.log('Se ha eliminado la canción');
                 update();
+                writeData();
               }
             }
           } else console.log('No puede borrarla ya que no es el propietario');

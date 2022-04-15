@@ -1,12 +1,8 @@
 import 'mocha';
 import {assert} from 'chai';
-import {Artist} from '../src/objects/artist';
-import {artistCollection} from '../src/data/var/collections';
-import {MusicGenre} from '../src/objects/musicGenre';
-import {readData, update} from '../src/data/data';
-
-readData();
-update();
+import {Artist} from '../../src/objects/artist';
+import {artistCollection} from '../../src/data/var/collections';
+import {MusicGenre} from '../../src/objects/musicGenre';
 
 describe('Artist class test', () => {
   it('instanceOf artist object', () => {

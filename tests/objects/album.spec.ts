@@ -1,12 +1,8 @@
 import 'mocha';
 import {assert} from 'chai';
-import {Album} from '../src/objects/album';
-import {albumCollection} from '../src/data/var/collections';
-import {Song} from '../src/objects/song';
-import {readData, update} from '../src/data/data';
-
-readData();
-update();
+import {Album} from '../../src/objects/album';
+import {albumCollection} from '../../src/data/var/collections';
+import {Song} from '../../src/objects/song';
 
 describe('Album class test', () => {
   it('instanceOf album object', () => {
