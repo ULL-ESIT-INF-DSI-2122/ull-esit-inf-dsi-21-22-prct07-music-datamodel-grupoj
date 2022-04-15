@@ -27,7 +27,7 @@ export function writeArtistData() {
     artists.push({
       user: artist.user,
       name: artist.getName(),
-      rep: artist.getRep(),
+      rep: artist.rep,
     });
   });
   db.defaults().write();
@@ -39,6 +39,10 @@ export function writeArtistData() {
  * de datos y los añade a la colección del sistema
  */
 export function readArtistData() {
+  artistCollection.getList().splice(0, artistCollection.getLenght());
+  artistCollection.getList().forEach((element) => {
+    artistCollection.getList().pop();
+  });
   const artistData : artistData[] = db.get('Artists').value();
   artistData.forEach((artist) => {
     artistCollection.addItem(new Artist(artist.user, artist.name, artist.rep));

@@ -44,6 +44,10 @@ export function writePlaylistData() {
  * de datos y los añade a la colección del sistema
  */
 export function readPlaylistData() {
+  playlistCollection.getList().splice(0, playlistCollection.getLenght());
+  playlistCollection.getList().forEach((element) => {
+    playlistCollection.getList().pop();
+  });
   const playlistData : playlistData[] = db.get('Playlists').value();
   playlistData.forEach((playlist) => {
     const songs : Song[] = [];

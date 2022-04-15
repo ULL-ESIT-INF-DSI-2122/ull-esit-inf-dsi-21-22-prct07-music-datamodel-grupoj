@@ -38,6 +38,10 @@ export function writeGenreData() {
  * de la base de datos y los añade a la colección del sistema
  */
 export function readGenreData() {
+  musicGenreCollection.getList().splice(0, musicGenreCollection.getLenght());
+  musicGenreCollection.getList().forEach((element) => {
+    musicGenreCollection.getList().pop();
+  });
   const genreData : genreData[] = db.get('MusicGenres').value();
   genreData.forEach((genre) => {
     musicGenreCollection.addItem(new MusicGenre(genre.user, genre.name));

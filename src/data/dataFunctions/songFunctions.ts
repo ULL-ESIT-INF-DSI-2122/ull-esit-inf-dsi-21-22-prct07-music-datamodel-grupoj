@@ -50,6 +50,10 @@ export function writeSongsData() {
  * de datos y los añade a la colección del sistema
  */
 export function readSongsData() {
+  songCollection.getList().splice(0, songCollection.getLenght());
+  songCollection.getList().forEach((element) => {
+    songCollection.getList().pop();
+  });
   const songsData : songData[] = db.get('Songs').value();
   songsData.forEach((song) => {
     const creators : (Artist | Group)[] = [];

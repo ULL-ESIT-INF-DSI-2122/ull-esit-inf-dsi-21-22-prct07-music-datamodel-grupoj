@@ -140,7 +140,7 @@ export class Artist {
    * @param rep Número de oyentes del artista de forma individual
    */
   constructor(public user : string, private name : string,
-    private rep : number) {}
+    public rep : number) {}
 
   /**
    * @returns Devuelve el nombre del artista
@@ -2387,12 +2387,13 @@ export function writeAlbumData() {
 
 Por otro lado, la función de lectura realizará la tarea opuesta. Esta leerá todos los objetos almacenados en el fichero json correspondiente, para convertirlo en datos de tipo albumData, y posteriormente crear nuevos objetos que se almacenarán en la colección del sistema.
 
-```typescipt
+```typescript
 /**
  * @function Lee todos los álbumes del fichero albumData.json de la base
  * de datos y los añade a la colección del sistema
  */
 export function readAlbumData() {
+  albumCollection.getList().splice(0, albumCollection.getLenght());
   const albumData : albumData[] = db.get('Albums').value();
   albumData.forEach((album) => {
     const creators : (Artist | Group)[] = [];
@@ -2464,6 +2465,7 @@ Por otro lado, la función de lectura realizará la tarea opuesta. Esta leerá t
  * de datos y los añade a la colección del sistema
  */
 export function readArtistData() {
+  artistCollection.getList().splice(0, artistCollection.getLenght());
   const artistData : artistData[] = db.get('Artists').value();
   artistData.forEach((artist) => {
     artistCollection.addItem(new Artist(artist.user, artist.name, artist.rep));
@@ -2516,6 +2518,7 @@ Por otro lado, la función de lectura realizará la tarea opuesta. Esta leerá t
  * de la base de datos y los añade a la colección del sistema
  */
 export function readGenreData() {
+  musicGenreCollection.getList().splice(0, musicGenreCollection.getLenght());
   const genreData : genreData[] = db.get('MusicGenres').value();
   genreData.forEach((genre) => {
     musicGenreCollection.addItem(new MusicGenre(genre.user, genre.name));
@@ -2572,6 +2575,7 @@ Por otro lado, la función de lectura realizará la tarea opuesta. Esta leerá t
  * de datos y los añade a la colección del sistema
  */
 export function readGroupData() {
+  groupCollection.getList().splice(0, groupCollection.getLenght());
   const groupData : groupData[] = db.get('Groups').value();
   groupData.forEach((group) => {
     const artists : Artist[] = [];
@@ -2636,6 +2640,7 @@ Por otro lado, la función de lectura realizará la tarea opuesta. Esta leerá t
  * de datos y los añade a la colección del sistema
  */
 export function readPlaylistData() {
+  playlistCollection.getList().splice(0, playlistCollection.getLenght());
   const playlistData : playlistData[] = db.get('Playlists').value();
   playlistData.forEach((playlist) => {
     const songs : Song[] = [];
@@ -2703,6 +2708,7 @@ Por otro lado, la función de lectura realizará la tarea opuesta. Esta leerá t
  * de datos y los añade a la colección del sistema
  */
 export function readSongsData() {
+  songCollection.getList().splice(0, songCollection.getLenght());
   const songsData : songData[] = db.get('Songs').value();
   songsData.forEach((song) => {
     const creators : (Artist | Group)[] = [];

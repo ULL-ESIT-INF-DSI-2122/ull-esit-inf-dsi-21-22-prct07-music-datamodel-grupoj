@@ -49,6 +49,7 @@ export function writeAlbumData() {
  * de datos y los añade a la colección del sistema
  */
 export function readAlbumData() {
+  albumCollection.getList().splice(0, albumCollection.getLenght());
   const albumData : albumData[] = db.get('Albums').value();
   albumData.forEach((album) => {
     const creators : (Artist | Group)[] = [];

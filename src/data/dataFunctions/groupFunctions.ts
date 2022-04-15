@@ -46,6 +46,10 @@ export function writeGroupData() {
  * de datos y los añade a la colección del sistema
  */
 export function readGroupData() {
+  groupCollection.getList().splice(0, groupCollection.getLenght());
+  groupCollection.getList().forEach((element) => {
+    groupCollection.getList().pop();
+  });
   const groupData : groupData[] = db.get('Groups').value();
   groupData.forEach((group) => {
     const artists : Artist[] = [];

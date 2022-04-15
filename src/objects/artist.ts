@@ -41,7 +41,7 @@ export class Artist {
    * @param rep Número de oyentes del artista de forma individual
    */
   constructor(public user : string, private name : string,
-    private rep : number) {}
+    public rep : number) {}
 
   /**
    * @returns Devuelve el nombre del artista

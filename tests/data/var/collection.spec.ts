@@ -13,12 +13,20 @@ describe('ItemsCollection class test', () => {
     assert.instanceOf(playlistCollection, ItemsCollection);
     assert.instanceOf(songCollection, ItemsCollection);
   });
-  it('test of getLenght() function', () => {
-    assert.typeOf(albumCollection.getLenght(), 'number');
-    assert.typeOf(artistCollection.getLenght(), 'number');
-    assert.typeOf(groupCollection.getLenght(), 'number');
-    assert.typeOf(musicGenreCollection.getLenght(), 'number');
-    assert.typeOf(playlistCollection.getLenght(), 'number');
-    assert.typeOf(songCollection.getLenght(), 'number');
+  it('getLenght() function test', () => {
+    assert.isNotNull(albumCollection.getList());
+    assert.isNotNull(artistCollection.getList());
+    assert.isNotNull(groupCollection.getList());
+    assert.isNotNull(musicGenreCollection.getList());
+    assert.isNotNull(playlistCollection.getList());
+    assert.isNotNull(songCollection.getList());
+  });
+  it('getLenght() function test', () => {
+    assert.isNotNull(albumCollection.getLenght());
+    assert.isNotNull(artistCollection.getLenght());
+    assert.isNotNull(groupCollection.getLenght());
+    assert.isNotNull(musicGenreCollection.getLenght());
+    assert.isNotNull(playlistCollection.getLenght());
+    assert.isNotNull(songCollection.getLenght());
   });
 });
