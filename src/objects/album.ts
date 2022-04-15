@@ -18,7 +18,7 @@ export class Album {
    * @param name Nombre del album
    * @param creator Nombre del artista o grupo creador
    * @param year Año de publicación
-   * @param songs Canciones que hay en el album
+   * @param songs Canciones que hay en el álbum
    */
   constructor(public user : string, private name : string,
     private creator : Group | Artist, private year : number,

@@ -10,6 +10,10 @@
     },
     {
       "user": "system",
+      "name": "Dubstep"
+    },
+    {
+      "user": "system",
       "name": "Electrónica"
     },
     {
@@ -23,6 +27,14 @@
     {
       "user": "system",
       "name": "HardRock"
+    },
+    {
+      "user": "system",
+      "name": "Hip-Hop"
+    },
+    {
+      "user": "system",
+      "name": "House"
     },
     {
       "user": "system",

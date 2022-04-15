@@ -6,7 +6,7 @@
       "creator": "The Beatles",
       "year": 1969,
       "songs": [
-        "Came Together",
+        "Come Together",
         "Something",
         "Maxwell`s silver hammer",
         "Oh! Darling",
@@ -23,6 +23,33 @@
         "Carry the weight",
         "The End",
         "Her Majestry"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "Barrio Fino",
+      "creator": "Daddy Yankee",
+      "year": 2004,
+      "songs": [
+        "King Daddy",
+        "Dale Caliente",
+        "No me dejes solo",
+        "Gasolina",
+        "Like You",
+        "El Muro",
+        "Lo que pasó, pasó",
+        "Tu Príncipe",
+        "Cuéntame",
+        "Santifica tus escapularios",
+        "Sabor a Melao",
+        "El Empuje",
+        "Qué vas a hacer?",
+        "Salud y vida",
+        "Intermedio \"Gavilán\"",
+        "Corazones",
+        "Golpe de Estado",
+        "2 Mujeres",
+        "Saber tu nombre"
       ]
     },
     {
@@ -168,7 +195,7 @@
         "Radioactive",
         "Tiptoe",
         "It`s time",
-        "Demon",
+        "Demons",
         "On top of the World",
         "Amsterdan",
         "Hear me",
@@ -364,7 +391,7 @@
       "songs": [
         "La promesa",
         "Tocado y hundido",
-        "La religión de los iditas",
+        "La religión de los idiotas",
         "Saraluna",
         "Cenizas de la eternidad",
         "El amor es un arte",

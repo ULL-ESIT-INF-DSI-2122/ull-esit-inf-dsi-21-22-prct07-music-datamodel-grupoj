@@ -27,12 +27,12 @@ export function writeData() {
  * y la almacena en la colección del sistema
  */
 export function readData() {
+  readSongsData();
+  readPlaylistData();
   readAlbumData();
+  readGroupData();
   readArtistData();
   readGenreData();
-  readGroupData();
-  readPlaylistData();
-  readSongsData();
 }
 
 /**

@@ -2,35 +2,82 @@
   "Playlists": [
     {
       "user": "system",
-      "name": "playlist1",
+      "name": "Canciones de amor",
       "songs": [
-        "Intro",
-        "El hormiguero",
-        "La Sombra",
-        "Lounge Act",
-        "Desire"
+        "Oh my love",
+        "Oh Yoko!",
+        "For You",
+        "When Love`s Around",
+        "Oh! Darling",
+        "I want you",
+        "Ocean",
+        "Crazy Love",
+        "Be patient with my love",
+        "Then she kissed me",
+        "And I love her",
+        "Falling",
+        "Muerte en Hawaii"
       ]
     },
     {
       "user": "system",
-      "name": "playlist2",
+      "name": "Canciones para estudiar",
+      "songs": [
+        "Sunflower",
+        "Cherry",
+        "Bleeding out",
+        "Yellow",
+        "Trouble",
+        "One thing",
+        "Moments",
+        "Ocean",
+        "Alright",
+        "Imagine"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "Hits en español",
       "songs": [
         "Calma Pueblo",
-        "Prepárame la cena",
+        "Tocado y hundido",
+        "La promesa",
+        "Gasolina",
+        "Guerra",
+        "Apocalíptico",
+        "La Sombra",
         "Milo",
-        "Stay Away",
-        "And I love her"
+        "Saraluna"
       ]
     },
     {
       "user": "system",
-      "name": "playlist3",
+      "name": "Música para entrenar",
       "songs": [
-        "Baile de los pobres",
-        "Outro",
-        "El Futuro es Nuestro",
-        "On a plain",
-        "Sappy"
+        "Smells like teen spirit",
+        "Radioactive",
+        "Addicted to you",
+        "Watermelon Sugar",
+        "Golden",
+        "On top of the World",
+        "Gasolina",
+        "Cha-Ching",
+        "Na Na Na"
+      ]
+    },
+    {
+      "user": "system",
+      "name": "Para cantar en el coche",
+      "songs": [
+        "What makes you beutiful",
+        "Come as you are",
+        "Muerte en Hawaii",
+        "Demons",
+        "It`s time",
+        "Rap God",
+        "Imagine",
+        "Come Together",
+        "Todo se mueve"
       ]
     }
   ]

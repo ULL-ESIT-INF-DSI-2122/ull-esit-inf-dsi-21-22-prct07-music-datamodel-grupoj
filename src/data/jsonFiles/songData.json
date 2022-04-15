@@ -2,6 +2,18 @@
   "Songs": [
     {
       "user": "system",
+      "name": "2 Mujeres",
+      "creator": "Daddy Yankee",
+      "lenght": 189,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Reguetón"
+      ],
+      "rep": 4044615
+    },
+    {
+      "user": "system",
       "name": "3 legs",
       "creator": "Paul McCartney",
       "lenght": 167,
@@ -16,7 +28,10 @@
       "name": "Addicted to you",
       "creator": "Avicci",
       "lenght": 148,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "House"
+      ],
       "rep": 272688892
     },
     {
@@ -35,7 +50,11 @@
       "name": "All is far in love and brostep",
       "creator": "Skrillex",
       "lenght": 249,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "House",
+        "Dubstep"
+      ],
       "rep": 35186244
     },
     {
@@ -105,7 +124,10 @@
       "name": "Asshole",
       "creator": "Eminem",
       "lenght": 288,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 51790205
     },
     {
@@ -113,7 +135,9 @@
       "name": "Baby be mine",
       "creator": "Michael Jackson",
       "lenght": 260,
-      "genres": [],
+      "genres": [
+        "Electrónica"
+      ],
       "rep": 36552767
     },
     {
@@ -121,7 +145,10 @@
       "name": "Bad Guy",
       "creator": "Eminem",
       "lenght": 434,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 97923199
     },
     {
@@ -150,7 +177,10 @@
       "name": "Beat me",
       "creator": "Michael Jackson",
       "lenght": 258,
-      "genres": [],
+      "genres": [
+        "HardRock",
+        "Electrónica"
+      ],
       "rep": 679687887
     },
     {
@@ -179,7 +209,10 @@
       "name": "Berzerk",
       "creator": "Eminem",
       "lenght": 238,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 251906414
     },
     {
@@ -197,7 +230,10 @@
       "name": "Billie Jean",
       "creator": "Michael Jackson",
       "lenght": 294,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Electrónica"
+      ],
       "rep": 1091933963
     },
     {
@@ -227,7 +263,10 @@
       "name": "Brainless",
       "creator": "Eminem",
       "lenght": 286,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 46613413
     },
     {
@@ -262,16 +301,6 @@
     },
     {
       "user": "system",
-      "name": "Came Together",
-      "creator": "The Beatles",
-      "lenght": 259,
-      "genres": [
-        "Rock"
-      ],
-      "rep": 500996275
-    },
-    {
-      "user": "system",
       "name": "Canyon Moon",
       "creator": "Harry Styles",
       "lenght": 189,
@@ -296,7 +325,10 @@
       "name": "Cenizas de la eternidad",
       "creator": "Melendi",
       "lenght": 296,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Rock"
+      ],
       "rep": 10734574
     },
     {
@@ -345,7 +377,10 @@
       "name": "Coast is clear",
       "creator": "Skrillex",
       "lenght": 243,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "House"
+      ],
       "rep": 16848931
     },
     {
@@ -353,8 +388,21 @@
       "name": "Colgado de la vecina",
       "creator": "Melendi",
       "lenght": 218,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Rock"
+      ],
       "rep": 10410559
+    },
+    {
+      "user": "system",
+      "name": "Come Together",
+      "creator": "The Beatles",
+      "lenght": 259,
+      "genres": [
+        "Rock"
+      ],
+      "rep": 500996275
     },
     {
       "user": "system",
@@ -375,6 +423,18 @@
         "Pop"
       ],
       "rep": 15586075
+    },
+    {
+      "user": "system",
+      "name": "Corazones",
+      "creator": "Daddy Yankee",
+      "lenght": 209,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Hip-Hop"
+      ],
+      "rep": 3934226
     },
     {
       "user": "system",
@@ -400,6 +460,17 @@
     },
     {
       "user": "system",
+      "name": "Cuéntame",
+      "creator": "Daddy Yankee",
+      "lenght": 155,
+      "genres": [
+        "Urban",
+        "Latino"
+      ],
+      "rep": 5672636
+    },
+    {
+      "user": "system",
       "name": "Dagombas en Tamale",
       "creator": "Residente",
       "lenght": 235,
@@ -411,15 +482,29 @@
     },
     {
       "user": "system",
+      "name": "Dale Caliente",
+      "creator": "Daddy Yankee",
+      "lenght": 195,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Hip-Hop"
+      ],
+      "rep": 24709331
+    },
+    {
+      "user": "system",
       "name": "Dear Boy",
       "creator": "Avicci",
       "lenght": 479,
-      "genres": [],
+      "genres": [
+        "Electrónica"
+      ],
       "rep": 64345803
     },
     {
       "user": "system",
-      "name": "Demon",
+      "name": "Demons",
       "creator": "Imagine Dragons",
       "lenght": 177,
       "genres": [
@@ -465,7 +550,10 @@
       "name": "Dirty Vibe",
       "creator": "Skrillex",
       "lenght": 206,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "House"
+      ],
       "rep": 33312153
     },
     {
@@ -473,7 +561,9 @@
       "name": "Don`t Panic",
       "creator": "Coldplay",
       "lenght": 136,
-      "genres": [],
+      "genres": [
+        "Alternativo"
+      ],
       "rep": 112382468
     },
     {
@@ -481,7 +571,9 @@
       "name": "Doompy Poomp",
       "creator": "Skrillex",
       "lenght": 205,
-      "genres": [],
+      "genres": [
+        "Electrónica"
+      ],
       "rep": 10617562
     },
     {
@@ -506,6 +598,18 @@
     },
     {
       "user": "system",
+      "name": "El Empuje",
+      "creator": "Daddy Yankee",
+      "lenght": 203,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Reguetón"
+      ],
+      "rep": 1669268
+    },
+    {
+      "user": "system",
       "name": "El Futuro es Nuestro",
       "creator": "Residente",
       "lenght": 266,
@@ -516,10 +620,25 @@
     },
     {
       "user": "system",
+      "name": "El Muro",
+      "creator": "Daddy Yankee",
+      "lenght": 179,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Hip-Hop"
+      ],
+      "rep": 2271
+    },
+    {
+      "user": "system",
       "name": "El amor es un arte",
       "creator": "Melendi",
       "lenght": 265,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Rock"
+      ],
       "rep": 18460719
     },
     {
@@ -527,7 +646,10 @@
       "name": "El gordo y el narco",
       "creator": "Melendi",
       "lenght": 205,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Rock"
+      ],
       "rep": 4930715
     },
     {
@@ -556,7 +678,11 @@
       "name": "Erase my mind",
       "creator": "Skrillex",
       "lenght": 302,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "House",
+        "Dubstep"
+      ],
       "rep": 36659823
     },
     {
@@ -584,7 +710,10 @@
       "name": "Everything`s not lost",
       "creator": "Coldplay",
       "lenght": 436,
-      "genres": [],
+      "genres": [
+        "Rock",
+        "Alternativo"
+      ],
       "rep": 33973788
     },
     {
@@ -592,7 +721,10 @@
       "name": "Evil Twin",
       "creator": "Eminem",
       "lenght": 356,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 26757945
     },
     {
@@ -621,7 +753,10 @@
       "name": "Fire Away",
       "creator": "Skrillex",
       "lenght": 341,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "House"
+      ],
       "rep": 13648545
     },
     {
@@ -650,8 +785,24 @@
       "name": "Fuck That",
       "creator": "Skrillex",
       "lenght": 232,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "Dubstep"
+      ],
       "rep": 16058513
+    },
+    {
+      "user": "system",
+      "name": "Gasolina",
+      "creator": "Daddy Yankee",
+      "lenght": 192,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Reguetón",
+        "Hip-Hop"
+      ],
+      "rep": 402472777
     },
     {
       "user": "system",
@@ -684,6 +835,18 @@
         "Folk"
       ],
       "rep": 68699065
+    },
+    {
+      "user": "system",
+      "name": "Golpe de Estado",
+      "creator": "Daddy Yankee",
+      "lenght": 186,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Reguetón"
+      ],
+      "rep": 1619176
     },
     {
       "user": "system",
@@ -721,7 +884,10 @@
       "name": "Headlights",
       "creator": "Eminem",
       "lenght": 343,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 129092152
     },
     {
@@ -740,7 +906,9 @@
       "name": "Heart upon my sleeve",
       "creator": "Avicci",
       "lenght": 283,
-      "genres": [],
+      "genres": [
+        "Electrónica"
+      ],
       "rep": 24035616
     },
     {
@@ -780,7 +948,10 @@
       "name": "Hey Brother",
       "creator": "Avicci",
       "lenght": 255,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "House"
+      ],
       "rep": 739019409
     },
     {
@@ -788,23 +959,9 @@
       "name": "High Speed",
       "creator": "Coldplay",
       "lenght": 256,
-      "genres": [],
-      "rep": 62863840
-    },
-    {
-      "user": "system",
-      "name": "High Speed",
-      "creator": "Eminem",
-      "lenght": 256,
-      "genres": [],
-      "rep": 62863840
-    },
-    {
-      "user": "system",
-      "name": "High Speed",
-      "creator": "Eminem",
-      "lenght": 256,
-      "genres": [],
+      "genres": [
+        "Alternativo"
+      ],
       "rep": 62863840
     },
     {
@@ -833,7 +990,10 @@
       "name": "Hope there`s someone",
       "creator": "Avicci",
       "lenght": 381,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "House"
+      ],
       "rep": 18315426
     },
     {
@@ -863,7 +1023,9 @@
       "name": "Human Nature",
       "creator": "Michael Jackson",
       "lenght": 242,
-      "genres": [],
+      "genres": [
+        "Pop"
+      ],
       "rep": 122229562
     },
     {
@@ -981,6 +1143,17 @@
     },
     {
       "user": "system",
+      "name": "Intermedio \"Gavilán\"",
+      "creator": "Daddy Yankee",
+      "lenght": 72,
+      "genres": [
+        "Latino",
+        "Hip-Hop"
+      ],
+      "rep": 997193
+    },
+    {
+      "user": "system",
       "name": "Intro",
       "creator": "Calle13",
       "lenght": 198,
@@ -1035,6 +1208,19 @@
     },
     {
       "user": "system",
+      "name": "King Daddy",
+      "creator": "Daddy Yankee",
+      "lenght": 151,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Reguetón",
+        "Hip-Hop"
+      ],
+      "rep": 16798103
+    },
+    {
+      "user": "system",
       "name": "La Bala",
       "creator": "Calle13",
       "lenght": 267,
@@ -1059,15 +1245,21 @@
       "name": "La promesa",
       "creator": "Melendi",
       "lenght": 233,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Rock"
+      ],
       "rep": 83676437
     },
     {
       "user": "system",
-      "name": "La religión de los iditas",
+      "name": "La religión de los idiotas",
       "creator": "Melendi",
       "lenght": 208,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Rock"
+      ],
       "rep": 18765869
     },
     {
@@ -1096,7 +1288,9 @@
       "name": "Lay me down",
       "creator": "Avicci",
       "lenght": 300,
-      "genres": [],
+      "genres": [
+        "Electrónica"
+      ],
       "rep": 43920245
     },
     {
@@ -1104,7 +1298,10 @@
       "name": "Legacy",
       "creator": "Eminem",
       "lenght": 296,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 126771801
     },
     {
@@ -1143,7 +1340,10 @@
       "name": "Liar Liar",
       "creator": "Avicci",
       "lenght": 238,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "House"
+      ],
       "rep": 48008532
     },
     {
@@ -1155,6 +1355,18 @@
         "Pop"
       ],
       "rep": 535870737
+    },
+    {
+      "user": "system",
+      "name": "Like You",
+      "creator": "Daddy Yankee",
+      "lenght": 202,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Hip-Hop"
+      ],
+      "rep": 6865969
     },
     {
       "user": "system",
@@ -1175,6 +1387,19 @@
         "Pop"
       ],
       "rep": 48375820
+    },
+    {
+      "user": "system",
+      "name": "Lo que pasó, pasó",
+      "creator": "Daddy Yankee",
+      "lenght": 210,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Reguetón",
+        "Hip-Hop"
+      ],
+      "rep": 228783138
     },
     {
       "user": "system",
@@ -1202,7 +1427,10 @@
       "name": "Love Game",
       "creator": "Eminem",
       "lenght": 296,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 60994346
     },
     {
@@ -1327,6 +1555,19 @@
         "Pop"
       ],
       "rep": 41504717
+    },
+    {
+      "user": "system",
+      "name": "No me dejes solo",
+      "creator": "Daddy Yankee",
+      "lenght": 170,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Reguetón",
+        "Hip-Hop"
+      ],
+      "rep": 53158362
     },
     {
       "user": "system",
@@ -1457,7 +1698,10 @@
       "name": "PYT",
       "creator": "Michael Jackson",
       "lenght": 239,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Electrónica"
+      ],
       "rep": 274494258
     },
     {
@@ -1465,7 +1709,9 @@
       "name": "Parachutes",
       "creator": "Coldplay",
       "lenght": 46,
-      "genres": [],
+      "genres": [
+        "Indie"
+      ],
       "rep": 42228543
     },
     {
@@ -1473,7 +1719,10 @@
       "name": "Parking Lot",
       "creator": "Eminem",
       "lenght": 55,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 25918050
     },
     {
@@ -1522,7 +1771,10 @@
       "name": "Posdata",
       "creator": "Melendi",
       "lenght": 276,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Rock"
+      ],
       "rep": 19760635
     },
     {
@@ -1535,6 +1787,18 @@
         "Rap"
       ],
       "rep": 9152801
+    },
+    {
+      "user": "system",
+      "name": "Qué vas a hacer?",
+      "creator": "Daddy Yankee",
+      "lenght": 199,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Reguetón"
+      ],
+      "rep": 2275266
     },
     {
       "user": "system",
@@ -1552,7 +1816,10 @@
       "name": "Ragga Bomb",
       "creator": "Skrillex",
       "lenght": 258,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "Dubstep"
+      ],
       "rep": 44239405
     },
     {
@@ -1571,7 +1838,10 @@
       "name": "Rap God",
       "creator": "Eminem",
       "lenght": 363,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 822016140
     },
     {
@@ -1579,7 +1849,10 @@
       "name": "Recess",
       "creator": "Skrillex",
       "lenght": 237,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "Dubstep"
+      ],
       "rep": 107700469
     },
     {
@@ -1597,7 +1870,10 @@
       "name": "Rhyme of reason",
       "creator": "Eminem",
       "lenght": 301,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 55467690
     },
     {
@@ -1612,6 +1888,40 @@
     },
     {
       "user": "system",
+      "name": "Saber tu nombre",
+      "creator": "Daddy Yankee",
+      "lenght": 218,
+      "genres": [
+        "Urban",
+        "Latino"
+      ],
+      "rep": 1260147
+    },
+    {
+      "user": "system",
+      "name": "Sabor a Melao",
+      "creator": "Daddy Yankee",
+      "lenght": 223,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Reguetón"
+      ],
+      "rep": 6947855
+    },
+    {
+      "user": "system",
+      "name": "Salud y vida",
+      "creator": "Daddy Yankee",
+      "lenght": 206,
+      "genres": [
+        "Urban",
+        "Latino"
+      ],
+      "rep": 24126219
+    },
+    {
+      "user": "system",
       "name": "Same Mistakes",
       "creator": "One Direction",
       "lenght": 218,
@@ -1619,6 +1929,18 @@
         "Pop"
       ],
       "rep": 52084588
+    },
+    {
+      "user": "system",
+      "name": "Santifica tus escapularios",
+      "creator": "Daddy Yankee",
+      "lenght": 199,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Hip-Hop"
+      ],
+      "rep": 7633714
     },
     {
       "user": "system",
@@ -1635,7 +1957,10 @@
       "name": "Saraluna",
       "creator": "Melendi",
       "lenght": 432,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Rock"
+      ],
       "rep": 10880610
     },
     {
@@ -1663,7 +1988,10 @@
       "name": "Septiembre",
       "creator": "Melendi",
       "lenght": 246,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Rock"
+      ],
       "rep": 14582086
     },
     {
@@ -1671,7 +1999,9 @@
       "name": "Shame on me",
       "creator": "Avicci",
       "lenght": 253,
-      "genres": [],
+      "genres": [
+        "Electrónica"
+      ],
       "rep": 26075
     },
     {
@@ -1711,7 +2041,10 @@
       "name": "Shiver",
       "creator": "Coldplay",
       "lenght": 304,
-      "genres": [],
+      "genres": [
+        "Rock",
+        "Alternativo"
+      ],
       "rep": 116223914
     },
     {
@@ -1750,7 +2083,10 @@
       "name": "So Far...",
       "creator": "Eminem",
       "lenght": 317,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 47300740
     },
     {
@@ -1758,7 +2094,10 @@
       "name": "So much better",
       "creator": "Eminem",
       "lenght": 261,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 50784292
     },
     {
@@ -1798,7 +2137,9 @@
       "name": "Sparks",
       "creator": "Coldplay",
       "lenght": 227,
-      "genres": [],
+      "genres": [
+        "Indie"
+      ],
       "rep": 254177620
     },
     {
@@ -1806,7 +2147,10 @@
       "name": "Spies",
       "creator": "Coldplay",
       "lenght": 318,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Indie"
+      ],
       "rep": 41078826
     },
     {
@@ -1844,7 +2188,11 @@
       "name": "Stranger",
       "creator": "Skrillex",
       "lenght": 289,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "Dubstep",
+        "Hip-Hop"
+      ],
       "rep": 25689827
     },
     {
@@ -1852,7 +2200,10 @@
       "name": "Stronger than I was",
       "creator": "Eminem",
       "lenght": 336,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 56536523
     },
     {
@@ -1880,7 +2231,10 @@
       "name": "Survival",
       "creator": "Eminem",
       "lenght": 272,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 214651935
     },
     {
@@ -1939,7 +2293,10 @@
       "name": "The Monster",
       "creator": "Eminem",
       "lenght": 250,
-      "genres": [],
+      "genres": [
+        "Rap",
+        "Hip-Hop"
+      ],
       "rep": 720540047
     },
     {
@@ -1968,7 +2325,10 @@
       "name": "The girl is mine",
       "creator": "Michael Jackson",
       "lenght": 224,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Electrónica"
+      ],
       "rep": 77750323
     },
     {
@@ -1986,7 +2346,10 @@
       "name": "The lady of my life",
       "creator": "Michael Jackson",
       "lenght": 300,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "Folk"
+      ],
       "rep": 37852017
     },
     {
@@ -2014,7 +2377,9 @@
       "name": "Thriller",
       "creator": "Michael Jackson",
       "lenght": 297,
-      "genres": [],
+      "genres": [
+        "Electrónica"
+      ],
       "rep": 388589029
     },
     {
@@ -2052,7 +2417,10 @@
       "name": "Tocado y hundido",
       "creator": "Melendi",
       "lenght": 211,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Rock"
+      ],
       "rep": 59231642
     },
     {
@@ -2114,7 +2482,9 @@
       "name": "Trouble",
       "creator": "Coldplay",
       "lenght": 273,
-      "genres": [],
+      "genres": [
+        "Indie"
+      ],
       "rep": 238281703
     },
     {
@@ -2122,15 +2492,33 @@
       "name": "Try it out",
       "creator": "Skrillex",
       "lenght": 229,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "House"
+      ],
       "rep": 49789644
+    },
+    {
+      "user": "system",
+      "name": "Tu Príncipe",
+      "creator": "Daddy Yankee",
+      "lenght": 205,
+      "genres": [
+        "Urban",
+        "Latino",
+        "Reguetón"
+      ],
+      "rep": 138810880
     },
     {
       "user": "system",
       "name": "Tú de Elvis y yo de Marilyn",
       "creator": "Melendi",
       "lenght": 224,
-      "genres": [],
+      "genres": [
+        "Pop",
+        "Rock"
+      ],
       "rep": 6293233
     },
     {
@@ -2212,7 +2600,10 @@
       "name": "Wake me up",
       "creator": "Avicci",
       "lenght": 247,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "House"
+      ],
       "rep": 1545638734
     },
     {
@@ -2220,7 +2611,9 @@
       "name": "Wanna Be Startin` Somethin`",
       "creator": "Michael Jackson",
       "lenght": 303,
-      "genres": [],
+      "genres": [
+        "Electrónica"
+      ],
       "rep": 125542268
     },
     {
@@ -2238,7 +2631,9 @@
       "name": "We never change",
       "creator": "Coldplay",
       "lenght": 249,
-      "genres": [],
+      "genres": [
+        "Alternativo"
+      ],
       "rep": 52865794
     },
     {
@@ -2320,7 +2715,10 @@
       "name": "Yellow",
       "creator": "Coldplay",
       "lenght": 266,
-      "genres": [],
+      "genres": [
+        "Rock",
+        "Alternativo"
+      ],
       "rep": 1128578545
     },
     {
@@ -2348,7 +2746,10 @@
       "name": "You make me",
       "creator": "Avicci",
       "lenght": 233,
-      "genres": [],
+      "genres": [
+        "Electrónica",
+        "House"
+      ],
       "rep": 255997677
     },
     {

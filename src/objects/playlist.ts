@@ -42,9 +42,11 @@ export class Playlist {
    * todas las canciones de la playlist
    */
   getLenght() : string {
+    let globalLenght = 0;
     this.songs.forEach((song) => {
-      this.lenght += song.lenght;
+      globalLenght += song.lenght;
     });
+    this.lenght = globalLenght;
     const hour = Math.floor(this.lenght / 3600);
     const minute = Math.floor((this.lenght / 60) % 60);
     const second = this.lenght % 60;

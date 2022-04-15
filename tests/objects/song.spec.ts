@@ -29,4 +29,9 @@ describe('Song class test', () => {
       assert.typeOf(song.getRep(), 'number');
     });
   });
+  it('return of print() function', () => {
+    songCollection.getList().forEach((song) => {
+      assert.equal(song.print(), undefined);
+    });
+  });
 });

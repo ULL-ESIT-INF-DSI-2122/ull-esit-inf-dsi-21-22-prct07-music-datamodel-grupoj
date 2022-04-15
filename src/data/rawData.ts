@@ -44,6 +44,12 @@ export function rawData() {
     musicGenreCollection.addItem(genre);
     genre = new MusicGenre('system', 'Folk');
     musicGenreCollection.addItem(genre);
+    genre = new MusicGenre('system', 'House');
+    musicGenreCollection.addItem(genre);
+    genre = new MusicGenre('system', 'Dubstep');
+    musicGenreCollection.addItem(genre);
+    genre = new MusicGenre('system', 'Hip-Hop');
+    musicGenreCollection.addItem(genre);
   }
   // Artistas dentro de la colección del sistema
   {
@@ -131,6 +137,8 @@ export function rawData() {
     artist = new Artist('system', 'Michael Jackson', 28631572);
     artistCollection.addItem(artist);
     artist = new Artist('system', 'Skrillex', 20151858);
+    artistCollection.addItem(artist);
+    artist = new Artist('system', 'Daddy Yankee', 43855958);
     artistCollection.addItem(artist);
   }
   // Grupos dentro de la colección del sistema
@@ -399,7 +407,7 @@ export function rawData() {
         240, [musicGenreCollection.getList()[4],
           musicGenreCollection.getList()[6]], 519963927);
     songCollection.addItem(song);
-    song = new Song('system', 'Demon', groupCollection.getList()[2],
+    song = new Song('system', 'Demons', groupCollection.getList()[2],
         177, [musicGenreCollection.getList()[6],
           musicGenreCollection.getList()[7]], 1396795710);
     songCollection.addItem(song);
@@ -695,7 +703,7 @@ export function rawData() {
     songCollection.addItem(song);
 
     // The Beatles: Abbey Road
-    song = new Song('system', 'Came Together', groupCollection.getList()[6],
+    song = new Song('system', 'Come Together', groupCollection.getList()[6],
         259, [musicGenreCollection.getList()[5]], 500996275);
     songCollection.addItem(song);
     song = new Song('system', 'Something', groupCollection.getList()[6],
@@ -846,241 +854,389 @@ export function rawData() {
 
     // Coldplay: Parachutes
     song = new Song('system', 'Don`t Panic', groupCollection.getList()[7],
-        136, [], 112382468);
+        136, [musicGenreCollection.getList()[6]], 112382468);
     songCollection.addItem(song);
     song = new Song('system', 'Shiver', groupCollection.getList()[7],
-        304, [], 116223914);
+        304, [musicGenreCollection.getList()[5],
+          musicGenreCollection.getList()[6]], 116223914);
     songCollection.addItem(song);
     song = new Song('system', 'Spies', groupCollection.getList()[7],
-        318, [], 41078826);
+        318, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[7]], 41078826);
     songCollection.addItem(song);
     song = new Song('system', 'Sparks', groupCollection.getList()[7],
-        227, [], 254177620);
+        227, [musicGenreCollection.getList()[7]], 254177620);
     songCollection.addItem(song);
     song = new Song('system', 'Yellow', groupCollection.getList()[7],
-        266, [], 1128578545);
+        266, [musicGenreCollection.getList()[5],
+          musicGenreCollection.getList()[6]], 1128578545);
     songCollection.addItem(song);
     song = new Song('system', 'Trouble', groupCollection.getList()[7],
-        273, [], 238281703);
+        273, [musicGenreCollection.getList()[7]], 238281703);
     songCollection.addItem(song);
     song = new Song('system', 'Parachutes', groupCollection.getList()[7],
-        46, [], 42228543);
+        46, [musicGenreCollection.getList()[7]], 42228543);
     songCollection.addItem(song);
     song = new Song('system', 'High Speed', groupCollection.getList()[7],
-        256, [], 62863840);
+        256, [musicGenreCollection.getList()[6]], 62863840);
     songCollection.addItem(song);
     song = new Song('system', 'We never change', groupCollection.getList()[7],
-        249, [], 52865794);
+        249, [musicGenreCollection.getList()[6]], 52865794);
     songCollection.addItem(song);
     song = new Song('system', 'Everything`s not lost',
         groupCollection.getList()[7],
-        436, [], 33973788);
+        436, [musicGenreCollection.getList()[5],
+          musicGenreCollection.getList()[6]], 33973788);
     songCollection.addItem(song);
 
     // Avicii: True
     song = new Song('system', 'Wake me up', artistCollection.getList()[29],
-        247, [], 1545638734);
+        247, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[15]], 1545638734);
     songCollection.addItem(song);
     song = new Song('system', 'You make me', artistCollection.getList()[29],
-        233, [], 255997677);
+        233, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[15]], 255997677);
     songCollection.addItem(song);
     song = new Song('system', 'Hey Brother', artistCollection.getList()[29],
-        255, [], 739019409);
+        255, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[15]], 739019409);
     songCollection.addItem(song);
     song = new Song('system', 'Addicted to you', artistCollection.getList()[29],
-        148, [], 272688892);
+        148, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[15]], 272688892);
     songCollection.addItem(song);
     song = new Song('system', 'Dear Boy', artistCollection.getList()[29],
-        479, [], 64345803);
+        479, [musicGenreCollection.getList()[13]], 64345803);
     songCollection.addItem(song);
     song = new Song('system', 'Liar Liar', artistCollection.getList()[29],
-        238, [], 48008532);
+        238, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[15]], 48008532);
     songCollection.addItem(song);
     song = new Song('system', 'Shame on me', artistCollection.getList()[29],
-        253, [], 26075);
+        253, [musicGenreCollection.getList()[13]], 26075);
     songCollection.addItem(song);
     song = new Song('system', 'Lay me down', artistCollection.getList()[29],
-        300, [], 43920245);
+        300, [musicGenreCollection.getList()[13]], 43920245);
     songCollection.addItem(song);
     song = new Song('system', 'Hope there`s someone',
         artistCollection.getList()[29],
-        381, [], 18315426);
+        381, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[15]], 18315426);
     songCollection.addItem(song);
     song = new Song('system', 'Heart upon my sleeve',
         artistCollection.getList()[29],
-        283, [], 24035616);
+        283, [musicGenreCollection.getList()[13]], 24035616);
     songCollection.addItem(song);
 
     // Eminem: The marshall mathers LP2
     song = new Song('system', 'Bad Guy', artistCollection.getList()[30],
-        434, [], 97923199);
+        434, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 97923199);
     songCollection.addItem(song);
     song = new Song('system', 'Parking Lot', artistCollection.getList()[30],
-        55, [], 25918050);
+        55, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 25918050);
     songCollection.addItem(song);
     song = new Song('system', 'Rhyme of reason', artistCollection.getList()[30],
-        301, [], 55467690);
+        301, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 55467690);
     songCollection.addItem(song);
     song = new Song('system', 'So much better', artistCollection.getList()[30],
-        261, [], 50784292);
+        261, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 50784292);
     songCollection.addItem(song);
     song = new Song('system', 'Survival', artistCollection.getList()[30],
-        272, [], 214651935);
+        272, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 214651935);
     songCollection.addItem(song);
     song = new Song('system', 'Legacy', artistCollection.getList()[30],
-        296, [], 126771801);
+        296, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 126771801);
     songCollection.addItem(song);
     song = new Song('system', 'Asshole', artistCollection.getList()[30],
-        288, [], 51790205);
+        288, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 51790205);
     songCollection.addItem(song);
     song = new Song('system', 'Berzerk', artistCollection.getList()[30],
-        238, [], 251906414);
+        238, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 251906414);
     songCollection.addItem(song);
     song = new Song('system', 'Rap God', artistCollection.getList()[30],
-        363, [], 822016140);
+        363, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 822016140);
     songCollection.addItem(song);
     song = new Song('system', 'Brainless', artistCollection.getList()[30],
-        286, [], 46613413);
+        286, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 46613413);
     songCollection.addItem(song);
     song = new Song('system', 'Stronger than I was',
         artistCollection.getList()[30],
-        336, [], 56536523);
+        336, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 56536523);
     songCollection.addItem(song);
     song = new Song('system', 'The Monster', artistCollection.getList()[30],
-        250, [], 720540047);
+        250, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 720540047);
     songCollection.addItem(song);
     song = new Song('system', 'So Far...', artistCollection.getList()[30],
-        317, [], 47300740);
+        317, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 47300740);
     songCollection.addItem(song);
     song = new Song('system', 'Love Game', artistCollection.getList()[30],
-        296, [], 60994346);
+        296, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 60994346);
     songCollection.addItem(song);
     song = new Song('system', 'Headlights', artistCollection.getList()[30],
-        343, [], 129092152);
+        343, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 129092152);
     songCollection.addItem(song);
     song = new Song('system', 'Evil Twin', artistCollection.getList()[30],
-        356, [], 26757945);
+        356, [musicGenreCollection.getList()[2],
+          musicGenreCollection.getList()[17]], 26757945);
     songCollection.addItem(song);
 
     // Melendi: Un alumno más
     song = new Song('system', 'La promesa', artistCollection.getList()[31],
-        233, [], 83676437);
+        233, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[5]], 83676437);
     songCollection.addItem(song);
     song = new Song('system', 'Tocado y hundido',
         artistCollection.getList()[31],
-        211, [], 59231642);
+        211, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[5]], 59231642);
     songCollection.addItem(song);
-    song = new Song('system', 'La religión de los iditas',
+    song = new Song('system', 'La religión de los idiotas',
         artistCollection.getList()[31],
-        208, [], 18765869);
+        208, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[5]], 18765869);
     songCollection.addItem(song);
     song = new Song('system', 'Saraluna', artistCollection.getList()[31],
-        432, [], 10880610);
+        432, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[5]], 10880610);
     songCollection.addItem(song);
     song = new Song('system', 'Cenizas de la eternidad',
         artistCollection.getList()[31],
-        296, [], 10734574);
+        296, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[5]], 10734574);
     songCollection.addItem(song);
     song = new Song('system', 'El amor es un arte',
         artistCollection.getList()[31],
-        265, [], 18460719);
+        265, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[5]], 18460719);
     songCollection.addItem(song);
     song = new Song('system', 'Septiembre', artistCollection.getList()[31],
-        246, [], 14582086);
+        246, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[5]], 14582086);
     songCollection.addItem(song);
     song = new Song('system', 'Colgado de la vecina',
         artistCollection.getList()[31],
-        218, [], 10410559);
+        218, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[5]], 10410559);
     songCollection.addItem(song);
     song = new Song('system', 'Tú de Elvis y yo de Marilyn',
         artistCollection.getList()[31],
-        224, [], 6293233);
+        224, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[5]], 6293233);
     songCollection.addItem(song);
     song = new Song('system', 'Posdata', artistCollection.getList()[31],
-        276, [], 19760635);
+        276, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[5]], 19760635);
     songCollection.addItem(song);
     song = new Song('system', 'El gordo y el narco',
         artistCollection.getList()[31],
-        205, [], 4930715);
+        205, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[5]], 4930715);
     songCollection.addItem(song);
 
     // Michael Jackson: Thriller
     song = new Song('system', 'Wanna Be Startin` Somethin`',
         artistCollection.getList()[32],
-        303, [], 125542268);
+        303, [musicGenreCollection.getList()[13]], 125542268);
     songCollection.addItem(song);
     song = new Song('system', 'Baby be mine', artistCollection.getList()[32],
-        260, [], 36552767);
+        260, [musicGenreCollection.getList()[13]], 36552767);
     songCollection.addItem(song);
     song = new Song('system', 'The girl is mine',
         artistCollection.getList()[32],
-        224, [], 77750323);
+        224, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[13]], 77750323);
     songCollection.addItem(song);
     song = new Song('system', 'Thriller', artistCollection.getList()[32],
-        297, [], 388589029);
+        297, [musicGenreCollection.getList()[13]], 388589029);
     songCollection.addItem(song);
     song = new Song('system', 'Beat me', artistCollection.getList()[32],
-        258, [], 679687887);
+        258, [musicGenreCollection.getList()[9],
+          musicGenreCollection.getList()[13]], 679687887);
     songCollection.addItem(song);
     song = new Song('system', 'Billie Jean', artistCollection.getList()[32],
-        294, [], 1091933963);
+        294, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[13]], 1091933963);
     songCollection.addItem(song);
     song = new Song('system', 'Human Nature', artistCollection.getList()[32],
-        242, [], 122229562);
+        242, [musicGenreCollection.getList()[4]], 122229562);
     songCollection.addItem(song);
     song = new Song('system', 'PYT', artistCollection.getList()[32],
-        239, [], 274494258);
+        239, [musicGenreCollection.getList()[4],
+          musicGenreCollection.getList()[13]], 274494258);
     songCollection.addItem(song);
     song = new Song('system', 'The lady of my life',
         artistCollection.getList()[32],
-        300, [], 37852017);
+        300, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[14]], 37852017);
     songCollection.addItem(song);
 
     // Skrillex: Recess
     song = new Song('system', 'All is far in love and brostep',
         artistCollection.getList()[33],
-        249, [], 35186244);
+        249, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[15],
+          musicGenreCollection.getList()[16]], 35186244);
     songCollection.addItem(song);
     song = new Song('system', 'Recess', artistCollection.getList()[33],
-        237, [], 107700469);
+        237, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[16]], 107700469);
     songCollection.addItem(song);
     song = new Song('system', 'Stranger', artistCollection.getList()[33],
-        289, [], 25689827);
+        289, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[16],
+          musicGenreCollection.getList()[17]], 25689827);
     songCollection.addItem(song);
     song = new Song('system', 'Try it out', artistCollection.getList()[33],
-        229, [], 49789644);
+        229, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[15]], 49789644);
     songCollection.addItem(song);
     song = new Song('system', 'Coast is clear', artistCollection.getList()[33],
-        243, [], 16848931);
+        243, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[15]], 16848931);
     songCollection.addItem(song);
     song = new Song('system', 'Dirty Vibe', artistCollection.getList()[33],
-        206, [], 33312153);
+        206, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[15]], 33312153);
     songCollection.addItem(song);
     song = new Song('system', 'Ragga Bomb', artistCollection.getList()[33],
-        258, [], 44239405);
+        258, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[16]], 44239405);
     songCollection.addItem(song);
     song = new Song('system', 'Doompy Poomp', artistCollection.getList()[33],
-        205, [], 10617562);
+        205, [musicGenreCollection.getList()[13]], 10617562);
     songCollection.addItem(song);
     song = new Song('system', 'Fuck That', artistCollection.getList()[33],
-        232, [], 16058513);
+        232, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[16]], 16058513);
     songCollection.addItem(song);
     song = new Song('system', 'Erase my mind', artistCollection.getList()[33],
-        302, [], 36659823);
+        302, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[15],
+          musicGenreCollection.getList()[16]], 36659823);
     songCollection.addItem(song);
     song = new Song('system', 'Fire Away', artistCollection.getList()[33],
-        341, [], 13648545);
+        341, [musicGenreCollection.getList()[13],
+          musicGenreCollection.getList()[15]], 13648545);
+    songCollection.addItem(song);
+
+    // Daddy Yankee: Barrio Fino
+    song = new Song('system', 'King Daddy', artistCollection.getList()[34],
+        151, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[3],
+          musicGenreCollection.getList()[17]], 16798103);
+    songCollection.addItem(song);
+    song = new Song('system', 'Dale Caliente', artistCollection.getList()[34],
+        195, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[17]], 24709331);
+    songCollection.addItem(song);
+    song = new Song('system', 'No me dejes solo',
+        artistCollection.getList()[34],
+        170, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[3],
+          musicGenreCollection.getList()[17]], 53158362);
+    songCollection.addItem(song);
+    song = new Song('system', 'Gasolina', artistCollection.getList()[34],
+        192, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[3],
+          musicGenreCollection.getList()[17]], 402472777);
+    songCollection.addItem(song);
+    song = new Song('system', 'Like You', artistCollection.getList()[34],
+        202, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[17]], 6865969);
+    songCollection.addItem(song);
+    song = new Song('system', 'El Muro', artistCollection.getList()[34],
+        179, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[17]], 2271);
+    songCollection.addItem(song);
+    song = new Song('system', 'Lo que pasó, pasó',
+        artistCollection.getList()[34],
+        210, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[3],
+          musicGenreCollection.getList()[17]], 228783138);
+    songCollection.addItem(song);
+    song = new Song('system', 'Tu Príncipe', artistCollection.getList()[34],
+        205, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[3]], 138810880);
+    songCollection.addItem(song);
+    song = new Song('system', 'Cuéntame', artistCollection.getList()[34],
+        155, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1]], 5672636);
+    songCollection.addItem(song);
+    song = new Song('system', 'Santifica tus escapularios',
+        artistCollection.getList()[34],
+        199, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[17]], 7633714);
+    songCollection.addItem(song);
+    song = new Song('system', 'Sabor a Melao', artistCollection.getList()[34],
+        223, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[3]], 6947855);
+    songCollection.addItem(song);
+    song = new Song('system', 'El Empuje', artistCollection.getList()[34],
+        203, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[3]], 1669268);
+    songCollection.addItem(song);
+    song = new Song('system', 'Qué vas a hacer?',
+        artistCollection.getList()[34],
+        199, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[3]], 2275266);
+    songCollection.addItem(song);
+    song = new Song('system', 'Salud y vida', artistCollection.getList()[34],
+        206, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1]], 24126219);
+    songCollection.addItem(song);
+    song = new Song('system', 'Intermedio "Gavilán"',
+        artistCollection.getList()[34],
+        72, [musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[17]], 997193);
+    songCollection.addItem(song);
+    song = new Song('system', 'Corazones', artistCollection.getList()[34],
+        209, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[17]], 3934226);
+    songCollection.addItem(song);
+    song = new Song('system', 'Golpe de Estado', artistCollection.getList()[34],
+        186, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[3]], 1619176);
+    songCollection.addItem(song);
+    song = new Song('system', '2 Mujeres', artistCollection.getList()[34],
+        189, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1],
+          musicGenreCollection.getList()[3]], 4044615);
+    songCollection.addItem(song);
+    song = new Song('system', 'Saber tu nombre', artistCollection.getList()[34],
+        218, [musicGenreCollection.getList()[0],
+          musicGenreCollection.getList()[1]], 1260147);
     songCollection.addItem(song);
   }
-  let song = new Song('system', 'High Speed', artistCollection.getList()[30],
-      256, [], 62863840);
-  songCollection.addItem(song);
-
-  //
-  song = new Song('system', 'High Speed', artistCollection.getList()[30],
-      256, [], 62863840);
-  songCollection.addItem(song);
-
   // Álbumes dentro de la colección del sistema
   {
     // Calle 13
@@ -1186,7 +1342,7 @@ export function rawData() {
           songCollection.getList()[116], songCollection.getList()[117],
           songCollection.getList()[118], songCollection.getList()[119]]);
     albumCollection.addItem(album);
-    // Leam Payne
+    // Liam Payne
     album = new Album('system', 'Midnight Hour',
         artistCollection.getList()[17], 2020,
         [songCollection.getList()[120], songCollection.getList()[121],
@@ -1300,21 +1456,60 @@ export function rawData() {
           songCollection.getList()[238], songCollection.getList()[239],
           songCollection.getList()[240]]);
     albumCollection.addItem(album);
+
+    // Daddy Yankee
+    album = new Album('system', 'Barrio Fino',
+        artistCollection.getList()[34], 2004,
+        [songCollection.getList()[241], songCollection.getList()[242],
+          songCollection.getList()[243], songCollection.getList()[244],
+          songCollection.getList()[245], songCollection.getList()[246],
+          songCollection.getList()[247], songCollection.getList()[248],
+          songCollection.getList()[249], songCollection.getList()[250],
+          songCollection.getList()[251], songCollection.getList()[252],
+          songCollection.getList()[253], songCollection.getList()[254],
+          songCollection.getList()[255], songCollection.getList()[256],
+          songCollection.getList()[257], songCollection.getList()[258],
+          songCollection.getList()[259]]);
+    albumCollection.addItem(album);
   }
   // Playlists dentro de la colección del sistema
   {
-    let playlist = new Playlist('system', 'playlist1',
-        [songCollection.getList()[0],
-          songCollection.getList()[11], songCollection.getList()[23],
-          songCollection.getList()[35], songCollection.getList()[47]]);
+    let playlist = new Playlist('system', 'Hits en español',
+        [songCollection.getList()[1], songCollection.getList()[211],
+          songCollection.getList()[210], songCollection.getList()[244],
+          songCollection.getList()[21], songCollection.getList()[22],
+          songCollection.getList()[23], songCollection.getList()[24],
+          songCollection.getList()[213]]);
     playlistCollection.addItem(playlist);
-    playlist = new Playlist('system', 'playlist2', [songCollection.getList()[1],
-      songCollection.getList()[12], songCollection.getList()[24],
-      songCollection.getList()[36], songCollection.getList()[48]]);
+    playlist = new Playlist('system', 'Canciones de amor',
+        [songCollection.getList()[160], songCollection.getList()[163],
+          songCollection.getList()[124], songCollection.getList()[130],
+          songCollection.getList()[140], songCollection.getList()[142],
+          songCollection.getList()[89], songCollection.getList()[79],
+          songCollection.getList()[82], songCollection.getList()[76],
+          songCollection.getList()[48], songCollection.getList()[113],
+          songCollection.getList()[9]]);
     playlistCollection.addItem(playlist);
-    playlist = new Playlist('system', 'playlist3', [songCollection.getList()[2],
-      songCollection.getList()[13], songCollection.getList()[25],
-      songCollection.getList()[37], songCollection.getList()[49]]);
+    playlist = new Playlist('system', 'Canciones para estudiar',
+        [songCollection.getList()[116], songCollection.getList()[112],
+          songCollection.getList()[61], songCollection.getList()[178],
+          songCollection.getList()[179], songCollection.getList()[92],
+          songCollection.getList()[104], songCollection.getList()[89],
+          songCollection.getList()[83], songCollection.getList()[154]]);
+    playlistCollection.addItem(playlist);
+    playlist = new Playlist('system', 'Música para entrenar',
+        [songCollection.getList()[27], songCollection.getList()[53],
+          songCollection.getList()[187], songCollection.getList()[109],
+          songCollection.getList()[108], songCollection.getList()[57],
+          songCollection.getList()[244], songCollection.getList()[64],
+          songCollection.getList()[106]]);
+    playlistCollection.addItem(playlist);
+    playlist = new Playlist('system', 'Para cantar en el coche',
+        [songCollection.getList()[90], songCollection.getList()[29],
+          songCollection.getList()[9], songCollection.getList()[56],
+          songCollection.getList()[55], songCollection.getList()[202],
+          songCollection.getList()[154], songCollection.getList()[137],
+          songCollection.getList()[10]]);
     playlistCollection.addItem(playlist);
   }
 }
