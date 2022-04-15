@@ -2,7 +2,6 @@ import 'mocha';
 import {assert} from 'chai';
 import {Album} from '../../src/objects/album';
 import {albumCollection} from '../../src/data/var/collections';
-import {Song} from '../../src/objects/song';
 
 describe('Album class test', () => {
   it('instanceOf album object', () => {
@@ -10,21 +9,34 @@ describe('Album class test', () => {
       assert.instanceOf(album, Album);
     });
   });
-  it('typeOf getName() function', () => {
+  it('getName() function test', () => {
     albumCollection.getList().forEach((album) => {
-      assert.typeOf(album.getName(), 'string');
+      assert.isNotNull(album.getName());
     });
   });
-  it('typeOf getYear() function', () => {
+  it('getCreator() function test', () => {
     albumCollection.getList().forEach((album) => {
-      assert.typeOf(album.getYear(), 'number');
+      assert.isNotNull(album.getCreator());
     });
   });
-  it('typeOf getSong() function', () => {
+  it('getYear() function test', () => {
     albumCollection.getList().forEach((album) => {
-      album.getSongs().forEach((song) => {
-        assert.instanceOf(song, Song);
-      });
+      assert.isNotNull(album.getYear());
+    });
+  });
+  it('getGenres() function test', () => {
+    albumCollection.getList().forEach((album) => {
+      assert.isNotNull(album.getGenres());
+    });
+  });
+  it('getSongs() function test', () => {
+    albumCollection.getList().forEach((album) => {
+      assert.isNotNull(album.getSongs());
+    });
+  });
+  it('print() function test', () => {
+    albumCollection.getList().forEach((album) => {
+      assert.isUndefined(album.print());
     });
   });
 });

@@ -4,19 +4,54 @@ import {Group} from '../../src/objects/group';
 import {groupCollection} from '../../src/data/var/collections';
 
 describe('Group class test', () => {
-  it('instanceOf of group object', () => {
+  it('instanceOf album object', () => {
     groupCollection.getList().forEach((group) => {
       assert.instanceOf(group, Group);
     });
   });
-  it('typeof of getName() function', () => {
+  it('getName() function test', () => {
     groupCollection.getList().forEach((group) => {
-      assert.typeOf(group.getName(), 'string');
+      assert.isNotNull(group.getName());
     });
   });
-  it('typeof of getYear() function', () => {
+  it('getAlbums() function test', () => {
     groupCollection.getList().forEach((group) => {
-      assert.typeOf(group.getYear(), 'number');
+      assert.isNotNull(group.getAlbums());
+    });
+  });
+  it('getArtist() function test', () => {
+    groupCollection.getList().forEach((group) => {
+      assert.isNotNull(group.getArtists());
+    });
+  });
+  it('getPlaylists() function test', () => {
+    groupCollection.getList().forEach((group) => {
+      assert.isNotNull(group.getPlaylists());
+    });
+  });
+  it('getGenres() function test', () => {
+    groupCollection.getList().forEach((group) => {
+      assert.isNotNull(group.getGenres());
+    });
+  });
+  it('getRep() function test', () => {
+    groupCollection.getList().forEach((group) => {
+      assert.isNotNull(group.getRep());
+    });
+  });
+  it('getSongs() function test', () => {
+    groupCollection.getList().forEach((group) => {
+      assert.isNotNull(group.getSongs());
+    });
+  });
+  it('getYear() function test', () => {
+    groupCollection.getList().forEach((group) => {
+      assert.isNotNull(group.getYear());
+    });
+  });
+  it('print() function test', () => {
+    groupCollection.getList().forEach((group) => {
+      assert.isNotNull(group.print());
     });
   });
 });

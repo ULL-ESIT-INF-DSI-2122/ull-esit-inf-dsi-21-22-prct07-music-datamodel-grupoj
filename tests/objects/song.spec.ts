@@ -9,29 +9,39 @@ describe('Song class test', () => {
       assert.instanceOf(song, Song);
     });
   });
-  it('typeOf of getName() function', () => {
+  it('getName() function test', () => {
     songCollection.getList().forEach((song) => {
-      assert.typeOf(song.getName(), 'string');
+      assert.isNotNull(song.getName());
     });
   });
-  it('typeOf of getLenght() function', () => {
+  it('getLenght() function test', () => {
     songCollection.getList().forEach((song) => {
-      assert.typeOf(song.getLenght(), 'string');
+      assert.isNotNull(song.getLenght());
     });
   });
-  it('typeOf of getSingle() function', () => {
+  it('getCreator() function test', () => {
     songCollection.getList().forEach((song) => {
-      assert.typeOf(song.getSingle(), 'boolean');
+      assert.isNotNull(song.getCreator());
     });
   });
-  it('typeOf of getRep() function', () => {
+  it('getRep() function test', () => {
     songCollection.getList().forEach((song) => {
-      assert.typeOf(song.getRep(), 'number');
+      assert.isNotNull(song.getRep());
     });
   });
-  it('return of print() function', () => {
+  it('getGenres() function test', () => {
     songCollection.getList().forEach((song) => {
-      assert.equal(song.print(), undefined);
+      assert.isNotNull(song.getGenres());
+    });
+  });
+  it('getSingle() function test', () => {
+    songCollection.getList().forEach((song) => {
+      assert.isNotNull(song.getSingle());
+    });
+  });
+  it('print() function test', () => {
+    songCollection.getList().forEach((song) => {
+      assert.isNotNull(song.print());
     });
   });
 });

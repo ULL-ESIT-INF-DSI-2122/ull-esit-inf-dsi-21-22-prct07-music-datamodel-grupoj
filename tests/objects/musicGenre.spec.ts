@@ -9,9 +9,29 @@ describe('MusicGenre class test', () => {
       assert.instanceOf(genre, MusicGenre);
     });
   });
-  it('return of getCreators()', () => {
+  it('getName() function test', () => {
     musicGenreCollection.getList().forEach((genre) => {
-      assert.typeOf(genre.getCreators().length, 'number');
+      assert.isNotNull(genre.getName());
+    });
+  });
+  it('getAlbum() function test', () => {
+    musicGenreCollection.getList().forEach((genre) => {
+      assert.isNotNull(genre.getAlbums());
+    });
+  });
+  it('getCreators() function test', () => {
+    musicGenreCollection.getList().forEach((genre) => {
+      assert.isNotNull(genre.getCreators());
+    });
+  });
+  it('getSongs() function test', () => {
+    musicGenreCollection.getList().forEach((genre) => {
+      assert.isNotNull(genre.getSongs());
+    });
+  });
+  it('print() function test', () => {
+    musicGenreCollection.getList().forEach((genre) => {
+      assert.isNotNull(genre.print());
     });
   });
 });

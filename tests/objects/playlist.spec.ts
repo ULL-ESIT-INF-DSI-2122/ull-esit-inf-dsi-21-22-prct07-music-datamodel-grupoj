@@ -2,8 +2,6 @@ import 'mocha';
 import {assert} from 'chai';
 import {Playlist} from '../../src/objects/playlist';
 import {playlistCollection} from '../../src/data/var/collections';
-import {Song} from '../../src/objects/song';
-import {MusicGenre} from '../../src/objects/musicGenre';
 
 describe('Playlist class test', () => {
   it('instanceOf of playlist object', () => {
@@ -11,33 +9,29 @@ describe('Playlist class test', () => {
       assert.instanceOf(playlist, Playlist);
     });
   });
-  it('typeOf of getName() function', () => {
+  it('getName() function test', () => {
     playlistCollection.getList().forEach((playlist) => {
-      assert.typeOf(playlist.getName(), 'string');
+      assert.isNotNull(playlist.getName());
     });
   });
-  it('typeOf of getSongs() function', () => {
+  it('getSongs() function test', () => {
     playlistCollection.getList().forEach((playlist) => {
-      playlist.getSongs().forEach((song) => {
-        assert.instanceOf(song, Song);
-      });
+      assert.isNotNull(playlist.getSongs());
     });
   });
-  it('typeOf of getLenght() function', () => {
+  it('getLenght() function test', () => {
     playlistCollection.getList().forEach((playlist) => {
-      assert.typeOf(playlist.getLenght(), 'string');
+      assert.isNotNull(playlist.getLenght());
     });
   });
-  it('typeOf of getGenre() function', () => {
+  it('getGenres() function test', () => {
     playlistCollection.getList().forEach((playlist) => {
-      playlist.getGenres().forEach((genre) => {
-        assert.instanceOf(genre, MusicGenre);
-      });
+      assert.isNotNull(playlist.getGenres());
     });
   });
-  it('return of print() function', () => {
+  it('print() function test', () => {
     playlistCollection.getList().forEach((playlist) => {
-      assert.equal(playlist.print(), undefined);
+      assert.isNotNull(playlist.print());
     });
   });
 });
