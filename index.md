@@ -2892,6 +2892,8 @@ Como último apartado, tendremos que llevar a cabo un sistema de gestión de la 
 
 La clase Manager será la encargada de inicar el programa y hará de eje central. Contará con una única propiedad user, al igual que los subgestores que se explicarán más adelante, que representará el usuario que está accedietno a la biblioteca.
 
+En el constructor de la clase se creará a colección del sistema, ya sea de forma predeterminada, con la llamada a la función rawData(), o desde la base de datos, con la llamada a la función readData(), y posteriormente se procederá con el logueo.
+
 La clase tendrá dos funciones, una primera login(), que mediante Inquirer pedirá al usuario que se identifique. Esto facilitará la gestión de los objetos del sistema, ya que únicamente estos podrán ser borrados por sus creador. Tal y como se plateaba antes, la colección del sistema cuenta con una serie de datos por defecto. Dichos datos pertenecen al usuario llamado system, por lo que si no se inicia sesión con el mismo no se podrán eliminar. No obstante, para poder iniciar sesión con system, hará falta introducir una contraseña que por defecto está puesta 1234, aunque la idea es que la contraseña sea de mayor seguridad y permanezca en secreto para simular un perfil de administrador y proteger la información del sistema.
 
 Como segunda dfunción nos encontraremos con el métod management(), el cual, meidante Inquirer, mostrará un menú interactivo para que el usuario pueda decidir que objeto del sistema desea gestionar. En función de la opción seleccionada se creará un subgestor de didcho objeto y se pasará a trabajr con sus propios métodos. Destacar que una vez creado un subgestor se le iguala el nombre de usuario para que no se pierda al cambiar de clase.
@@ -3002,7 +3004,7 @@ export class Manager {
 
 ### Subgestores para cada objeto del sistema
 
-Tal y como se mencionaba anteriormente, existirá un subgestor para cada objeto que exista en el sistema. Dichos subgestores estarán definidos por una interfaz génerica que contará con una serie de métoddos comunes que permitirán llevar a cabo la gestión avanzada que sea necesaria.
+Tal y como se mencionaba anteriormente, existirá un subgestor para cada objeto que exista en el sistema. Dichos subgestores implementarán una interfaz génerica que contará con una serie de métoddos comunes que permitirán llevar a cabo la gestión avanzada que sea necesaria.
 
 ```typescript
 /**
@@ -3020,11 +3022,1953 @@ export interface SubManager <T>{
 ```
 
 #### Clase AlbumManager
+
+La clase AlbumManager será la encargada de la gestión avanzada de los álbumes del sistema. Constará de las funciones que define la interfaz SubManager. En primera instancia, al ser invocada por la clase Manager, se llamará a su métod management(), el cual actuará de node central y donde el usuario podrá decidir que desea hacer.
+
+Entre dichas opciones podemos encontrar la de visualizar la colección, la de añadir un objeto, y la de borrar un objeto. La primera opción llamará al método printMode(), donde se le dará a elegir al usuario en que orden quiere que se le muestre la colección del sistema. Una vez elegida la opción se llamará a la función print(), que mostrará toda la lista de objetos, pudiento acceder a cada uno para mostrar su información con el método print() propio de su clase.
+
+Como segunda opción encontramos la de añadir un objeto, la cual invocará a la función add(), que a su vez hará lo propio con la función create(). En esta segunda función, mediante el uso de Inquirer, se pedirá al usuario todos aquellos datos que sean necesarios para poder crear un objeto nuevo. Una vez creado y añadido el objeo a la colección se hará un llamada a la función update(), parra actualizar posibles dependencias, y otra a la función writeData(), para registrar los cambios en la base de datos.
+
+La tercera opción invocará al método delete(), el cual pedirá al usuario que elija un objeto entre toda la colección del sistema para que sea eliminado. Esta tarea solo se podrá realizar si el usuario que ha iniciado sesión es el mismo que creo el objeto en cuestión. Para eliminar el objeto se hará uso de la función splice() de un vector, y una vez acabada la tarea se harán las llamadas pertienentes a la función update() y writeData().
+
+Por último existirá una opción que permita al usuario volver al menú de la clase Manager para que pueda seguir navegando por la colección.
+
+```typescript
+/**
+ * Clase AlbumManager, permite gestionar el submenu de gestión avanzada
+ * de álbum, así como invocar a diferentes métodos que el usuario
+ * quiera con el fin de maniùlar la información del sistema
+ */
+export class AlbumManager implements SubManager<Album> {
+  /**
+   * Usuario logueado en el sistema
+   */
+  public user : string;
+  /**
+   * Constructor vacío
+   */
+  constructor() {}
+
+  /**
+   * @method Muestra la información del álbum que seleccione el usuario
+   * @param list Lista de canciones donde eligirá el usuario
+   */
+  print(list : Album[]) {
+    const option : string[] = [];
+    list.forEach((album) => {
+      option.push(album.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'rawlist',
+      pageSize: 10,
+      name: 'name',
+      message: 'Colección de álbumes del sistema: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const album = list.find((element) => element.getName() === answer.name);
+        if (album) album.print();
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.print(list);
+        });
+      } else this.printMode();
+    });
+  }
+
+  /**
+   * @method Muestra las opciones con las que se pueden mostras los álbumes
+   * del sistema y ordena en función de los que pida el usuario
+   */
+  printMode() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      pageSize: 7,
+      name: 'option',
+      message: 'Elija el modo: ',
+      choices: Object.values(printAlbum),
+    }).then((answer : {option: string}) => {
+      switch (answer.option) {
+        case printAlbum.NameLower:
+          const nameLower = albumCollection.getList().sort(sortAlbumName);
+          this.print(nameLower);
+          break;
+        case printAlbum.NameUpper:
+          const nameUpper = albumCollection.getList().sort(sortAlbumName);
+          nameUpper.reverse();
+          this.print(nameUpper);
+          break;
+        case printAlbum.CreatorLower:
+          const creatorLower = albumCollection.getList().sort(sortAlbumCreator);
+          this.print(creatorLower);
+          break;
+        case printAlbum.CreatorUpper:
+          const creatorUpper = albumCollection.getList().sort(sortAlbumCreator);
+          creatorUpper.reverse();
+          this.print(creatorUpper);
+          break;
+        case printAlbum.YearLower:
+          const yearLower = albumCollection.getList().sort(sortAlbumYear);
+          this.print(yearLower);
+          break;
+        case printAlbum.YearUpper:
+          const yearUpper = albumCollection.getList().sort(sortAlbumYear);
+          yearUpper.reverse();
+          this.print(yearUpper);
+          break;
+        case printAlbum.Exit:
+          this.management();
+          break;
+      }
+    });
+  }
+
+  /**
+   * @method Crea y añade a la colección del sistema un álbum con todas
+   * sus propiedades necesarias dadas por el usuario
+   */
+  create() {
+    inquirer.prompt({
+      name: 'name',
+      message: 'Nombre del álbum: ',
+    }).then((name : {name: string}) => {
+      const album = albumCollection.getList().find((element) =>
+        element.getName() === name.name);
+      if (!album) {
+        const creators : (Artist | Group)[] = [];
+        artistCollection.getList().forEach((artist) => {
+          creators.push(artist);
+        });
+        groupCollection.getList().forEach((group) => {
+          creators.push(group);
+        });
+        inquirer.prompt({
+          type: 'list',
+          name: 'creator',
+          message: 'Nombre del creador: ',
+          choices: creators,
+        }).then((creator : {creator: string}) => {
+          inquirer.prompt({
+            name: 'year',
+            message: 'Año de publicación: ',
+          }).then((year : {year: string}) => {
+            inquirer.prompt({
+              type: 'checkbox',
+              name: 'songs',
+              message: 'Elija las canciones del álbum: ',
+              choices: songCollection.getList(),
+            }).then((songs : {songs: string[]}) => {
+              const albumName : string = name.name;
+              const albumCreator= creators.find((element) =>
+                element.getName() === creator.creator);
+              const albumYear : number = parseInt(year.year);
+              const albumSongs : Song[] = [];
+              songs.songs.forEach((name) => {
+                const song = songCollection.getList().find((element) =>
+                  element.getName() === name);
+                if (song) albumSongs.push(song);
+              });
+              if (albumCreator) {
+                const album : Album = new Album(this.user, albumName,
+                    albumCreator, albumYear, albumSongs);
+                albumCollection.addItem(album);
+                console.clear();
+                console.log('Se ha creado y añadido su álbum');
+                update();
+                writeData();
+                album.print();
+                inquirer.prompt({
+                  type: 'list',
+                  name: 'end',
+                  message: '------',
+                  choices: ['Volver'],
+                }).then(() => {
+                  this.add();
+                });
+              }
+            });
+          });
+        });
+      } else {
+        console.clear();
+        console.log('Ya existe un álbum con ese nombre');
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.add();
+        });
+      }
+    });
+  }
+
+  /**
+   * @method Invoca a la función create() que se encarga de crear un álbum
+   */
+  add() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      name: 'option',
+      message: 'Elija una opción: ',
+      choices: ['Crear álbum', 'Atrás'],
+    }).then((answer : {option: string}) => {
+      if (answer.option === 'Atrás') this.management();
+      else this.create();
+    });
+  }
+
+  /**
+   * @method Elimina un álbum que el usuario quiera, siempre y cuando este sea
+   * su propietario, de la colección del sistema
+   */
+  delete() {
+    const option : string[] = [];
+    albumCollection.getList().forEach((album) => {
+      option.push(album.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      pageSize: 10,
+      name: 'name',
+      message: 'Elija el álbum que desea eliminar: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const album = albumCollection.getList().find((element) =>
+          element.getName() === answer.name);
+        if (album) {
+          if (album.user === this.user) {
+            for (let i = 0; i < albumCollection.getLenght(); i++) {
+              if (album.getName() === albumCollection.getList()[i].getName()) {
+                albumCollection.getList().splice(i, 1);
+                console.log('Se ha eliminado el álbum');
+                update();
+                writeData();
+              }
+            }
+          } else console.log('No puede borrarlo ya que no es el propietario');
+        }
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.delete();
+        });
+      } else this.management();
+    });
+  }
+
+  /**
+   * @method Subgestor que muestra el submenu de álbum e invoca los diferentes
+   * métodos de la clase en función de las peticiones del usuario
+   */
+  management() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      name: 'option',
+      message: 'Elija qué desea hacer: ',
+      choices: Object.values(albumMenu),
+    }).then((answer : {option: string}) => {
+      switch (answer.option) {
+        case albumMenu.Print:
+          this.printMode();
+          break;
+        case albumMenu.Add:
+          this.add();
+          break;
+        case albumMenu.Del:
+          this.delete();
+          break;
+        case albumMenu.Exit:
+          manager.management();
+          break;
+      }
+    });
+  }
+}
+```
+
 #### Clase ArtistManager
+
+La clase ArtistManager será la encargada de la gestión avanzada de los artistas del sistema. Constará de las funciones que define la interfaz SubManager. En primera instancia, al ser invocada por la clase Manager, se llamará a su métod management(), el cual actuará de node central y donde el usuario podrá decidir que desea hacer.
+
+Entre dichas opciones podemos encontrar la de visualizar la colección, la de añadir un objeto, y la de borrar un objeto. La primera opción llamará al método printMode(), donde se le dará a elegir al usuario en que orden quiere que se le muestre la colección del sistema. Una vez elegida la opción se llamará a la función print(), que mostrará toda la lista de objetos, pudiento acceder a cada uno para mostrar su información con el método print() propio de su clase.
+
+Como segunda opción encontramos la de añadir un objeto, la cual invocará a la función add(), que a su vez hará lo propio con la función create(). En esta segunda función, mediante el uso de Inquirer, se pedirá al usuario todos aquellos datos que sean necesarios para poder crear un objeto nuevo. Una vez creado y añadido el objeo a la colección se hará un llamada a la función update(), parra actualizar posibles dependencias, y otra a la función writeData(), para registrar los cambios en la base de datos.
+
+La tercera opción invocará al método delete(), el cual pedirá al usuario que elija un objeto entre toda la colección del sistema para que sea eliminado. Esta tarea solo se podrá realizar si el usuario que ha iniciado sesión es el mismo que creo el objeto en cuestión. Para eliminar el objeto se hará uso de la función splice() de un vector, y una vez acabada la tarea se harán las llamadas pertienentes a la función update() y writeData().
+
+Por último existirá una opción que permita al usuario volver al menú de la clase Manager para que pueda seguir navegando por la colección.
+
+```typescript
+/**
+ * Clase ArtistManager, permite gestionar el submenu de gestión avanzada
+ * de artista, así como invocar a diferentes métodos que el usuario
+ * quiera con el fin de maniùlar la información del sistema
+ */
+export class ArtistManager implements SubManager<Artist> {
+  /**
+   * Usuario logueado en el sistema
+   */
+  public user : string;
+  /**
+   * Constructor vacío
+   */
+  constructor() {}
+
+  /**
+   * @method Muestra la información del artista que seleccione el usuario
+   * @param list Lista de canciones donde eligirá el usuario
+   */
+  print(list : Artist[]) {
+    const option : string[] = [];
+    list.forEach((artist) => {
+      option.push(artist.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'rawlist',
+      pageSize: 10,
+      name: 'name',
+      message: 'Colección de artistas del sistema: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const artist = list.find((element) => element.getName() ===answer.name);
+        if (artist) artist.print();
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.print(list);
+        });
+      } else this.printMode();
+    });
+  }
+
+  /**
+   * @method Muestra las opciones con las que se pueden mostras los artistas
+   * del sistema y ordena en función de los que pida el usuario
+   */
+  printMode() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      pageSize: 5,
+      name: 'option',
+      message: 'Elija el modo: ',
+      choices: Object.values(printArtist),
+    }).then((answer : {option: string}) => {
+      switch (answer.option) {
+        case printArtist.NameLower:
+          const nameLower = artistCollection.getList().sort(sortArtistName);
+          this.print(nameLower);
+          break;
+        case printArtist.NameUpper:
+          const nameUpper = artistCollection.getList().sort(sortArtistName);
+          nameUpper.reverse();
+          this.print(nameUpper);
+          break;
+        case printArtist.RepLower:
+          const repLower = artistCollection.getList().sort(sortArtistRep);
+          this.print(repLower);
+          break;
+        case printArtist.RepUpper:
+          const repUpper = artistCollection.getList().sort(sortArtistRep);
+          repUpper.reverse();
+          this.print(repUpper);
+          break;
+        case printArtist.Exit:
+          this.management();
+          break;
+      }
+    });
+  }
+
+  /**
+   * @method Crea y añade a la colección del sistema un artista con todas
+   * sus propiedades necesarias dadas por el usuario
+   */
+  create() {
+    inquirer.prompt({
+      name: 'name',
+      message: 'Nombre del artista: ',
+    }).then((name : {name: string}) => {
+      const artist = artistCollection.getList().find((element) =>
+        element.getName() === name.name);
+      if (!artist) {
+        inquirer.prompt({
+          name: 'rep',
+          message: 'Número de oyentes de forma individual: ',
+        }).then((rep : {rep: string}) => {
+          const artistName : string = name.name;
+          const artistRep : number = parseInt(rep.rep);
+          const artist : Artist = new Artist(this.user, artistName, artistRep);
+          artistCollection.addItem(artist);
+          console.clear();
+          console.log('Se ha creado y añadido su artista');
+          update();
+          writeData();
+          artist.print();
+          inquirer.prompt({
+            type: 'list',
+            name: 'end',
+            message: '------',
+            choices: ['Volver'],
+          }).then(() => {
+            this.add();
+          });
+        });
+      } else {
+        console.clear();
+        console.log('Ya existe un artista con ese nombre');
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.add();
+        });
+      }
+    });
+  }
+
+  /**
+   * @method Invoca a la función create() que se encarga de crear un artista
+   */
+  add() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      name: 'option',
+      message: 'Elija una opción: ',
+      choices: ['Crear artista', 'Atrás'],
+    }).then((answer : {option: string}) => {
+      if (answer.option === 'Atrás') this.management();
+      else this.create();
+    });
+  }
+
+  /**
+   * @method Elimina un artista que el usuario quiera, siempre y cuando este sea
+   * su propietario, de la colección del sistema
+   */
+  delete() {
+    const option : string[] = [];
+    artistCollection.getList().forEach((artist) => {
+      option.push(artist.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      pageSize: 10,
+      name: 'name',
+      message: 'Elija el artista que desea eliminar: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const artist = artistCollection.getList().find((element) =>
+          element.getName() === answer.name);
+        if (artist) {
+          if (artist.user === this.user) {
+            for (let i = 0; i < artistCollection.getLenght(); i++) {
+              if (artist.getName() ===artistCollection.getList()[i].getName()) {
+                artistCollection.getList().splice(i, 1);
+                console.log('Se ha eliminado el artista');
+                update();
+                writeData();
+              }
+            }
+          } else console.log('No puede borrarlo ya que no es el propietario');
+        }
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.delete();
+        });
+      } else this.management();
+    });
+  }
+
+  /**
+   * @method Subgestor que muestra el submenu de artista e invoca los diferentes
+   * métodos de la clase en función de las peticiones del usuario
+   */
+  management() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      name: 'option',
+      message: 'Elija qué desea hacer: ',
+      choices: Object.values(artistMenu),
+    }).then((answer : {option: string}) => {
+      switch (answer.option) {
+        case artistMenu.Print:
+          this.printMode();
+          break;
+        case artistMenu.Add:
+          this.add();
+          break;
+        case artistMenu.Del:
+          this.delete();
+          break;
+        case artistMenu.Exit:
+          manager.management();
+          break;
+      }
+    });
+  }
+}
+
+
 #### Clase GenreManager
+
+La clase GenreManager será la encargada de la gestión avanzada de los género musicales del sistema. Constará de las funciones que define la interfaz SubManager. En primera instancia, al ser invocada por la clase Manager, se llamará a su métod management(), el cual actuará de node central y donde el usuario podrá decidir que desea hacer.
+
+Entre dichas opciones podemos encontrar la de visualizar la colección, la de añadir un objeto, y la de borrar un objeto. La primera opción llamará al método printMode(), donde se le dará a elegir al usuario en que orden quiere que se le muestre la colección del sistema. Una vez elegida la opción se llamará a la función print(), que mostrará toda la lista de objetos, pudiento acceder a cada uno para mostrar su información con el método print() propio de su clase.
+
+Como segunda opción encontramos la de añadir un objeto, la cual invocará a la función add(), que a su vez hará lo propio con la función create(). En esta segunda función, mediante el uso de Inquirer, se pedirá al usuario todos aquellos datos que sean necesarios para poder crear un objeto nuevo. Una vez creado y añadido el objeo a la colección se hará un llamada a la función update(), parra actualizar posibles dependencias, y otra a la función writeData(), para registrar los cambios en la base de datos.
+
+La tercera opción invocará al método delete(), el cual pedirá al usuario que elija un objeto entre toda la colección del sistema para que sea eliminado. Esta tarea solo se podrá realizar si el usuario que ha iniciado sesión es el mismo que creo el objeto en cuestión. Para eliminar el objeto se hará uso de la función splice() de un vector, y una vez acabada la tarea se harán las llamadas pertienentes a la función update() y writeData().
+
+Por último existirá una opción que permita al usuario volver al menú de la clase Manager para que pueda seguir navegando por la colección.
+
+```typescript
+/**
+ * Clase MusicGenreManager, permite gestionar el submenu de gestión avanzada
+ * de género musical, así como invocar a diferentes métodos que el usuario
+ * quiera con el fin de maniùlar la información del sistema
+ */
+export class MusicGenreManager implements SubManager<MusicGenre> {
+  /**
+   * Usuario logueado en el sistema
+   */
+  public user : string;
+  /**
+   * Constructor vacío
+   */
+  constructor() {}
+
+  /**
+   * @method Muestra la información del género musical que seleccione el usuario
+   * @param list Lista de canciones donde eligirá el usuario
+   */
+  print(list : MusicGenre[]) {
+    const option : string[] = [];
+    list.forEach((genre) => {
+      option.push(genre.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'rawlist',
+      pageSize: 10,
+      name: 'name',
+      message: 'Colección de géneros musicales del sistema: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const genre = list.find((element) => element.getName() ===answer.name);
+        if (genre) genre.print();
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.print(list);
+        });
+      } else this.printMode();
+    });
+  }
+
+  /**
+   * @method Muestra las opciones con las que se pueden mostras los géneros
+   * musicales del sistema y ordena en función de los que pida el usuario
+   */
+  printMode() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      pageSize: 3,
+      name: 'option',
+      message: 'Elija el modo: ',
+      choices: Object.values(printGenre),
+    }).then((answer : {option: string}) => {
+      switch (answer.option) {
+        case printGenre.NameLower:
+          const nameLower = musicGenreCollection.getList().sort(sortGenreName);
+          this.print(nameLower);
+          break;
+        case printGenre.NameUpper:
+          const nameUpper = musicGenreCollection.getList().sort(sortGenreName);
+          nameUpper.reverse();
+          this.print(nameUpper);
+          break;
+        case printGenre.Exit:
+          this.management();
+          break;
+      }
+    });
+  }
+
+  /**
+   * @method Crea y añade a la colección del sistema un género musical con todas
+   * sus propiedades necesarias dadas por el usuario
+   */
+  create() {
+    inquirer.prompt({
+      name: 'name',
+      message: 'Nombre del género musical: ',
+    }).then((name : {name: string}) => {
+      const genre = musicGenreCollection.getList().find((element) =>
+        element.getName() === name.name);
+      if (!genre) {
+        const genreName : string = name.name;
+        const genre : MusicGenre = new MusicGenre(this.user, genreName);
+        musicGenreCollection.addItem(genre);
+        console.clear();
+        console.log('Se ha creado y añadido su género musical');
+        update();
+        writeData();
+        genre.print();
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.add();
+        });
+      } else {
+        console.clear();
+        console.log('Ya existe un género musical con ese nombre');
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.add();
+        });
+      }
+    });
+  }
+
+  /**
+   * @method Invoca a la función create() que se encarga de crear
+   * un género musical
+   */
+  add() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      name: 'option',
+      message: 'Elija una opción: ',
+      choices: ['Crear género musical', 'Atrás'],
+    }).then((answer : {option: string}) => {
+      if (answer.option === 'Atrás') this.management();
+      else this.create();
+    });
+  }
+
+  /**
+   * @method Elimina un género musical que el usuario quiera, siempre y cuando
+   * este sea su propietario, de la colección del sistema
+   */
+  delete() {
+    const option : string[] = [];
+    musicGenreCollection.getList().forEach((genre) => {
+      option.push(genre.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      pageSize: 10,
+      name: 'name',
+      message: 'Elija el género musical que desea eliminar: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const genre = musicGenreCollection.getList().find((element) =>
+          element.getName() === answer.name);
+        if (genre) {
+          if (genre.user === this.user) {
+            for (let i = 0; i < musicGenreCollection.getLenght(); i++) {
+              if (genre.getName() ===
+                musicGenreCollection.getList()[i].getName()) {
+                musicGenreCollection.getList().splice(i, 1);
+                console.log('Se ha eliminado el género musical');
+                update();
+                writeData();
+              }
+            }
+          } else console.log('No puede borrarlo ya que no es el propietario');
+        }
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.delete();
+        });
+      } else this.management();
+    });
+  }
+
+  /**
+   * @method Subgestor que muestra el submenu de género musical e invoca los
+   * diferentes métodos de la clase en función de las peticiones del usuario
+   */
+  management() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      name: 'option',
+      message: 'Elija qué desea hacer: ',
+      choices: Object.values(musicGenreMenu),
+    }).then((answer : {option: string}) => {
+      switch (answer.option) {
+        case musicGenreMenu.Print:
+          this.printMode();
+          break;
+        case musicGenreMenu.Add:
+          this.add();
+          break;
+        case musicGenreMenu.Del:
+          this.delete();
+          break;
+        case musicGenreMenu.Exit:
+          manager.management();
+          break;
+      }
+    });
+  }
+}
+```
+
 #### Clase GroupManager
+
+La clase GroupManager será la encargada de la gestión avanzada de los grupos del sistema. Constará de las funciones que define la interfaz SubManager. En primera instancia, al ser invocada por la clase Manager, se llamará a su métod management(), el cual actuará de node central y donde el usuario podrá decidir que desea hacer.
+
+Entre dichas opciones podemos encontrar la de visualizar la colección, la de añadir un objeto, y la de borrar un objeto. La primera opción llamará al método printMode(), donde se le dará a elegir al usuario en que orden quiere que se le muestre la colección del sistema. Una vez elegida la opción se llamará a la función print(), que mostrará toda la lista de objetos, pudiento acceder a cada uno para mostrar su información con el método print() propio de su clase.
+
+Como segunda opción encontramos la de añadir un objeto, la cual invocará a la función add(), que a su vez hará lo propio con la función create(). En esta segunda función, mediante el uso de Inquirer, se pedirá al usuario todos aquellos datos que sean necesarios para poder crear un objeto nuevo. Una vez creado y añadido el objeo a la colección se hará un llamada a la función update(), parra actualizar posibles dependencias, y otra a la función writeData(), para registrar los cambios en la base de datos.
+
+La tercera opción invocará al método delete(), el cual pedirá al usuario que elija un objeto entre toda la colección del sistema para que sea eliminado. Esta tarea solo se podrá realizar si el usuario que ha iniciado sesión es el mismo que creo el objeto en cuestión. Para eliminar el objeto se hará uso de la función splice() de un vector, y una vez acabada la tarea se harán las llamadas pertienentes a la función update() y writeData().
+
+Por último existirá una opción que permita al usuario volver al menú de la clase Manager para que pueda seguir navegando por la colección.
+
+```typescript
+/**
+ * Clase GroupManager, permite gestionar el submenu de gestión avanzada
+ * de grupo, así como invocar a diferentes métodos que el usuario
+ * quiera con el fin de maniùlar la información del sistema
+ */
+export class GroupManager implements SubManager<Group> {
+  /**
+   * Usuario logueado en el sistema
+   */
+  public user : string;
+  /**
+   * Constructor vacío
+   */
+  constructor() {}
+
+  /**
+   * @method Muestra la información del grupo que seleccione el usuario
+   * @param list Lista de canciones donde eligirá el usuario
+   */
+  print(list : Group[]) {
+    const option : string[] = [];
+    list.forEach((group) => {
+      option.push(group.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'rawlist',
+      pageSize: 10,
+      name: 'name',
+      message: 'Colección de grupos del sistema: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const group = list.find((element) => element.getName() ===answer.name);
+        if (group) group.print();
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.print(list);
+        });
+      } else this.printMode();
+    });
+  }
+
+  /**
+   * @method Muestra las opciones con las que se pueden mostras los grupos
+   * del sistema y ordena en función de los que pida el usuario
+   */
+  printMode() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      pageSize: 7,
+      name: 'option',
+      message: 'Elija el modo: ',
+      choices: Object.values(printGroup),
+    }).then((answer : {option: string}) => {
+      switch (answer.option) {
+        case printGroup.NameLower:
+          const nameLower = groupCollection.getList().sort(sortGroupName);
+          this.print(nameLower);
+          break;
+        case printGroup.NameUpper:
+          const nameUpper = groupCollection.getList().sort(sortGroupName);
+          nameUpper.reverse();
+          this.print(nameUpper);
+          break;
+        case printGroup.YearLower:
+          const yearLower = groupCollection.getList().sort(sortGroupYear);
+          this.print(yearLower);
+          break;
+        case printGroup.YearUpper:
+          const yearUpper = groupCollection.getList().sort(sortGroupYear);
+          yearUpper.reverse();
+          this.print(yearUpper);
+          break;
+        case printGroup.RepLower:
+          const repLower = groupCollection.getList().sort(sortGroupRep);
+          this.print(repLower);
+          break;
+        case printGroup.RepUpper:
+          const repUpper = groupCollection.getList().sort(sortGroupRep);
+          repUpper.reverse();
+          this.print(repUpper);
+          break;
+        case printGroup.Exit:
+          this.management();
+          break;
+      }
+    });
+  }
+
+  /**
+   * @method Crea y añade a la colección del sistema un grupo con todas
+   * sus propiedades necesarias dadas por el usuario
+   */
+  create() {
+    inquirer.prompt({
+      name: 'name',
+      message: 'Nombre del grupo: ',
+    }).then((name : {name: string}) => {
+      const group = groupCollection.getList().find((element) =>
+        element.getName() === name.name);
+      if (!group) {
+        inquirer.prompt({
+          type: 'checkbox',
+          name: 'artists',
+          message: 'Número de oyentes de forma individual: ',
+          choices: artistCollection.getList(),
+        }).then((artists : {artists: string[]}) => {
+          inquirer.prompt({
+            name: 'year',
+            message: 'Año de creación del grupo: ',
+          }).then((year : {year: string}) => {
+            inquirer.prompt({
+              name: 'rep',
+              message: 'Número de oyentes: ',
+            }).then((rep : {rep: string}) => {
+              const groupName : string = name.name;
+              const groupArtists : Artist[] = [];
+              artists.artists.forEach((name) => {
+                const artist = artistCollection.getList().find((element) =>
+                  element.getName() === name);
+                if (artist) groupArtists.push(artist);
+              });
+              const groupYear = parseInt(year.year);
+              const groupRep : number = parseInt(rep.rep);
+              const group : Group = new Group(this.user, groupName,
+                  groupArtists, groupYear, groupRep);
+              groupCollection.addItem(group);
+              console.clear();
+              console.log('Se ha creado y añadido su grupo');
+              update();
+              writeData();
+              group.print();
+              inquirer.prompt({
+                type: 'list',
+                name: 'end',
+                message: '------',
+                choices: ['Volver'],
+              }).then(() => {
+                this.add();
+              });
+            });
+          });
+        });
+      } else {
+        console.clear();
+        console.log('Ya existe un grupo con ese nombre');
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.add();
+        });
+      }
+    });
+  }
+
+  /**
+   * @method Invoca a la función create() que se encarga de crear un grupo
+   */
+  add() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      name: 'option',
+      message: 'Elija una opción: ',
+      choices: ['Crear grupo', 'Atrás'],
+    }).then((answer : {option: string}) => {
+      if (answer.option === 'Atrás') this.management();
+      else this.create();
+    });
+  }
+
+  /**
+   * @method Elimina un grupo que el usuario quiera, siempre y cuando este sea
+   * su propietario, de la colección del sistema
+   */
+  delete() {
+    const option : string[] = [];
+    groupCollection.getList().forEach((group) => {
+      option.push(group.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      pageSize: 10,
+      name: 'name',
+      message: 'Elija el grupo que desea eliminar: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const group = groupCollection.getList().find((element) =>
+          element.getName() === answer.name);
+        if (group) {
+          if (group.user === this.user) {
+            for (let i = 0; i < groupCollection.getLenght(); i++) {
+              if (group.getName() === groupCollection.getList()[i].getName()) {
+                groupCollection.getList().splice(i, 1);
+                console.log('Se ha eliminado el grupo');
+                update();
+                writeData();
+              }
+            }
+          } else console.log('No puede borrarlo ya que no es el propietario');
+        }
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.delete();
+        });
+      } else this.management();
+    });
+  }
+
+  /**
+   * @method Subgestor que muestra el submenu de grupo e invoca los diferentes
+   * métodos de la clase en función de las peticiones del usuario
+   */
+  management() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      name: 'option',
+      message: 'Elija qué desea hacer: ',
+      choices: Object.values(groupMenu),
+    }).then((answer : {option: string}) => {
+      switch (answer.option) {
+        case groupMenu.Print:
+          this.printMode();
+          break;
+        case groupMenu.Add:
+          this.add();
+          break;
+        case groupMenu.Del:
+          this.delete();
+          break;
+        case groupMenu.Exit:
+          manager.management();
+          break;
+      }
+    });
+  }
+}
+```
+
 #### Clase PlaylistManager
+
+La clase PlaylistManager será la encargada de la gestión avanzada de las playlists del sistema. Constará de las funciones que define la interfaz SubManager y además con métodos adicionales que permitirán navegar entre las canciones de una playlist, crear una playlist a partir de otra, o modificar una playlist existente. En primera instancia, al ser invocada por la clase Manager, se llamará a su métod management(), el cual actuará de node central y donde el usuario podrá decidir que desea hacer.
+
+Entre dichas opciones podemos encontrar la de visualizar la colección, la de añadir un objeto, y la de borrar un objeto. La primera opción llamará al método printMode(), donde se le dará a elegir al usuario en que orden quiere que se le muestre la colección del sistema. Una vez elegida la opción se llamará a la función print(), que mostrará toda la lista de objetos, pudiento acceder a cada uno para mostrar su información con el método print() propio de su clase.
+
+Como diferencia de los demás subgestores, podremos navegar no solo por la colección de playlists del sistema, sino que tambión por las diferentes canciones que tiene una playlist, pudiendo listarlas en el orden que el usuario desee y pudiendo acceder a su información. Para esto haremos uso de una función printSongMode(), para seleccionar el orden, y otra printSong(), para listar las canciones.
+
+Como segunda opción encontramos la de añadir un objeto, la cual invocará a la función add(), la cual dará a elegir entre llamar a la función append() o create(). En esta segunda función, mediante el uso de Inquirer, se pedirá al usuario todos aquellos datos que sean necesarios para poder crear un objeto nuevo. Una vez creado y añadido el objeo a la colección se hará un llamada a la función update(), parra actualizar posibles dependencias, y otra a la función writeData(), para registrar los cambios en la base de datos.
+
+En el caso de la función append se pedirá en primer lugar una playlist de referencia, es decir, se asignará un nuevo nu¡ombre a una nueva playlist, pero esta ya contará con las canciones de tomada como referencia. El resto del proceso es idéndico.
+
+Como tercera opción el usuario podrá llamr a la función mod(), la cual a su vez dará a elegir entre llamar a la función insert(), que se encargará de agregar canciones a una playlist, o splice(), que realizará la tearea opuesta. Para poder realizar ambos trabajos es necesario que el usuario sea el propietario de la playlist que se está, modificando.
+
+La cuarta opción invocará al método delete(), el cual pedirá al usuario que elija un objeto entre toda la colección del sistema para que sea eliminado. Esta tarea solo se podrá realizar si el usuario que ha iniciado sesión es el mismo que creo el objeto en cuestión. Para eliminar el objeto se hará uso de la función splice() de un vector, y una vez acabada la tarea se harán las llamadas pertienentes a la función update() y writeData().
+
+Por último existirá una opción que permita al usuario volver al menú de la clase Manager para que pueda seguir navegando por la colección.
+
+```typescript
+/**
+ * Clase PlaylistManager, permite gestionar el submenu de gestión avanzada
+ * de playlist, así como invocar a diferentes métodos que el usuario
+ * quiera con el fin de maniùlar la información del sistema
+ */
+export class PlaylistManager implements SubManager<Playlist> {
+  /**
+   * Usuario logueado en el sistema
+   */
+  public user : string;
+  /**
+   * Constructor vacío
+   */
+  constructor() {}
+
+  /**
+   * @method Muestra la información de la canción que seleccione el usuario
+   * @param list Lista de canciones donde eligirá el usuario
+   */
+  printSong(list : Song[]) {
+    const option : string[] = [];
+    list.forEach((song) => {
+      option.push(song.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'rawlist',
+      pageSize: 10,
+      name: 'name',
+      message: 'Canciones de la playlist: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const song = list.find((element) => element.getName() === answer.name);
+        if (song) song.print();
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.printSong(list);
+        });
+      } else this.printModeSong();
+    });
+  }
+
+  /**
+   * @method Muestra las opciones con las que se pueden mostras las canciones
+   * de la playlist y ordena en función de los que pida el usuario
+   */
+  printModeSong() {
+    const option : string[] = [];
+    playlistCollection.getList().forEach((playlist) => {
+      option.push(playlist.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'rawlist',
+      pageSize: 10,
+      name: 'name',
+      message: 'Colección de playlists del sistema: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const playlist = playlistCollection.getList().find((element) =>
+          element.getName() === answer.name);
+        if (playlist) {
+          console.clear();
+          inquirer.prompt({
+            type: 'list',
+            pageSize: 12,
+            name: 'option',
+            message: 'Elija el modo: ',
+            choices: Object.values(printSongs),
+          }).then((answer : {option: string}) => {
+            switch (answer.option) {
+              case printSongs.NameLower:
+                const nameLower = playlist.getSongs().sort(sortSongName);
+                this.printSong(nameLower);
+                break;
+              case printSongs.NameUpper:
+                const nameUpper = playlist.getSongs().sort(sortSongName);
+                nameUpper.reverse();
+                this.printSong(nameUpper);
+                break;
+              case printSongs.CreatorLower:
+                const creatorLower = playlist.getSongs().sort(sortSongCreator);
+                this.printSong(creatorLower);
+                break;
+              case printSongs.CreatorUpper:
+                const creatorUpper = playlist.getSongs().sort(sortSongCreator);
+                creatorUpper.reverse();
+                this.printSong(creatorUpper);
+                break;
+              case printSongs.LenghtLower:
+                const lenghtLower = playlist.getSongs().sort(sortSongLenght);
+                this.printSong(lenghtLower);
+                break;
+              case printSongs.LenghtUpper:
+                const lenghtUpper = playlist.getSongs().sort(sortSongLenght);
+                lenghtUpper.reverse();
+                this.printSong(lenghtUpper);
+                break;
+              case printSongs.RepLower:
+                const repLower = playlist.getSongs().sort(sortSongRep);
+                this.printSong(repLower);
+                break;
+              case printSongs.RepUpper:
+                const repUpper = playlist.getSongs().sort(sortSongRep);
+                repUpper.reverse();
+                this.printSong(repUpper);
+                break;
+              case printSongs.SinglesY:
+                const singlesY : Song[] = [];
+                songCollection.getList().forEach((song) => {
+                  if (song.getSingle() === true) singlesY.push(song);
+                });
+                this.printSong(singlesY);
+                break;
+              case printSongs.SinglesN:
+                const singlesN : Song[] = [];
+                songCollection.getList().forEach((song) => {
+                  if (song.getSingle() === false) singlesN.push(song);
+                });
+                this.printSong(singlesN);
+                break;
+              case printSongs.Exit:
+                this.printMode();
+                break;
+            }
+          });
+        }
+      } else this.printMode();
+    });
+  }
+
+  /**
+   * @method Muestra la información de la playlist que seleccione el usuario
+   * @param list Lista de canciones donde eligirá el usuario
+   */
+  print(list : Playlist[]) {
+    const option : string[] = [];
+    list.forEach((playlist) => {
+      option.push(playlist.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'rawlist',
+      pageSize: 10,
+      name: 'name',
+      message: 'Colección de playlists del sistema: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const playlist = list.find((element) =>
+          element.getName() === answer.name);
+        if (playlist) playlist.print();
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.print(list);
+        });
+      } else this.printMode();
+    });
+  }
+
+  /**
+   * @method Muestra las opciones con las que se pueden mostras las playlist
+   * del sistema y ordena en función de los que pida el usuario
+   */
+  printMode() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      pageSize: 6,
+      name: 'option',
+      message: 'Elija el modo: ',
+      choices: Object.values(printPlaylist),
+    }).then((answer : {option: string}) => {
+      switch (answer.option) {
+        case printPlaylist.NameLower:
+          const nameLower = playlistCollection.getList().sort(sortPlaylistName);
+          this.print(nameLower);
+          break;
+        case printPlaylist.NameUpper:
+          const nameUpper = playlistCollection.getList().sort(sortPlaylistName);
+          nameUpper.reverse();
+          this.print(nameUpper);
+          break;
+        case printPlaylist.LenghtLower:
+          const lenghtLower =
+            playlistCollection.getList().sort(sortPlaylistLenght);
+          this.print(lenghtLower);
+          break;
+        case printPlaylist.LenghtUpper:
+          const lenghtUpper =
+            playlistCollection.getList().sort(sortPlaylistLenght);
+          lenghtUpper.reverse();
+          this.print(lenghtUpper);
+          break;
+        case printPlaylist.Songs:
+          this.printModeSong();
+          break;
+        case printPlaylist.Exit:
+          this.management();
+          break;
+      }
+    });
+  }
+
+  /**
+   * @method Crea y añade a la colección del sistema una playlist con todas
+   * sus propiedades necesarias dadas por el usuario
+   */
+  create() {
+    inquirer.prompt({
+      name: 'name',
+      message: 'Nombre de la playlist: ',
+    }).then((name : {name: string}) => {
+      const playlist = playlistCollection.getList().find((element) =>
+        element.getName() === name.name);
+      if (!playlist) {
+        inquirer.prompt({
+          type: 'checkbox',
+          name: 'songs',
+          message: 'Elija las canciones de la playlist: ',
+          choices: songCollection.getList(),
+        }).then((songs : {songs: string[]}) => {
+          const playlistName : string = name.name;
+          const playlistSongs : Song[] = [];
+          songs.songs.forEach((name) => {
+            const song = songCollection.getList().find((element) =>
+              element.getName() === name);
+            if (song) playlistSongs.push(song);
+          });
+          const playlist : Playlist = new Playlist(this.user, playlistName,
+              playlistSongs);
+          playlistCollection.addItem(playlist);
+          console.clear();
+          console.log('Se ha creado y añadido su playlist');
+          update();
+          writeData();
+          playlist.print();
+          inquirer.prompt({
+            type: 'list',
+            name: 'end',
+            message: '------',
+            choices: ['Volver'],
+          }).then(() => {
+            this.add();
+          });
+        });
+      } else {
+        console.clear();
+        console.log('Ya existe una playlist con ese nombre');
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.add();
+        });
+      }
+    });
+  }
+
+  /**
+   * @method Crea y añade a la colección del sistema una playlist creada
+   * a partir de una ya existente, y completada por el usuario
+   */
+  append() {
+    const option : string[] = [];
+    playlistCollection.getList().forEach((playlist) => {
+      option.push(playlist.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'rawlist',
+      pageSize: 10,
+      name: 'name',
+      message: 'Elija playlist de referencia: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        const playlist = playlistCollection.getList().find((element) =>
+          element.getName() === answer.name);
+        if (playlist) {
+          const playlistSongs : Song[] = [];
+          playlist.getSongs().forEach((song) => {
+            playlistSongs.push(song);
+          });
+          inquirer.prompt({
+            name: 'name',
+            message: 'Nombre de la nueva playlist: ',
+          }).then((name : {name: string}) => {
+            const leftSongs : Song[] = [];
+            songCollection.getList().forEach((song) => {
+              leftSongs.push(song);
+            });
+            for (let i = 0; i < leftSongs.length; i++) {
+              playlist.getSongs().forEach((song) => {
+                if (song.getName() === leftSongs[i].getName()) {
+                  leftSongs.splice(i, 1);
+                }
+              });
+            }
+            inquirer.prompt({
+              type: 'checkbox',
+              name: 'songs',
+              message: 'Elija las canciones nuevas que se añadirán: ',
+              choices: leftSongs,
+            }).then((songs : {songs: string[]}) => {
+              const playlistName : string = name.name;
+              songs.songs.forEach((name) => {
+                const song = songCollection.getList().find((element) =>
+                  element.getName() === name);
+                if (song) playlistSongs.push(song);
+              });
+              const playlist : Playlist = new Playlist(this.user, playlistName,
+                  playlistSongs);
+              playlistCollection.addItem(playlist);
+              console.clear();
+              console.log('Se ha creado y añadido su playlist');
+              update();
+              writeData();
+              playlist.print();
+              inquirer.prompt({
+                type: 'list',
+                name: 'end',
+                message: '------',
+                choices: ['Volver'],
+              }).then(() => {
+                this.add();
+              });
+            });
+          });
+        }
+      } else this.add();
+    });
+  }
+
+  /**
+   * @method Invoca a la función create() o appen() dependiendo de si
+   * el usuario quiere crear una playlist desde cero o a partir de una existente
+   */
+  add() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      name: 'option',
+      message: 'Elija una opción: ',
+      choices: ['Crear playlist desde cero',
+        'Crear playlist a partir de otra existente', 'Atrás'],
+    }).then((answer : {option: string}) => {
+      if (answer.option === 'Atrás') this.management();
+      else if (answer.option === 'Crear playlist desde cero') this.create();
+      else this.append();
+    });
+  }
+
+  /**
+   * @method Elimina una playlist que el usuario quiera, siempre y cuando
+   * este sea su propietario, de la colección del sistema
+   */
+  delete() {
+    const option : string[] = [];
+    playlistCollection.getList().forEach((playlist) => {
+      option.push(playlist.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      pageSize: 10,
+      name: 'name',
+      message: 'Elija la playlist que desea eliminar: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const playlist = playlistCollection.getList().find((element) =>
+          element.getName() === answer.name);
+        if (playlist) {
+          if (playlist.user === this.user) {
+            for (let i = 0; i < playlistCollection.getLenght(); i++) {
+              if (playlist.getName() ===
+                playlistCollection.getList()[i].getName()) {
+                playlistCollection.getList().splice(i, 1);
+                console.log('Se ha eliminado la playlist');
+                update();
+                writeData();
+              }
+            }
+          } else console.log('No puede borrarla ya que no es el propietario');
+        }
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.delete();
+        });
+      } else this.management();
+    });
+  }
+
+  /**
+   * @method Permite añadir una o varias canciones del sistema a una playlist
+   * @param list Lista de canciones que se toma como referencia
+   */
+  insert(list : Playlist) {
+    const leftSongs : Song[] = [];
+    songCollection.getList().forEach((song) => {
+      leftSongs.push(song);
+    });
+    for (let i = 0; i < leftSongs.length; i++) {
+      list.getSongs().forEach((song) => {
+        if (song.getName() === leftSongs[i].getName()) {
+          leftSongs.splice(i, 1);
+        }
+      });
+    }
+    console.clear();
+    inquirer.prompt({
+      type: 'checkbox',
+      name: 'songs',
+      message: 'Elija las canciones que quiera añadir: ',
+      choices: leftSongs,
+    }).then((songs : {songs: string[]}) => {
+      for (let i = 0; i < playlistCollection.getLenght(); i++) {
+        if (list.getName() === playlistCollection.getList()[i].getName()) {
+          songs.songs.forEach((name) => {
+            const song = songCollection.getList().find((element) =>
+              element.getName() === name);
+            if (song) playlistCollection.getList()[i].getSongs().push(song);
+          });
+          console.log('Se agregaron las canciones a la playlist');
+          update();
+          writeData();
+        }
+      }
+      inquirer.prompt({
+        type: 'list',
+        name: 'end',
+        message: '------',
+        choices: ['Volver'],
+      }).then(() => {
+        this.mod();
+      });
+    });
+  }
+
+  /**
+   * @method Permite eliminar una o varias canciones de una playlist del sitema
+   * @param list Lista de canciones que se toma como referencia
+   */
+  splice(list : Playlist) {
+    console.clear();
+    inquirer.prompt({
+      type: 'checkbox',
+      name: 'songs',
+      message: 'Elija las canciones que quiera añadir: ',
+      choices: list.getSongs(),
+    }).then((songs : {songs: string[]}) => {
+      for (let i = 0; i < playlistCollection.getLenght(); i++) {
+        if (list.getName() === playlistCollection.getList()[i].getName()) {
+          songs.songs.forEach((name) => {
+            const song = songCollection.getList().find((element) =>
+              element.getName() === name);
+            if (song) {
+              for (let j = 0;
+                j < playlistCollection.getList()[i].getSongs().length; j++) {
+                if (song.getName() ===
+                  playlistCollection.getList()[i].getSongs()[j].getName()) {
+                  playlistCollection.getList()[i].getSongs().splice(j, 1);
+                }
+              }
+            }
+          });
+          console.log('Se eliminaron las canciones de la playlist');
+          update();
+          writeData();
+        }
+      }
+      inquirer.prompt({
+        type: 'list',
+        name: 'end',
+        message: '------',
+        choices: ['Volver'],
+      }).then(() => {
+        this.mod();
+      });
+    });
+  }
+
+  /**
+   * @method Permite al usuario elegir entre modificar una playlist añadiéndole
+   * canciones, invocando a la función insert(), o si modificarla borrándole
+   * canciones, invocando a la función splice(), siempre y cuando el usuario sea
+   * el propietario de la playlist
+   */
+  mod() {
+    const option : string[] = [];
+    playlistCollection.getList().forEach((playlist) => {
+      option.push(playlist.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      pageSize: 10,
+      name: 'name',
+      message: 'Elija la playlist que desea modificar: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const playlist = playlistCollection.getList().find((element) =>
+          element.getName() === answer.name);
+        if (playlist) {
+          if (playlist.user === this.user) {
+            console.clear();
+            inquirer.prompt({
+              type: 'list',
+              name: 'option',
+              message: 'Elija una opción: ',
+              choices: ['Añadir canciones',
+                'Eliminar canciones', 'Atrás'],
+            }).then((answer : {option: string}) => {
+              if (answer.option === 'Atrás') this.mod();
+              else if (answer.option === 'Añadir una canción') {
+                this.insert(playlist);
+              } else this.splice(playlist);
+            });
+          } else console.log('No puede modificar ya que no es el propietario');
+        }
+      } else this.management();
+    });
+  }
+
+  /**
+   * @method Subgestor que muestra el submenu de playlist e invoca los
+   * diferentes métodos de la clase en función de las peticiones del usuario
+   */
+  management() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      name: 'option',
+      message: 'Elija qué desea hacer: ',
+      choices: Object.values(playlistMenu),
+    }).then((answer : {option: string}) => {
+      switch (answer.option) {
+        case playlistMenu.Print:
+          this.printMode();
+          break;
+        case playlistMenu.Add:
+          this.add();
+          break;
+        case playlistMenu.Mod:
+          this.mod();
+          break;
+        case playlistMenu.Del:
+          this.delete();
+          break;
+        case playlistMenu.Exit:
+          manager.management();
+          break;
+      }
+    });
+  }
+}
+
+```
+
 #### Clase SongManager
+
+La clase SongManager será la encargada de la gestión avanzada de las canciones del sistema. Constará de las funciones que define la interfaz SubManager. En primera instancia, al ser invocada por la clase Manager, se llamará a su métod management(), el cual actuará de node central y donde el usuario podrá decidir que desea hacer.
+
+Entre dichas opciones podemos encontrar la de visualizar la colección, la de añadir un objeto, y la de borrar un objeto. La primera opción llamará al método printMode(), donde se le dará a elegir al usuario en que orden quiere que se le muestre la colección del sistema. Una vez elegida la opción se llamará a la función print(), que mostrará toda la lista de objetos, pudiento acceder a cada uno para mostrar su información con el método print() propio de su clase.
+
+Como segunda opción encontramos la de añadir un objeto, la cual invocará a la función add(), que a su vez hará lo propio con la función create(). En esta segunda función, mediante el uso de Inquirer, se pedirá al usuario todos aquellos datos que sean necesarios para poder crear un objeto nuevo. Una vez creado y añadido el objeo a la colección se hará un llamada a la función update(), parra actualizar posibles dependencias, y otra a la función writeData(), para registrar los cambios en la base de datos.
+
+La tercera opción invocará al método delete(), el cual pedirá al usuario que elija un objeto entre toda la colección del sistema para que sea eliminado. Esta tarea solo se podrá realizar si el usuario que ha iniciado sesión es el mismo que creo el objeto en cuestión. Para eliminar el objeto se hará uso de la función splice() de un vector, y una vez acabada la tarea se harán las llamadas pertienentes a la función update() y writeData().
+
+Por último existirá una opción que permita al usuario volver al menú de la clase Manager para que pueda seguir navegando por la colección.
+
+```typescript
+/**
+ * Clase SongManager, permite gestionar el submenu de gestión avanzada
+ * de canción, así como invocar a diferentes métodos que el usuario
+ * quiera con el fin de maniùlar la información del sistema
+ */
+export class SongManager implements SubManager<Song> {
+  /**
+   * Usuario logueado en el sistema
+   */
+  public user : string;
+  /**
+   * Constructor vacío
+   */
+  constructor() {}
+
+  /**
+   * @method Muestra la información de la canción que seleccione el usuario
+   * @param list Lista de canciones donde eligirá el usuario
+   */
+  print(list : Song[]) {
+    const option : string[] = [];
+    list.forEach((song) => {
+      option.push(song.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'rawlist',
+      pageSize: 10,
+      name: 'name',
+      message: 'Colección de canciones del sistema: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const song = list.find((element) => element.getName() === answer.name);
+        if (song) song.print();
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.print(list);
+        });
+      } else this.printMode();
+    });
+  }
+
+  /**
+   * @method Muestra las opciones con las que se pueden mostras las canciones
+   * del sistema y ordena en función de los que pida el usuario
+   */
+  printMode() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      pageSize: 12,
+      name: 'option',
+      message: 'Elija el modo: ',
+      choices: Object.values(printSongs),
+    }).then((answer : {option: string}) => {
+      switch (answer.option) {
+        case printSongs.NameLower:
+          const nameLower = songCollection.getList().sort(sortSongName);
+          this.print(nameLower);
+          break;
+        case printSongs.NameUpper:
+          const nameUpper = songCollection.getList().sort(sortSongName);
+          nameUpper.reverse();
+          this.print(nameUpper);
+          break;
+        case printSongs.CreatorLower:
+          const creatorLower = songCollection.getList().sort(sortSongCreator);
+          this.print(creatorLower);
+          break;
+        case printSongs.CreatorUpper:
+          const creatorUpper = songCollection.getList().sort(sortSongCreator);
+          creatorUpper.reverse();
+          this.print(creatorUpper);
+          break;
+        case printSongs.LenghtLower:
+          const lenghtLower = songCollection.getList().sort(sortSongLenght);
+          this.print(lenghtLower);
+          break;
+        case printSongs.LenghtUpper:
+          const lenghtUpper = songCollection.getList().sort(sortSongLenght);
+          lenghtUpper.reverse();
+          this.print(lenghtUpper);
+          break;
+        case printSongs.RepLower:
+          const repLower = songCollection.getList().sort(sortSongRep);
+          this.print(repLower);
+          break;
+        case printSongs.RepUpper:
+          const repUpper = songCollection.getList().sort(sortSongRep);
+          repUpper.reverse();
+          this.print(repUpper);
+          break;
+        case printSongs.SinglesY:
+          const singlesY : Song[] = [];
+          songCollection.getList().forEach((song) => {
+            if (song.getSingle() === true) singlesY.push(song);
+          });
+          this.print(singlesY);
+          break;
+        case printSongs.SinglesN:
+          const singlesN : Song[] = [];
+          songCollection.getList().forEach((song) => {
+            if (song.getSingle() === false) singlesN.push(song);
+          });
+          this.print(singlesN);
+          break;
+        case printSongs.Exit:
+          this.management();
+          break;
+      }
+    });
+  }
+
+  /**
+   * @method Crea y añade a la colección del sistema una canción con todas
+   * sus propiedades necesarias dadas por el usuario
+   */
+  create() {
+    inquirer.prompt({
+      name: 'name',
+      message: 'Nombre de la canción: ',
+    }).then((name : {name: string}) => {
+      const song = songCollection.getList().find((element) =>
+        element.getName() === name.name);
+      if (!song) {
+        const creators : (Artist | Group)[] = [];
+        artistCollection.getList().forEach((artist) => {
+          creators.push(artist);
+        });
+        groupCollection.getList().forEach((group) => {
+          creators.push(group);
+        });
+        inquirer.prompt({
+          type: 'list',
+          name: 'creator',
+          message: 'Nombre del creador: ',
+          choices: creators,
+        }).then((creator : {creator: string}) => {
+          inquirer.prompt({
+            name: 'time',
+            message: 'Duración de la canción en segundos: ',
+          }).then((time : {time: string}) => {
+            inquirer.prompt({
+              type: 'checkbox',
+              name: 'genres',
+              message: 'Géneros musicales de la canción: ',
+              choices: musicGenreCollection.getList(),
+            }).then((genres : {genres: string[]}) => {
+              inquirer.prompt({
+                name: 'rep',
+                message: 'Reproducciones de la canción: ',
+              }).then((rep : {rep: string}) => {
+                const songName : string = name.name;
+                const songCreator= creators.find((element) =>
+                  element.getName() === creator.creator);
+                const songLenght : number = parseInt(time.time);
+                const songGenres : MusicGenre[] = [];
+                genres.genres.forEach((name) => {
+                  const genre = musicGenreCollection.getList().find((element) =>
+                    element.getName() === name);
+                  if (genre) songGenres.push(genre);
+                });
+                const songRep : number = parseInt(rep.rep);
+                if (songCreator) {
+                  const song : Song = new Song(this.user, songName, songCreator,
+                      songLenght, songGenres, songRep);
+                  songCollection.addItem(song);
+                  console.clear();
+                  console.log('Se ha creado y añadido su canción');
+                  update();
+                  writeData();
+                  song.print();
+                  inquirer.prompt({
+                    type: 'list',
+                    name: 'end',
+                    message: '------',
+                    choices: ['Volver'],
+                  }).then(() => {
+                    this.add();
+                  });
+                }
+              });
+            });
+          });
+        });
+      } else {
+        console.clear();
+        console.log('Ya existe una canción con ese nombre');
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.add();
+        });
+      }
+    });
+  }
+
+  /**
+   * @method Invoca a la función create() que se encarga de crear una canción
+   */
+  add() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      name: 'option',
+      message: 'Elija una opción: ',
+      choices: ['Crear canción', 'Atrás'],
+    }).then((answer : {option: string}) => {
+      if (answer.option === 'Atrás') this.management();
+      else this.create();
+    });
+  }
+
+  /**
+   * @method Elimina una canción que el usuario quiera, siempre y cuando
+   * este sea su propietario, de la colección del sistema
+   */
+  delete() {
+    const option : string[] = [];
+    songCollection.getList().forEach((song) => {
+      option.push(song.getName());
+    });
+    option.push('- Cancelar');
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      pageSize: 10,
+      name: 'name',
+      message: 'Elija la canción que desea eliminar: ',
+      choices: option,
+    }).then((answer : {name: string}) => {
+      if (answer.name != '- Cancelar') {
+        console.clear();
+        const song = songCollection.getList().find((element) =>
+          element.getName() === answer.name);
+        if (song) {
+          if (song.user === this.user) {
+            for (let i = 0; i < songCollection.getLenght(); i++) {
+              if (song.getName() === songCollection.getList()[i].getName()) {
+                songCollection.getList().splice(i, 1);
+                console.log('Se ha eliminado la canción');
+                update();
+                writeData();
+              }
+            }
+          } else console.log('No puede borrarla ya que no es el propietario');
+        }
+        inquirer.prompt({
+          type: 'list',
+          name: 'end',
+          message: '------',
+          choices: ['Volver'],
+        }).then(() => {
+          this.delete();
+        });
+      } else this.management();
+    });
+  }
+
+  /**
+   * @method Subgestor que muestra el submenu de canción e invoca los diferentes
+   * métodos de la clase en función de las peticiones del usuario
+   */
+  management() {
+    console.clear();
+    inquirer.prompt({
+      type: 'list',
+      name: 'option',
+      message: 'Elija qué desea hacer: ',
+      choices: Object.values(songMenu),
+    }).then((answer : {option: string}) => {
+      switch (answer.option) {
+        case songMenu.Print:
+          this.printMode();
+          break;
+        case songMenu.Add:
+          this.add();
+          break;
+        case songMenu.Del:
+          this.delete();
+          break;
+        case songMenu.Exit:
+          manager.management();
+          break;
+      }
+    });
+  }
+}
+```
 
 ### Variables para la gestión de objetos
 
